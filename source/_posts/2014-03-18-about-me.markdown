@@ -1,0 +1,16 @@
+---
+layout: post
+title: "About Me"
+date: 2014-03-18 09:18:46 +0100
+comments: true
+categories: 
+---
+####E-mail: alexisd61@gmail.com
+I am studying for a Masters Degree in Software Engineering and Telecoms, at the INSA de Lyon, an Engineering School in France.
+
+I'm interested in software and web development and particularly focus on middlewares and web API designing. So I have good Java and Java EE skills (Spring Framework, JPA, REST). and PHP (Symfony2) too .
+
+I have a part-time job as a junior developer (web and middlewares) at ETIC INSA Technologies, the INSA Lyon junior company.
+
+Actually, with 2 other guys, we are developing a geo-tracking server and web app,  for an important sport event organized in April by my university ( RAID INSA Lyon).
+Hobbies : I practise Triathlon, and I'm a good 10 km runner (often in the top 5, French U23 category)
