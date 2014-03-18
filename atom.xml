@@ -1,16 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[My GSOC 2014 Blog]]></title>
   <link href="http://alexisduque.github.io/atom.xml" rel="self"/>
   <link href="http://alexisduque.github.io/"/>
-  <updated>2014-03-18T09:15:01+01:00</updated>
+  <updated>2014-03-18T10:48:34+01:00</updated>
   <id>http://alexisduque.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Alexis Duque]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[OpenMRS Atlas Module 2.0]]></title>
+    <link href="http://alexisduque.github.io/blog/2014/03/18/openmrs-atlas-module-2-dot-0/"/>
+    <updated>2014-03-18T10:37:13+01:00</updated>
+    <id>http://alexisduque.github.io/blog/2014/03/18/openmrs-atlas-module-2-dot-0</id>
+    <content type="html"><![CDATA[<h3>Project Introduction</h3>
+
+<p><img src="https://1-ps.googleusercontent.com/sx/s.google-melange.appspot.com/www.google-melange.com/soc/content/2-1-20140317-p1/images/gsoc/logo/920x156xbanner-gsoc2014.png.pagespeed.ic.gdr4t3Igca.png" alt="" /></p>
+
+<p><strong>Atlas Module</strong> has been developed during GSoC 2011, as a module, but because of various reasons, it hasn’t been yet used a lot.</p>
+
+<p>This project aims to make a version of the Atlas Module to be distributed within <strong>OpenMRS 2.0</strong> as an app, including an implementation&rsquo;s marker to be associated with an <strong>OpenMRS ID</strong>, allowing for a the marker to be created or revised outside of the module, directly on the Atlas Website.</p>
+
+<p>To easilier manage markers, <strong>Atlas website</strong> backend will be modified with new functionnalities, allowing to delete, or move markers.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[About Me]]></title>
+    <link href="http://alexisduque.github.io/blog/2014/03/18/about-me/"/>
+    <updated>2014-03-18T09:18:46+01:00</updated>
+    <id>http://alexisduque.github.io/blog/2014/03/18/about-me</id>
+    <content type="html"><![CDATA[<h4>E-mail: <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#58;&#x61;&#108;&#101;&#120;&#x69;&#115;&#100;&#x36;&#x31;&#x40;&#x67;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#97;&#x6c;&#101;&#120;&#105;&#x73;&#x64;&#x36;&#49;&#64;&#103;&#x6d;&#x61;&#105;&#x6c;&#46;&#99;&#x6f;&#109;</a></h4>
+
+<p>I am studying for a Masters Degree in Software Engineering and Telecoms, at the INSA de Lyon, an Engineering School in France.</p>
+
+<p>I&rsquo;m interested in software and web development and particularly focus on middlewares and web API designing. So I have good Java and Java EE skills (Spring Framework, JPA, REST). and PHP (Symfony2) too .</p>
+
+<p>I have a part-time job as a junior developer (web and middlewares) at ETIC INSA Technologies, the INSA Lyon junior company.</p>
+
+<p>Actually, with 2 other guys, we are developing a geo-tracking server and web app,  for an important sport event organized in April by my university ( RAID INSA Lyon).
+Hobbies : I practise Triathlon, and I&rsquo;m a good 10 km runner (often in the top 5, French U23 category)</p>
+]]></content>
+  </entry>
   
 </feed>
