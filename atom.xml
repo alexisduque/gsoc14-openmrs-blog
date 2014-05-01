@@ -4,7 +4,7 @@
   <title><![CDATA[My GSOC 2014 Blog]]></title>
   <link href="http://alexisduque.github.io/atom.xml" rel="self"/>
   <link href="http://alexisduque.github.io/"/>
-  <updated>2014-04-22T14:50:09+02:00</updated>
+  <updated>2014-05-01T14:07:43+02:00</updated>
   <id>http://alexisduque.github.io/</id>
   <author>
     <name><![CDATA[Alexis Duque]]></name>
@@ -12,6 +12,87 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Community Bonding and Planning]]></title>
+    <link href="http://alexisduque.github.io/blog/2014/05/01/community-bonding-and-planning/"/>
+    <updated>2014-05-01T12:53:40+02:00</updated>
+    <id>http://alexisduque.github.io/blog/2014/05/01/community-bonding-and-planning</id>
+    <content type="html"><![CDATA[<p>Before I start coding and working really on Atlas project, I began to plan my work, precising project timeline, and functionnalities I will implement this summer.</p>
+
+<p>So during these few weeks of community bonding, with the precious help of Burke, I will design some protoypes, mockups and user stories to have a clear idea of how a user will interact with new Atlas Module release.</p>
+
+<p><strong> See you next week ! </strong></p>
+
+<p><em>PS : Maybe I will post a quick introduction to Multipass SSO. I&rsquo;m getting some documentation about it, to be able to work with. It thought it&rsquo;s a good idea sharing new skills with you :&ndash;)</em></p>
+
+<h2>Here is a first Timeline prototype :</h2>
+
+<h3>21 April – 18 May</h3>
+
+<ul>
+<li>Getting familiar with Atlas Module and OpenMRS ID SSO <strong><em>(work in progress)</em></strong></li>
+<li>Fixing some Atlas related Tickets <strong><em>(done)</em></strong></li>
+<li>Designing the project Road Map <strong><em>(work in progress)</em></strong>
+
+<ul>
+<li>Story Board</li>
+<li>Mockup</li>
+<li>Timeline week by week</li>
+</ul>
+</li>
+<li>Community bonding participating in community events <strong><em>(work in progress)</em></strong></li>
+</ul>
+
+
+<h3>19 May – 31 May</h3>
+
+<ul>
+<li>Add Sign In form for OpenMRS ID</li>
+<li>Add OpenMRS ID SSO dependency in Atlas Module.</li>
+</ul>
+
+
+<h3>1 June 1 – 30 June</h3>
+
+<ul>
+<li>User can sign in successfully with his OpenMRS ID in Atlas Module</li>
+<li>Atlas Module ported to OpenRMS 2.0 (whith a look like google app style)</li>
+</ul>
+
+
+<h3>1 July – 12 July</h3>
+
+<ul>
+<li>An existing marker can be associated with an OpenMRS ID in Atlas Module.</li>
+<li>Add function to &ldquo;recover&rdquo; control of a marker using the registered OpenMRS ID
+A marker can be created and updated directly in the Atlas Server.</li>
+</ul>
+
+
+<h3>13 July – 26 July</h3>
+
+<ul>
+<li>New administrative screens in Atlas Server to manage markers (move, remove outdated or invalid markers)</li>
+</ul>
+
+
+<h3>10 August – 15 August</h3>
+
+<ul>
+<li>Extra features in Atlas Server : map exporting as a slide for presentation, marker filtering by type or version</li>
+</ul>
+
+
+<h3>16 August – 22 August</h3>
+
+<ul>
+<li>Wrapping up project, final touches.</li>
+<li>Writing Wiki and developer doc.</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Selected for GSoC 2014 with OpenMRS]]></title>
@@ -53,7 +134,7 @@ I&rsquo;m <strong>very excited</strong> to start working together :&ndash;)</p>
     <link href="http://alexisduque.github.io/blog/2014/03/18/about-me/"/>
     <updated>2014-03-18T09:18:46+01:00</updated>
     <id>http://alexisduque.github.io/blog/2014/03/18/about-me</id>
-    <content type="html"><![CDATA[<h4>E-mail: <a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#x6f;&#58;&#x61;&#108;&#x65;&#120;&#105;&#115;&#x64;&#x36;&#x31;&#64;&#103;&#109;&#x61;&#x69;&#108;&#46;&#x63;&#111;&#x6d;">&#97;&#x6c;&#101;&#x78;&#105;&#115;&#x64;&#54;&#x31;&#64;&#103;&#x6d;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#109;</a></h4>
+    <content type="html"><![CDATA[<h4>E-mail: <a href="&#109;&#97;&#x69;&#108;&#116;&#111;&#58;&#97;&#108;&#101;&#120;&#105;&#x73;&#x64;&#x36;&#x31;&#64;&#x67;&#x6d;&#x61;&#105;&#x6c;&#46;&#x63;&#x6f;&#x6d;">&#97;&#x6c;&#101;&#x78;&#x69;&#115;&#x64;&#54;&#49;&#64;&#103;&#109;&#97;&#x69;&#108;&#x2e;&#x63;&#111;&#109;</a></h4>
 
 <p>I am studying for a Masters Degree in Software Engineering and Telecoms, at the INSA de Lyon, an Engineering School in France.</p>
 
