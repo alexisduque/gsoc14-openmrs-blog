@@ -12,9 +12,9 @@ So during these few weeks of community bonding, with the precious help of Burke,
 
 
 
-** See you next week ! ** 
+** See you next week ! ** :smile:	
 
-*PS : Maybe I will post a quick introduction to Multipass SSO. I'm getting some documentation about it, to be able to work with. It thought it's a good idea sharing new skills with you :-)*
+*PS : Maybe I will post a quick introduction to Multipass SSO. I'm getting some documentation about it, to be able to work with. I thought it's a good idea sharing new skills with you :-)*
 
 ##Here is a first Timeline prototype :
 

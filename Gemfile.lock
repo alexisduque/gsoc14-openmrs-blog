@@ -10,6 +10,7 @@ GEM
       fssm (>= 0.2.7)
       sass (~> 3.1)
     directory_watcher (1.4.1)
+    emoji_for_jekyll (0.0.1)
     fast-stemmer (1.0.1)
     fssm (0.2.9)
     gemoji (1.5.0)
@@ -55,6 +56,7 @@ DEPENDENCIES
   RedCloth (~> 4.2.9)
   compass (~> 0.12.2)
   directory_watcher (= 1.4.1)
+  emoji_for_jekyll
   gemoji
   haml (~> 3.1.7)
   jekyll (~> 0.12)

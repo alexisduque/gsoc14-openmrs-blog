@@ -8,9 +8,9 @@
 </header>
 <div class="entry-content">
   {% if index %}
-    {{ content | excerpt }}
+    {{ content | excerpt | emojify }}
   {% else %}
-    {{ content }}
+    {{ content | emojify }}
     {% unless index %}
       {% include post/sharing.html %}
     {% endunless %}
