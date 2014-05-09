@@ -4,7 +4,7 @@
   <title><![CDATA[My GSOC 2014 Blog]]></title>
   <link href="http://alexisduque.github.io/atom.xml" rel="self"/>
   <link href="http://alexisduque.github.io/"/>
-  <updated>2014-05-03T10:23:41+02:00</updated>
+  <updated>2014-05-09T13:38:03+02:00</updated>
   <id>http://alexisduque.github.io/</id>
   <author>
     <name><![CDATA[Alexis Duque]]></name>
@@ -12,6 +12,37 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Day -10]]></title>
+    <link href="http://alexisduque.github.io/blog/2014/05/09/weeks-2/"/>
+    <updated>2014-05-09T13:04:00+02:00</updated>
+    <id>http://alexisduque.github.io/blog/2014/05/09/weeks-2</id>
+    <content type="html"><![CDATA[<p>We are ten days before official GSOC begining , and I&rsquo;m so impatient to start !</p>
+
+<p>This week was a productive week :+1:</p>
+
+<ul>
+<li>First hangout with Burke, my mentor. It was really nice to see and chat with him, even if I am a bit shy :relaxed:</li>
+<li>Timeline adjustement.</li>
+<li>New mockup and screenshot.</li>
+<li>Discussion about SSO strategies for OpenMRS ID sign-in within Atlas Server.</li>
+<li>I set up a local instance of OpenMRS ID Dashboard. I was a bit painful with OpenLDAP configuration, but I&rsquo;m now ready to test authentification. :sweat_smile:</li>
+<li>Some hack around SSO and multipass implementation for atlas.</li>
+<li>I Start to refactor Atlas Server with Laravel, a great PHP Framework.</li>
+</ul>
+
+
+<p><strong>TODO</strong></p>
+
+<ul>
+<li>Review mockups with Burke</li>
+<li>Finish Atlas upgrade to Laravel</li>
+<li>Timeline wrapping up</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Community Bonding and Planning]]></title>
@@ -134,7 +165,7 @@ I&rsquo;m <strong>very excited</strong> to start working together :&ndash;)</p>
     <link href="http://alexisduque.github.io/blog/2014/03/18/about-me/"/>
     <updated>2014-03-18T09:18:46+01:00</updated>
     <id>http://alexisduque.github.io/blog/2014/03/18/about-me</id>
-    <content type="html"><![CDATA[<h4>E-mail: <a href="&#109;&#x61;&#x69;&#108;&#116;&#111;&#58;&#x61;&#108;&#x65;&#x78;&#105;&#x73;&#100;&#x36;&#x31;&#64;&#x67;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#x6f;&#109;">&#x61;&#108;&#101;&#120;&#x69;&#115;&#x64;&#x36;&#49;&#x40;&#x67;&#109;&#x61;&#x69;&#x6c;&#46;&#99;&#x6f;&#109;</a></h4>
+    <content type="html"><![CDATA[<h4>E-mail: <a href="&#x6d;&#97;&#105;&#108;&#x74;&#111;&#x3a;&#97;&#x6c;&#101;&#120;&#x69;&#x73;&#100;&#54;&#x31;&#64;&#x67;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;">&#97;&#x6c;&#x65;&#120;&#105;&#115;&#100;&#x36;&#x31;&#64;&#x67;&#109;&#97;&#105;&#108;&#46;&#x63;&#x6f;&#109;</a></h4>
 
 <p>I am studying for a Masters Degree in Software Engineering and Telecoms, at the INSA de Lyon, an Engineering School in France.</p>
 
