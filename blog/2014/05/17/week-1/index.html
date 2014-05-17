@@ -1,13 +1,53 @@
----
-layout: default
-single: true
--:smile:--
 
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Week -1 | My GSOC 2014 Blog</title>
+	<meta name="author" content="Alexis Duque">
+
+	
+	<meta name="description" content="Hey, let&rsquo;s start for a pre-start weekly report ! As mentioned in my previous post, goals this week were to wrap up the timeline and UI, fixing &hellip;">
+	
+
+	<link href="/atom.xml" rel="alternate" title="My GSOC 2014 Blog" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	
+
+	
+</head>
+
+<body>
+	<header id="header" class="inner"><nav><ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/timeline">Timeline</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+</header>
+	<div id="content" class="inner">
 <article class="post"><header>
   
   <h1 class="title">Week -1</h1>
   
   
+
+
+
+
+
+
+
+
+	
+		<time datetime="2014-05-17T06:21:54+02:00">
+			<span class="day">17</span><span class="month">May</span>
+		</time>
+	
+
 </header>
 <div class="entry-content">
   
@@ -28,9 +68,9 @@ So, week starts with a cool hangout with my mentor. Talking with Burke is really
 </ul>
 
 
-<p><img class="left" src="images/menu.png" title="New dropdown menu" >
-<img class="center" src="images/bubble-me.png" title="User owned marker" >
-<img class="right" src="images/bubble.png" title="A maker bubble" ></p>
+<p><img class="left" src="/images/menu.png" title="New dropdown menu" >
+<img class="center" src="/images/bubble-me.png" title="User owned marker" >
+<img class="right" src="/images/bubble.png" title="A maker bubble" ></p>
 
 <p><strong>Next Week Planning : </strong></p>
 
@@ -59,6 +99,59 @@ So, week starts with a cool hangout with my mentor. Talking with Burke is really
     
   
   
+  <footer class="meta">
+    
+
+
+
+    
+  </footer>
+  
 </div>
 
 </article>
+</div>
+	<footer id="footer" class="inner"><div class="social alignright">
+	
+	
+	
+	<a class="twitter" href="http://twitter.com/alexis0duque" title="Twitter">Twitter</a>
+	
+	
+	<a class="github" href="https://github.com/alexisduque" title="GitHub">GitHub</a>
+	
+	
+	<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>&copy; 2014 Alexis Duque</p>
+<div class="clearfix"></div></footer>
+	<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('.entry-content').each(function(i){
+			var _i = i;
+			$(this).find('img').each(function(){
+				var alt = $(this).attr('alt');
+
+				if (alt == '' || typeof alt == 'undefined'){
+					$(this).wrap('<a href="'+$(this).attr('src')+'" class="fancybox" rel="gallery'+_i+'" />');
+				} else {
+					$(this).after('<span class="caption">'+alt+'</span>').wrap('<a href="'+$(this).attr('src')+'" class="fancybox" title="'+alt+'" rel="gallery'+_i+'" />');
+				}
+			});
+		});
+		$('.fancybox').fancybox();
+	})(jQuery);
+</script>
+<div id="phasebeam">
+	<canvas></canvas>
+	<canvas></canvas>
+	<canvas></canvas>
+</div>
+<script src="/javascripts/phasebeam.js"></script>
+
+
+
+
+</body>
+</html>
