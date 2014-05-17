@@ -1,0 +1,27 @@
+---
+layout: post
+title: "Week -2"
+date: 2014-05-09 13:04:00 +0200
+comments: true
+categories: 
+---
+
+We are ten days before official GSOC begining , and I'm so impatient to start !
+
+This week was a productive week :+1:
+
+ - First hangout with Burke, my mentor. It was really nice to see and chat with him, even if I am a bit shy :relaxed:
+ - Timeline adjustement.
+ - New mockup and screenshot.
+ - Discussion about SSO strategies for OpenMRS ID sign-in within Atlas Server.
+ - I set up a local instance of OpenMRS ID Dashboard. I was a bit painful with OpenLDAP configuration, but I'm now ready to test authentification. :sweat_smile:
+ - Some hack around SSO and multipass implementation for atlas.
+ - I Start to refactor Atlas Server with Laravel, a great PHP Framework.
+
+**TODO**
+
+ * Review mockups with Burke
+ * Finish Atlas upgrade to Laravel
+ * Timeline wrapping up    
+
+  *Alex*
