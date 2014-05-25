@@ -1,0 +1,180 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Week 1 | My GSOC 2014 Blog</title>
+	<meta name="author" content="Alexis Duque">
+
+	
+	<meta name="description" content="Hi everyone If you miss the information, GSOC just started this Monday ! This is my weekly update for this first week having fun with OpenMRS ! &hellip;">
+	
+
+	<link href="/atom.xml" rel="alternate" title="My GSOC 2014 Blog" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	
+
+	
+</head>
+
+<body>
+	<header id="header" class="inner"><nav><ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/timeline">Timeline</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+</header>
+	<div id="content" class="inner">
+<article class="post"><header>
+  
+  <h1 class="title">Week 1</h1>
+  
+  
+
+
+
+
+
+
+
+
+	
+		<time datetime="2014-05-24T19:55:05+02:00">
+			<span class="day">24</span><span class="month">May</span>
+		</time>
+	
+
+</header>
+<div class="entry-content">
+  
+    <p>Hi everyone <img alt="smile" src="/images/emoji/smile.png" class="emoji" /></p>
+
+<p>If you miss the information,  GSOC just started this Monday ! This is my weekly update for this first week <em>having fun</em> with OpenMRS !</p>
+
+<h2>Community interactions</h2>
+
+<p>I&rsquo;ve participated in my first Daily Scrum on IRC, with other OpenMRS Dev and GSoC Students. Cool time, everyone tell what he did, what he plan to do, and if he has any blocker task. So we can keep posted what each other does, and ask for help if we have any problem or blocker.</p>
+
+<p>Monday, I had a long chat we my mentor, to discuss what I have done on Atlas Server and how I can improve it.</p>
+
+<p>We solve a blocker too : how we can manage authorization, marker creation and update from Atlas Server.</p>
+
+<p>And Friday, regarding new features, and project progress, Burke said we will be able to deploy Atlas 2.0 to production server, probably next week: <img alt="earth_africa" src="/images/emoji/earth_africa.png" class="emoji" /></p>
+
+<h2>Project Updated</h2>
+
+<h3>Atlas Front-end</h3>
+
+<ul>
+<li>User can create a new marker in Atlas server.</li>
+<li>User has a form in the bubble to edit bubble data.</li>
+<li>Add a popup to confirm marker deletion.</li>
+<li>Prevent sending openmrs_id and secret UUID (id) on the client side : only uuid of markers a user is allowed to edit is sended, others are kept secret.</li>
+<li>Cleaning up JS code.</li>
+</ul>
+
+
+<h3>Database</h3>
+
+<p>Actually, Atlas Module create a UUID, used as a token to authenticate the module and allow data update (#patients, OpenMRS Version, Installed modules, &hellip;). This UUID is used too, as Primary Key in the database and is never send to the client on the Atlas (remember is secret !).</p>
+
+<p><strong>The Solution</strong> : Burke suggested me to create a table AUTH to define marker update permissions. Both users and modules will update or remove a marker (human/non-human): what is refering to <em>principal</em> concept. This extra Auth table allow the possibility to have multiple users with different permissions, to update a marker.</p>
+
+<ul>
+<li>Added <strong>openrmrs_id</strong> column in <strong>atlas table</strong> to register marker ownership.</li>
+<li>An <strong>Auth row</strong> is linked to <strong>Atlas row</strong> with the Foreign Key <strong>atlas_id</strong> &ndash;> <strong>id</strong></li>
+<li>All these changes has been done using Laravel Migration, a very useful tool for database versioning. It&rsquo;s a bit a PHP clone of <em>Liquibase</em></li>
+</ul>
+
+
+<p><strong>Database Schema</strong></p>
+
+<p><img class="left" src="/images/db.png" title="New database schema" ></p>
+
+<h3>Atlas Back-end</h3>
+
+<ul>
+<li>Replace PDO Query to <strong>Laravel QueryBuilder</strong> : <em>(less verbose, protect against SQL injection)</em>.</li>
+<li>Move Ping and Data functions to Controllers instead of View.</li>
+<li>Implements <em>marker persistence</em> and <em>authorization</em>.
+Goodg job, for this first week !</li>
+</ul>
+
+
+<p>See you :&ndash;)</p>
+
+<p><em>Alex</em></p>
+
+    
+      <div class="sharing">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+	<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4daee9911f9dfcb4"></script>
+</div>
+    
+  
+  
+  <footer class="meta">
+    
+
+
+
+    
+  </footer>
+  
+</div>
+
+</article>
+</div>
+	<footer id="footer" class="inner"><div class="social alignright">
+	
+	
+	
+	<a class="twitter" href="http://twitter.com/alexis0duque" title="Twitter">Twitter</a>
+	
+	
+	<a class="github" href="https://github.com/alexisduque" title="GitHub">GitHub</a>
+	
+	
+	<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>&copy; 2014 Alexis Duque</p>
+<div class="clearfix"></div></footer>
+	<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('.entry-content').each(function(i){
+			var _i = i;
+			$(this).find('img').each(function(){
+				var alt = $(this).attr('alt');
+
+				if (alt == '' || typeof alt == 'undefined'){
+					$(this).wrap('<a href="'+$(this).attr('src')+'" class="fancybox" rel="gallery'+_i+'" />');
+				} else {
+					$(this).after('<span class="caption">'+alt+'</span>').wrap('<a href="'+$(this).attr('src')+'" class="fancybox" title="'+alt+'" rel="gallery'+_i+'" />');
+				}
+			});
+		});
+		$('.fancybox').fancybox();
+	})(jQuery);
+</script>
+<div id="phasebeam">
+	<canvas></canvas>
+	<canvas></canvas>
+	<canvas></canvas>
+</div>
+<script src="/javascripts/phasebeam.js"></script>
+
+
+
+
+</body>
+</html>
