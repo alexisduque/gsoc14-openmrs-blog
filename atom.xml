@@ -4,7 +4,7 @@
   <title><![CDATA[My GSOC 2014 Blog]]></title>
   <link href="http://alexisduque.github.io/atom.xml" rel="self"/>
   <link href="http://alexisduque.github.io/"/>
-  <updated>2014-06-01T07:58:06+02:00</updated>
+  <updated>2014-06-08T06:48:34+02:00</updated>
   <id>http://alexisduque.github.io/</id>
   <author>
     <name><![CDATA[Alexis Duque]]></name>
@@ -12,6 +12,96 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Week 3]]></title>
+    <link href="http://alexisduque.github.io/blog/2014/06/07/week-3/"/>
+    <updated>2014-06-07T07:10:17+02:00</updated>
+    <id>http://alexisduque.github.io/blog/2014/06/07/week-3</id>
+    <content type="html"><![CDATA[<p>Week 3 is ending soon and there are only 3 weeks before GSoC mi-term, time go so fast with OpenMRS ! :clock1:</p>
+
+<p>For this week, goals are all reached, and I can do what I have planned, thanks to everybody help me fixing blockers, or answering questions.</p>
+
+<ul>
+<li>Reviewing and improving what I did last week.</li>
+<li>Setup OpenMRS 2.0 and reference application on my local dev environment.</li>
+<li>Restablish markers fading on Atlas.</li>
+<li>Write documentation for Atlas server deployment.</li>
+<li>Setup Atlas correctly on staged.</li>
+<li>Make Atlas module 1.2 working across 1.x and 2.x OpenMRS version.</li>
+<li>Put an app link on OpenMRS 2.</li>
+</ul>
+
+
+<h2>Community interactions</h2>
+
+<p>My university planning let me participate in many daily scrum, and attend developer forum. Nice :smile:</p>
+
+<p>As I had some blockers setting up OpenMRS 2.0, I required Helpdesk intervention on stagged sever, so it was good reasons to chat with community members other than my mentor. And be active on the mailing list :smirk:</p>
+
+<p>So what I can say is : <strong>Having problems helps make friends !</strong></p>
+
+<h2>Tips</h2>
+
+<p>Set up OpenMRS 2.0 on my laptop was really painful, and I probably can&rsquo;t do it with precious help of Rafa and Darius. :+1:So, I would like to share what I have to do, if it can help.</p>
+
+<p><strong> My config </strong></p>
+
+<ul>
+<li>Ubuntu 14.04</li>
+<li>Java 1.8</li>
+<li>MySQL</li>
+<li>OpenMRS running over Jetty</li>
+</ul>
+
+
+<p><strong> The problems </strong></p>
+
+<p>Reference application won&rsquo;t start. After running Jetty and doing first setup, I have a blank page at localhost/openmrs.
+Error on Java version with a message like this : OpenMRS requires Java > 6, 1.8 is present :worried:</p>
+
+<p><strong> Solution </strong></p>
+
+<ul>
+<li>Clean everything related to OpenMRS previous install (openmrs database, temp files)</li>
+<li>Clone 1.10.x branch of openmrs-core</li>
+<li>Clone master of openmrs-distro-referenceapp</li>
+<li>Switch to Java JDK and JRE v1.7:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'> sudo update-alternatives --config java
+</span><span class='line'> sudo update-alternatives --config javac
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Follow this good <a href="http://107.170.156.44">WIKI</a></li>
+<li>Important : take care your database encoding is set to <code>utf8</code>, and collation to <code>utf8_unicode_ci</code>.</li>
+<li>Run it</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">cd </span>openmrs-core/webapp
+</span><span class='line'>mvn jetty:run
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Next Week Planning</h2>
+
+<ul>
+<li>Announce new OpenMRS Atlas.</li>
+<li>Stay tuned for community comments, suggestions and improvement idea.</li>
+<li>Bug fix : I hope not :smirk:</li>
+<li>Plan work on Atlas module.</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Week 2]]></title>
@@ -458,7 +548,7 @@ I&rsquo;m <strong>very excited</strong> to start working together :&ndash;)</p>
     <link href="http://alexisduque.github.io/blog/2014/03/18/about-me/"/>
     <updated>2014-03-18T09:18:46+01:00</updated>
     <id>http://alexisduque.github.io/blog/2014/03/18/about-me</id>
-    <content type="html"><![CDATA[<h4>E-mail: <a href="&#x6d;&#97;&#x69;&#108;&#116;&#x6f;&#x3a;&#97;&#x6c;&#101;&#x78;&#105;&#x73;&#100;&#x36;&#x31;&#64;&#x67;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#x6f;&#109;">&#x61;&#108;&#101;&#x78;&#x69;&#x73;&#x64;&#54;&#49;&#x40;&#103;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;</a></h4>
+    <content type="html"><![CDATA[<h4>E-mail: <a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x6c;&#101;&#x78;&#105;&#115;&#100;&#54;&#x31;&#64;&#103;&#109;&#x61;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#109;">&#x61;&#108;&#x65;&#x78;&#105;&#x73;&#x64;&#x36;&#x31;&#64;&#103;&#109;&#x61;&#x69;&#108;&#46;&#99;&#111;&#109;</a></h4>
 
 <p>I am studying for a Masters Degree in Software Engineering and Telecoms, at the INSA de Lyon, an Engineering School in France.</p>
 
