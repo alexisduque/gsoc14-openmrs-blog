@@ -7,7 +7,7 @@
 	<meta name="author" content="Alexis Duque">
 
 	
-	<meta name="description" content="Week 3 is ending soon and there are only 3 weeks before GSoC mi-term, time go so fast with OpenMRS ! For this week, goals are all reached, and I can &hellip;">
+	<meta name="description" content="This week, I began working on Atlas Module, that is the second part of Atlas project . As a transition time, I spent lot of time planning what I &hellip;">
 	
 
 	<link href="/atom.xml" rel="alternate" title="My GSOC 2014 Blog" type="application/atom+xml">
@@ -29,6 +29,92 @@
 </ul></nav>
 </header>
 	<div id="content" class="inner">
+
+
+	<article class="post"><header>
+  
+  <h1 class="title"><a href="/blog/2014/06/14/week-4/">Week 4</a></h1>
+  
+  
+
+
+
+
+
+
+
+
+	
+		<time datetime="2014-06-14T12:08:13+02:00">
+			<span class="day">14</span><span class="month">Jun</span>
+		</time>
+	
+
+</header>
+<div class="entry-content">
+  
+    <p>This week, I began working on Atlas Module, that is the second part of Atlas project . As a transition time, I spent lot of time planning what I have to do and brainstorming: what the module has to do, how the user will use it, what are user needs, how we can make it easy to use. In this task, my mentor is a precious help !  Burke always have good and original idea <img alt="smile" src="/images/emoji/smile.png" class="emoji" /></p>
+
+<p>So to put it in a nutshell, that&rsquo;s what the module will do:</p>
+
+<ul>
+<li>Display Atlas Server with all these functionalities (sorting, create/edit marker, &hellip;).</li>
+<li>Authenticate the module and request authorization for posting data.</li>
+<li>Automatically send stats (#patients, modules enabled in OpenMRS instance, &hellip;) to Atlas server.</li>
+<li>User should select which information he want to send.</li>
+<li>User should activate/deactivate information sending.</li>
+<li>User should create a new marker in the Atlas, connected to the Module.</li>
+<li>User should pick an existing marker in the Atlas to connect it with the Module.</li>
+</ul>
+
+
+<h2>Module UI</h2>
+
+<p> <em>Atlas Module is accessible as an App in OpenMRS EMR</em></p>
+
+<p><img class="center" src="/images/atlas-module.png" width="800" title="Capture control" ></p>
+
+<p><em>User need to log-in with an OpenMRS ID accountm first time, to connect a site to the module.</em></p>
+
+<p><img class="left" src="/images/atlas-signin.png" width="800" title="Capture control" ></p>
+
+<p><em>User can pick an existing site in the atlas</em></p>
+
+<p><img class="left" src="/images/atlas-me.png" width="800" title="Capture control" ></p>
+
+<p><em>User can configure wich data are send, or disable data sending</em></p>
+
+<p><img class="left" src="/images/atlas-config.png" width="800" title="Capture control" ></p>
+
+<h2>Next Week Planning</h2>
+
+<ul>
+<li>Finishing <em>Module view</em> in Atlas Server
+
+<ul>
+<li><em>pick a site</em></li>
+<li><em>information message</em></li>
+</ul>
+</li>
+<li>Make video presentation</li>
+</ul>
+
+
+<p>Next week will be busy for me because of my final exams. Sorry if I don&rsquo;t perform at 100% <img alt="smirk" src="/images/emoji/smirk.png" class="emoji" /></p>
+
+  
+  
+  <footer class="meta">
+    
+
+
+
+    
+  </footer>
+  
+</div>
+
+</article>
 
 
 	<article class="post"><header>
@@ -798,53 +884,6 @@ A marker can be created and updated directly in the Atlas Server.</li>
 I&rsquo;m <strong>very excited</strong> to start working together :&ndash;)</p>
 
 <p>See you soon, for detailed timeline and weekly news about the <strong>Atlas Module Project</strong> !</p>
-
-  
-  
-  <footer class="meta">
-    
-
-
-
-    
-  </footer>
-  
-</div>
-
-</article>
-
-
-	<article class="post"><header>
-  
-  <h1 class="title"><a href="/blog/2014/03/18/openmrs-atlas-module-2-dot-0/">OpenMRS Atlas Module 2.0</a></h1>
-  
-  
-
-
-
-
-
-
-
-
-	
-		<time datetime="2014-03-18T10:37:13+01:00">
-			<span class="day">18</span><span class="month">Mar</span>
-		</time>
-	
-
-</header>
-<div class="entry-content">
-  
-    <h3>Project Introduction</h3>
-
-<p><img src="https://1-ps.googleusercontent.com/sx/s.google-melange.appspot.com/www.google-melange.com/soc/content/2-1-20140317-p1/images/gsoc/logo/920x156xbanner-gsoc2014.png.pagespeed.ic.gdr4t3Igca.png" alt="" /></p>
-
-<p><strong>Atlas Module</strong> has been developed during GSoC 2011, as a module, but because of various reasons, it hasn’t been yet used a lot.</p>
-
-<p>This project aims to make a version of the Atlas Module to be distributed within <strong>OpenMRS 2.0</strong> as an app, including an implementation&rsquo;s marker to be associated with an <strong>OpenMRS ID</strong>, allowing for a the marker to be created or revised outside of the module, directly on the Atlas Website.</p>
-
-<p>To easilier manage markers, <strong>Atlas website</strong> backend will be modified with new functionnalities, allowing to delete, or move markers.</p>
 
   
   
