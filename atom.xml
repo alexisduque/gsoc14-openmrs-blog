@@ -4,7 +4,7 @@
   <title><![CDATA[My GSOC 2014 Blog]]></title>
   <link href="http://alexisduque.github.io/atom.xml" rel="self"/>
   <link href="http://alexisduque.github.io/"/>
-  <updated>2014-06-15T08:00:35+02:00</updated>
+  <updated>2014-06-22T07:12:17+02:00</updated>
   <id>http://alexisduque.github.io/</id>
   <author>
     <name><![CDATA[Alexis Duque]]></name>
@@ -12,6 +12,33 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Mid Term]]></title>
+    <link href="http://alexisduque.github.io/blog/2014/06/21/mid-term/"/>
+    <updated>2014-06-21T13:41:32+02:00</updated>
+    <id>http://alexisduque.github.io/blog/2014/06/21/mid-term</id>
+    <content type="html"><![CDATA[<p>Unbelievable, mid-term is coming !! GSoC started 5 weeks ago, 5 weeks having fun, <strong>learning</strong> a lot, improving programming skills, knowing new guys in the <strong>community</strong>, making <strong>friends</strong>, &hellip;.
+<strong>Thanks every one !</strong></p>
+
+<p>This week was a bit special for me because I just finished the university semester, that means &hellip;.. <strong>EXAMS</strong>. :blue_book:
+So I spent less time chatting, or being focus on the project. But I finally could do some interesting job :</p>
+
+<ul>
+<li>Add routing and custom view when Atlas Server is visited from the module.</li>
+<li>Log-in and authentication work-flow for the module, force user to log-in if module isn&rsquo;t attached to a site.</li>
+<li>Attach/Detach the module to a site.</li>
+<li>User can update site statistics in Atlas Server, without the module.</li>
+<li>Module UI proposal.</li>
+<li>Video presentation.</li>
+</ul>
+
+
+<p>This post is a bit shorter than others because I&rsquo;m preparing a video presentation that will describe precisely Atlas Project goals, and its progression.</p>
+
+<p>So stay tunned :smirk:</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Week 4]]></title>
@@ -604,7 +631,7 @@ I&rsquo;m <strong>very excited</strong> to start working together :&ndash;)</p>
     <link href="http://alexisduque.github.io/blog/2014/03/18/about-me/"/>
     <updated>2014-03-18T09:18:46+01:00</updated>
     <id>http://alexisduque.github.io/blog/2014/03/18/about-me</id>
-    <content type="html"><![CDATA[<h4>E-mail: <a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#97;&#108;&#x65;&#120;&#x69;&#x73;&#x64;&#x36;&#49;&#x40;&#x67;&#109;&#x61;&#x69;&#108;&#x2e;&#x63;&#111;&#109;">&#97;&#108;&#x65;&#x78;&#105;&#x73;&#100;&#x36;&#x31;&#64;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#x63;&#x6f;&#109;</a></h4>
+    <content type="html"><![CDATA[<h4>E-mail: <a href="&#x6d;&#97;&#x69;&#108;&#116;&#111;&#x3a;&#97;&#x6c;&#x65;&#x78;&#105;&#x73;&#100;&#x36;&#x31;&#x40;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;">&#x61;&#x6c;&#x65;&#120;&#105;&#115;&#100;&#x36;&#x31;&#64;&#x67;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#x6f;&#x6d;</a></h4>
 
 <p>I am studying for a Masters Degree in Software Engineering and Telecoms, at the INSA de Lyon, an Engineering School in France.</p>
 
