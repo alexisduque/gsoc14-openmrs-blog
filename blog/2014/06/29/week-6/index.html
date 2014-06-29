@@ -1,0 +1,157 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Week 6 | My GSOC 2014 Blog</title>
+	<meta name="author" content="Alexis Duque">
+
+	
+	<meta name="description" content="Hi everyone, New week, and lot of updates ! First, I&rsquo;m proud to announce that we finally deploy Atlas 2.0 ! You can go to atlas.openmrs.org &hellip;">
+	
+
+	<link href="/atom.xml" rel="alternate" title="My GSOC 2014 Blog" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	
+
+	
+</head>
+
+<body>
+	<header id="header" class="inner"><nav><ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/timeline">Timeline</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+</header>
+	<div id="content" class="inner">
+<article class="post"><header>
+  
+  <h1 class="title">Week 6</h1>
+  
+  
+
+
+
+
+
+
+
+
+	
+		<time datetime="2014-06-29T08:51:36+02:00">
+			<span class="day">29</span><span class="month">Jun</span>
+		</time>
+	
+
+</header>
+<div class="entry-content">
+  
+    <p>Hi everyone,</p>
+
+<p>New week, and lot of updates ! First, I&rsquo;m proud to announce that we finally deploy Atlas 2.0 ! You can go to <a href="http://atlas.openmrs.org">atlas.openmrs.org</a> and try it <img alt="smiley" src="/images/emoji/smiley.png" class="emoji" /></p>
+
+<p>It has not been yet officially announced to the community so we can consider that is a beta version. Update are coming soon with bug fix and new features &hellip; <img alt="sweat_drops" src="/images/emoji/sweat_drops.png" class="emoji" /></p>
+
+<p>That was also a good occasion to chat with helpdesk and know more about deployment process.</p>
+
+<p>Moreover, as requested by Michael every GSoC student post their video presentation last week. So it was really nice to watch each one, to discover what&rsquo;s happen, and to know other people. We have so different projects, and interaction between use are probably insufficient.</p>
+
+<h2>Atlas project</h2>
+
+<p>Since last 2 weeks, I focus on Atlas Module and features I have to implement on the Atlas server, in order to authorize the module, handle ping with updates, &hellip;</p>
+
+<p>An other task was to wrap up the User Interface of the module. Result in the following captures :</p>
+
+<p><img src="/images/module-enabled.png" width="370" title="Atlas Module Enabled" > <img src="/images/module-disabled.png" width="370" title="Atlas Module Disabled" >
+<img src="/images/show-counts.png" title="Show counts in Atlas" ></p>
+
+<p><strong>Other Job done this week : </strong></p>
+
+<ul>
+<li>User can edit counts in Atlas Server</li>
+<li>User can choose to show counts or not</li>
+<li>FIX <a href="https://issues.openmrs.org/browse/ATLAS-83">ATLAS-83</a>, <a href="https://issues.openmrs.org/browse/ATLAS-84">ATLAS-84</a>, <a href="https://issues.openmrs.org/browse/ATLAS-85">ATLAS-85</a>, <a href="https://issues.openmrs.org/browse/ATLAS-86">ATLAS-86</a>, <a href="https://issues.openmrs.org/browse/ATLAS-87">ATLAS-87</a></li>
+<li>Release Atlas server 2.0.1.</li>
+<li>Refactor Atlas Module API.</li>
+<li>Begin work on <a href="https://issues.openmrs.org/browse/ATLAS-88">ATLAS-88</a> : Add a simple SQL form to Atlas Server accessible only to admin.</li>
+</ul>
+
+
+<p>Next week, I will test Atlas Module on the staged server, and check that pings are correctly sent, authorization with module token working, &hellip;.</p>
+
+<p><em>Alexis</em></p>
+
+    
+      <div class="sharing">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+	<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4daee9911f9dfcb4"></script>
+</div>
+    
+  
+  
+  <footer class="meta">
+    
+
+
+
+    
+  </footer>
+  
+</div>
+
+</article>
+</div>
+	<footer id="footer" class="inner"><div class="social alignright">
+	
+	
+	
+	<a class="twitter" href="http://twitter.com/alexis0duque" title="Twitter">Twitter</a>
+	
+	
+	<a class="github" href="https://github.com/alexisduque" title="GitHub">GitHub</a>
+	
+	
+	<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>&copy; 2014 Alexis Duque</p>
+<div class="clearfix"></div></footer>
+	<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('.entry-content').each(function(i){
+			var _i = i;
+			$(this).find('img').each(function(){
+				var alt = $(this).attr('alt');
+
+				if (alt == '' || typeof alt == 'undefined'){
+					$(this).wrap('<a href="'+$(this).attr('src')+'" class="fancybox" rel="gallery'+_i+'" />');
+				} else {
+					$(this).after('<span class="caption">'+alt+'</span>').wrap('<a href="'+$(this).attr('src')+'" class="fancybox" title="'+alt+'" rel="gallery'+_i+'" />');
+				}
+			});
+		});
+		$('.fancybox').fancybox();
+	})(jQuery);
+</script>
+<div id="phasebeam">
+	<canvas></canvas>
+	<canvas></canvas>
+	<canvas></canvas>
+</div>
+<script src="/javascripts/phasebeam.js"></script>
+
+
+
+
+</body>
+</html>

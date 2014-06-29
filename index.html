@@ -7,7 +7,7 @@
 	<meta name="author" content="Alexis Duque">
 
 	
-	<meta name="description" content="Unbelievable, mid-term is coming !! GSoC started 5 weeks ago, 5 weeks having fun, learning a lot, improving programming skills, knowing new guys in &hellip;">
+	<meta name="description" content="Hi everyone, New week, and lot of updates ! First, I&rsquo;m proud to announce that we finally deploy Atlas 2.0 ! You can go to atlas.openmrs.org &hellip;">
 	
 
 	<link href="/atom.xml" rel="alternate" title="My GSOC 2014 Blog" type="application/atom+xml">
@@ -29,6 +29,78 @@
 </ul></nav>
 </header>
 	<div id="content" class="inner">
+
+
+	<article class="post"><header>
+  
+  <h1 class="title"><a href="/blog/2014/06/29/week-6/">Week 6</a></h1>
+  
+  
+
+
+
+
+
+
+
+
+	
+		<time datetime="2014-06-29T08:51:36+02:00">
+			<span class="day">29</span><span class="month">Jun</span>
+		</time>
+	
+
+</header>
+<div class="entry-content">
+  
+    <p>Hi everyone,</p>
+
+<p>New week, and lot of updates ! First, I&rsquo;m proud to announce that we finally deploy Atlas 2.0 ! You can go to <a href="http://atlas.openmrs.org">atlas.openmrs.org</a> and try it <img alt="smiley" src="/images/emoji/smiley.png" class="emoji" /></p>
+
+<p>It has not been yet officially announced to the community so we can consider that is a beta version. Update are coming soon with bug fix and new features &hellip; <img alt="sweat_drops" src="/images/emoji/sweat_drops.png" class="emoji" /></p>
+
+<p>That was also a good occasion to chat with helpdesk and know more about deployment process.</p>
+
+<p>Moreover, as requested by Michael every GSoC student post their video presentation last week. So it was really nice to watch each one, to discover what&rsquo;s happen, and to know other people. We have so different projects, and interaction between use are probably insufficient.</p>
+
+<h2>Atlas project</h2>
+
+<p>Since last 2 weeks, I focus on Atlas Module and features I have to implement on the Atlas server, in order to authorize the module, handle ping with updates, &hellip;</p>
+
+<p>An other task was to wrap up the User Interface of the module. Result in the following captures :</p>
+
+<p><img src="/images/module-enabled.png" width="370" title="Atlas Module Enabled" > <img src="/images/module-disabled.png" width="370" title="Atlas Module Disabled" >
+<img src="/images/show-counts.png" title="Show counts in Atlas" ></p>
+
+<p><strong>Other Job done this week : </strong></p>
+
+<ul>
+<li>User can edit counts in Atlas Server</li>
+<li>User can choose to show counts or not</li>
+<li>FIX <a href="https://issues.openmrs.org/browse/ATLAS-83">ATLAS-83</a>, <a href="https://issues.openmrs.org/browse/ATLAS-84">ATLAS-84</a>, <a href="https://issues.openmrs.org/browse/ATLAS-85">ATLAS-85</a>, <a href="https://issues.openmrs.org/browse/ATLAS-86">ATLAS-86</a>, <a href="https://issues.openmrs.org/browse/ATLAS-87">ATLAS-87</a></li>
+<li>Release Atlas server 2.0.1.</li>
+<li>Refactor Atlas Module API.</li>
+<li>Begin work on <a href="https://issues.openmrs.org/browse/ATLAS-88">ATLAS-88</a> : Add a simple SQL form to Atlas Server accessible only to admin.</li>
+</ul>
+
+
+<p>Next week, I will test Atlas Module on the staged server, and check that pings are correctly sent, authorization with module token working, &hellip;.</p>
+
+<p><em>Alexis</em></p>
+
+  
+  
+  <footer class="meta">
+    
+
+
+
+    
+  </footer>
+  
+</div>
+
+</article>
 
 
 	<article class="post"><header>
@@ -782,117 +854,6 @@ So, week starts with a cool hangout with my mentor. Talking with Burke is really
 
 
 <p>  <em>Alex</em></p>
-
-  
-  
-  <footer class="meta">
-    
-
-
-
-    
-  </footer>
-  
-</div>
-
-</article>
-
-
-	<article class="post"><header>
-  
-  <h1 class="title"><a href="/blog/2014/05/01/community-bonding-and-planning/">Community Bonding and Planning</a></h1>
-  
-  
-
-
-
-
-
-
-
-
-	
-		<time datetime="2014-05-01T12:53:40+02:00">
-			<span class="day"> 1</span><span class="month">May</span>
-		</time>
-	
-
-</header>
-<div class="entry-content">
-  
-    <p>Before I start coding and working really on Atlas project, I began to plan my work, precising project timeline, and functionnalities I will implement this summer.</p>
-
-<p>So during these few weeks of community bonding, with the precious help of Burke, I will design some protoypes, mockups and user stories to have a clear idea of how a user will interact with new Atlas Module release.</p>
-
-<p><strong> See you next week ! </strong> <img alt="smile" src="/images/emoji/smile.png" class="emoji" /></p>
-
-<p><em>PS : Maybe I will post a quick introduction to Multipass SSO. I&rsquo;m getting some documentation about it, to be able to work with. I thought it&rsquo;s a good idea sharing new skills with you :&ndash;)</em></p>
-
-<h2>Here is a first Timeline prototype :</h2>
-
-<h3>21 April – 18 May</h3>
-
-<ul>
-<li>Getting familiar with Atlas Module and OpenMRS ID SSO <strong><em>(work in progress)</em></strong></li>
-<li>Fixing some Atlas related Tickets <strong><em>(done)</em></strong></li>
-<li>Designing the project Road Map <strong><em>(work in progress)</em></strong>
-
-<ul>
-<li>Story Board</li>
-<li>Mockup</li>
-<li>Timeline week by week</li>
-</ul>
-</li>
-<li>Community bonding participating in community events <strong><em>(work in progress)</em></strong></li>
-</ul>
-
-
-<h3>19 May – 31 May</h3>
-
-<ul>
-<li>Add Sign In form for OpenMRS ID</li>
-<li>Add OpenMRS ID SSO dependency in Atlas Module.</li>
-</ul>
-
-
-<h3>1 June 1 – 30 June</h3>
-
-<ul>
-<li>User can sign in successfully with his OpenMRS ID in Atlas Module</li>
-<li>Atlas Module ported to OpenRMS 2.0 (whith a look like google app style)</li>
-</ul>
-
-
-<h3>1 July – 12 July</h3>
-
-<ul>
-<li>An existing marker can be associated with an OpenMRS ID in Atlas Module.</li>
-<li>Add function to &ldquo;recover&rdquo; control of a marker using the registered OpenMRS ID
-A marker can be created and updated directly in the Atlas Server.</li>
-</ul>
-
-
-<h3>13 July – 26 July</h3>
-
-<ul>
-<li>New administrative screens in Atlas Server to manage markers (move, remove outdated or invalid markers)</li>
-</ul>
-
-
-<h3>10 August – 15 August</h3>
-
-<ul>
-<li>Extra features in Atlas Server : map exporting as a slide for presentation, marker filtering by type or version</li>
-</ul>
-
-
-<h3>16 August – 22 August</h3>
-
-<ul>
-<li>Wrapping up project, final touches.</li>
-<li>Writing Wiki and developer doc.</li>
-</ul>
-
 
   
   

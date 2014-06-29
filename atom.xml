@@ -4,7 +4,7 @@
   <title><![CDATA[My GSOC 2014 Blog]]></title>
   <link href="http://alexisduque.github.io/atom.xml" rel="self"/>
   <link href="http://alexisduque.github.io/"/>
-  <updated>2014-06-22T07:12:17+02:00</updated>
+  <updated>2014-06-29T10:35:11+02:00</updated>
   <id>http://alexisduque.github.io/</id>
   <author>
     <name><![CDATA[Alexis Duque]]></name>
@@ -12,6 +12,48 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Week 6]]></title>
+    <link href="http://alexisduque.github.io/blog/2014/06/29/week-6/"/>
+    <updated>2014-06-29T08:51:36+02:00</updated>
+    <id>http://alexisduque.github.io/blog/2014/06/29/week-6</id>
+    <content type="html"><![CDATA[<p>Hi everyone,</p>
+
+<p>New week, and lot of updates ! First, I&rsquo;m proud to announce that we finally deploy Atlas 2.0 ! You can go to <a href="http://atlas.openmrs.org">atlas.openmrs.org</a> and try it :smiley:</p>
+
+<p>It has not been yet officially announced to the community so we can consider that is a beta version. Update are coming soon with bug fix and new features &hellip; :sweat_drops:</p>
+
+<p>That was also a good occasion to chat with helpdesk and know more about deployment process.</p>
+
+<p>Moreover, as requested by Michael every GSoC student post their video presentation last week. So it was really nice to watch each one, to discover what&rsquo;s happen, and to know other people. We have so different projects, and interaction between use are probably insufficient.</p>
+
+<h2>Atlas project</h2>
+
+<p>Since last 2 weeks, I focus on Atlas Module and features I have to implement on the Atlas server, in order to authorize the module, handle ping with updates, &hellip;</p>
+
+<p>An other task was to wrap up the User Interface of the module. Result in the following captures :</p>
+
+<p><img src="http://alexisduque.github.io/images/module-enabled.png" width="370" title="Atlas Module Enabled" > <img src="http://alexisduque.github.io/images/module-disabled.png" width="370" title="Atlas Module Disabled" >
+<img src="http://alexisduque.github.io/images/show-counts.png" title="Show counts in Atlas" ></p>
+
+<p><strong>Other Job done this week : </strong></p>
+
+<ul>
+<li>User can edit counts in Atlas Server</li>
+<li>User can choose to show counts or not</li>
+<li>FIX <a href="https://issues.openmrs.org/browse/ATLAS-83">ATLAS-83</a>, <a href="https://issues.openmrs.org/browse/ATLAS-84">ATLAS-84</a>, <a href="https://issues.openmrs.org/browse/ATLAS-85">ATLAS-85</a>, <a href="https://issues.openmrs.org/browse/ATLAS-86">ATLAS-86</a>, <a href="https://issues.openmrs.org/browse/ATLAS-87">ATLAS-87</a></li>
+<li>Release Atlas server 2.0.1.</li>
+<li>Refactor Atlas Module API.</li>
+<li>Begin work on <a href="https://issues.openmrs.org/browse/ATLAS-88">ATLAS-88</a> : Add a simple SQL form to Atlas Server accessible only to admin.</li>
+</ul>
+
+
+<p>Next week, I will test Atlas Module on the staged server, and check that pings are correctly sent, authorization with module token working, &hellip;.</p>
+
+<p><em>Alexis</em></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Mid Term]]></title>
@@ -631,7 +673,7 @@ I&rsquo;m <strong>very excited</strong> to start working together :&ndash;)</p>
     <link href="http://alexisduque.github.io/blog/2014/03/18/about-me/"/>
     <updated>2014-03-18T09:18:46+01:00</updated>
     <id>http://alexisduque.github.io/blog/2014/03/18/about-me</id>
-    <content type="html"><![CDATA[<h4>E-mail: <a href="&#x6d;&#97;&#x69;&#108;&#116;&#111;&#x3a;&#97;&#x6c;&#x65;&#x78;&#105;&#x73;&#100;&#x36;&#x31;&#x40;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;">&#x61;&#x6c;&#x65;&#120;&#105;&#115;&#100;&#x36;&#x31;&#64;&#x67;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#x6f;&#x6d;</a></h4>
+    <content type="html"><![CDATA[<h4>E-mail: <a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#111;&#x3a;&#x61;&#108;&#101;&#120;&#105;&#115;&#100;&#x36;&#49;&#x40;&#103;&#109;&#x61;&#105;&#x6c;&#46;&#x63;&#x6f;&#109;">&#97;&#x6c;&#x65;&#120;&#105;&#115;&#x64;&#54;&#x31;&#x40;&#103;&#109;&#97;&#105;&#x6c;&#46;&#99;&#x6f;&#109;</a></h4>
 
 <p>I am studying for a Masters Degree in Software Engineering and Telecoms, at the INSA de Lyon, an Engineering School in France.</p>
 
