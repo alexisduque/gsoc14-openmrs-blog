@@ -7,7 +7,7 @@
 	<meta name="author" content="Alexis Duque">
 
 	
-	<meta name="description" content="Hi everyone, New week, and lot of updates ! First, I&rsquo;m proud to announce that we finally deploy Atlas 2.0 ! You can go to atlas.openmrs.org &hellip;">
+	<meta name="description" content="Greetings everybody, I hope you enjoy Atlas 2.0 and you&rsquo;re going to place your marker This week, I did lot of little improvements related to &hellip;">
 	
 
 	<link href="/atom.xml" rel="alternate" title="My GSOC 2014 Blog" type="application/atom+xml">
@@ -29,6 +29,93 @@
 </ul></nav>
 </header>
 	<div id="content" class="inner">
+
+
+	<article class="post"><header>
+  
+  <h1 class="title"><a href="/blog/2014/07/06/week-7/">Week 7</a></h1>
+  
+  
+
+
+
+
+
+
+
+
+	
+		<time datetime="2014-07-06T07:48:24+02:00">
+			<span class="day"> 6</span><span class="month">Jul</span>
+		</time>
+	
+
+</header>
+<div class="entry-content">
+  
+    <p>Greetings everybody,</p>
+
+<p>I hope you enjoy Atlas 2.0 and you&rsquo;re going to place your marker <img alt="smirk" src="/images/emoji/smirk.png" class="emoji" /></p>
+
+<p>This week, I did lot of little improvements related to JIRA ticket :</p>
+
+<ul>
+<li><p>In the module, counts that have not been determined are shown as &ldquo;?&rdquo; instead of &ldquo;Undefined&rdquo;. (<a href="https://issues.openmrs.org/browse/ATLAS-98">ATLAS-98</a>)<img class="right" src="/images/ATLAS-98.png"></p></li>
+<li><p>When a user want to refreshed his site, its unfaded on saving even if information have not changed, and without refreshing the page. <a href="https://issues.openmrs.org/browse/ATLAS-95">(ATLAS-95)</a></p></li>
+<li><p>Small UI improvements : we change all <em>Login</em> or <em>Logout</em> to <em>Sign In</em> or <em>Sign Out</em>, regarding convention of other OpenMRS websites such as Talk, ID, or Modulus. <a href="https://issues.openmrs.org/browse/ATLAS-93">(ATLAS-93)</a>. Moreover, as we recently add &ldquo;Last updated&rdquo; date in the bubble, we need to align &ldquo;Why this site is fading away&rdquo; with it. <a href="https://issues.openmrs.org/browse/ATLAS-96">(ATLAS-96)</a></p></li>
+<li><p>Atlas administrators have an SQL form only accessible by them using an hidden control in Atlas Server. <a href="https://issues.openmrs.org/browse/ATLAS-88">(ATLAS-88)</a> You can have a look on the screen capture, you probably will never see it !</p></li>
+</ul>
+
+
+<p><img class="left" src="/images/atlas-admin.png" width="500" title="Atlas Module Enabled" >
+<img class="right" src="/images/ATLAS-88.png" width="150" height="300"></p>
+
+<p>On other topic this week was how we can determine OpenMRS Version in the module (remember, the module send the version of implementation that is running). Such as OpenMRS platform and Reference Application has been divided in 2 projects, it&rsquo;s not obvious to know if you run OpenMRS v. > 1.9.7 &lt; 1.11 or OpenMRS 2.0 because they are running over the same core ! Thanks to Rafa and Darius to quickly have gave me some precisions.</p>
+
+<p>So the solution was to know if Reference Application is started, and then get its version. As the solution can be be useful, I share the small function I&rsquo;ve done. And let me know if the is any bugs <img alt="smiley" src="/images/emoji/smiley.png" class="emoji" /></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="n">String</span> <span class="nf">getOpenMRSVersion</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">String</span> <span class="n">version</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+</span><span class='line'>    <span class="n">String</span> <span class="n">coreVersion</span> <span class="o">=</span> <span class="n">OpenmrsConstants</span><span class="o">.</span><span class="na">OPENMRS_VERSION</span><span class="o">;</span>
+</span><span class='line'>    <span class="k">if</span> <span class="o">(</span><span class="n">ModuleFactory</span><span class="o">.</span><span class="na">getModuleById</span><span class="o">(</span><span class="s">&quot;referenceapplication&quot;</span><span class="o">)</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span>
+</span><span class='line'>            <span class="o">!</span><span class="n">ModuleFactory</span><span class="o">.</span><span class="na">getModuleById</span><span class="o">(</span><span class="s">&quot;referenceapplication&quot;</span><span class="o">).</span><span class="na">isStarted</span><span class="o">())</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">coreVersion</span><span class="o">;</span>
+</span><span class='line'>    <span class="n">String</span> <span class="n">refAppVersion</span> <span class="o">=</span> <span class="n">ModuleFactory</span><span class="o">.</span><span class="na">getModuleById</span><span class="o">(</span><span class="s">&quot;referenceapplication&quot;</span><span class="o">).</span><span class="na">getVersion</span><span class="o">();</span>
+</span><span class='line'>    <span class="n">version</span> <span class="o">=</span> <span class="n">refAppVersion</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;1.0.1&quot;</span><span class="o">)</span> <span class="o">?</span> <span class="s">&quot;2.0&quot;</span> <span class="o">:</span> <span class="n">version</span><span class="o">;</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">version</span><span class="o">;</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>My Actual work is creating a RSS Feed of updates in Atlas. It will probably available soon !</p>
+
+<p><em>Alexis</em></p>
+
+<p>PS : <em>Tour de France</em> started this week-end ! <img alt="bicyclist" src="/images/emoji/bicyclist.png" class="emoji" /></p>
+
+  
+  
+  <footer class="meta">
+    
+
+
+
+    
+  </footer>
+  
+</div>
+
+</article>
 
 
 	<article class="post"><header>
@@ -791,69 +878,6 @@ So, week starts with a cool hangout with my mentor. Talking with Burke is really
 <p> See you next week with update.  <img alt="smirk" src="/images/emoji/smirk.png" class="emoji" /></p>
 
 <p> <em>Alex</em></p>
-
-  
-  
-  <footer class="meta">
-    
-
-
-
-    
-  </footer>
-  
-</div>
-
-</article>
-
-
-	<article class="post"><header>
-  
-  <h1 class="title"><a href="/blog/2014/05/09/weeks-2/">Week -2</a></h1>
-  
-  
-
-
-
-
-
-
-
-
-	
-		<time datetime="2014-05-09T13:04:00+02:00">
-			<span class="day"> 9</span><span class="month">May</span>
-		</time>
-	
-
-</header>
-<div class="entry-content">
-  
-    <p>We are ten days before official GSOC begining , and I&rsquo;m so impatient to start !</p>
-
-<p>This week was a productive week <img alt="+1" src="/images/emoji/+1.png" class="emoji" /></p>
-
-<ul>
-<li>First hangout with Burke, my mentor. It was really nice to see and chat with him, even if I am a bit shy <img alt="relaxed" src="/images/emoji/relaxed.png" class="emoji" /></li>
-<li>Timeline adjustement.</li>
-<li>New mockup and screenshot.</li>
-<li>Discussion about SSO strategies for OpenMRS ID sign-in within Atlas Server.</li>
-<li>I set up a local instance of OpenMRS ID Dashboard. I was a bit painful with OpenLDAP configuration, but I&rsquo;m now ready to test authentification. <img alt="sweat_smile" src="/images/emoji/sweat_smile.png" class="emoji" /></li>
-<li>Some hack around SSO and multipass implementation for atlas.</li>
-<li>I Start to refactor Atlas Server with Laravel, a great PHP Framework.</li>
-</ul>
-
-
-<p><strong>TODO</strong></p>
-
-<ul>
-<li>Review mockups with Burke</li>
-<li>Finish Atlas upgrade to Laravel</li>
-<li>Timeline wrapping up</li>
-</ul>
-
-
-<p>  <em>Alex</em></p>
 
   
   
