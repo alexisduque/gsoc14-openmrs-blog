@@ -1,0 +1,156 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Week 8 | My GSOC 2014 Blog</title>
+	<meta name="author" content="Alexis Duque">
+
+	
+	<meta name="description" content="Greetings All, I would like to start this post with a new (awesome) OpenMRS event : Social Hours. This Monday, Michael, Paul, Rafa, Wiehwa, Darius &hellip;">
+	
+
+	<link href="/atom.xml" rel="alternate" title="My GSOC 2014 Blog" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	
+
+	
+</head>
+
+<body>
+	<header id="header" class="inner"><nav><ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/timeline">Timeline</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+</header>
+	<div id="content" class="inner">
+<article class="post"><header>
+  
+  <h1 class="title">Week 8</h1>
+  
+  
+
+
+
+
+
+
+
+
+	
+		<time datetime="2014-07-12T08:00:20+02:00">
+			<span class="day">12</span><span class="month">Jul</span>
+		</time>
+	
+
+</header>
+<div class="entry-content">
+  
+    <p>Greetings All,</p>
+
+<p>I would like to start this post with a new (awesome) OpenMRS event : <strong>Social Hours</strong>. This Monday, Michael, Paul, Rafa, Wiehwa, Darius and some other guys met for chatting, about what we want, like friends. No formal topics, just open chat, with cam, microphone or just keyboard, to know more about each other. <img alt="smiley" src="/images/emoji/smiley.png" class="emoji" /></p>
+
+<p>Even if, i was a bit painful for me to join the room at <a href="http://appear.in/openmrs">http://appear.in/openmrs</a> &ndash; <em>Chrome</em> did let me connect without cam and microphone !, so I had to switch to <em>Firefox</em> &ndash; , it was a really good time.</p>
+
+<p>So a big thanks to Michael for this idea, and I hope we can often meet for <strong>Social Hour</strong> with more and more participants (what about every 2/3 weeks ?).</p>
+
+<p>Next incoming event will be <strong>Wednesday 16 July</strong> from <strong>16:00 to 17:00 UTC</strong>.</p>
+
+<h2>Atlas Project</h2>
+
+<p>This week was a bit special because Burke &ndash; my (perfect) mentors &ndash; was on holidays, so I can&rsquo;t have his feedback or suggestions and ideas to improve my work <img alt="smiley" src="/images/emoji/smiley.png" class="emoji" /></p>
+
+<p>But finaly, Michael has good things, and it let me having an other point of view.</p>
+
+<p><strong>So this week :</strong></p>
+
+<ul>
+<li>Finished <a href="https://issues.openmrs.org/browse/ATLAS-88">ATLAS-88</a> : Atlas has an RSS feed with last updates <a href="https://atlas-stg.openmrs.org/rss">(try it !)</a>.</li>
+<li>Drop a useless column in Archive table. To track atlas database update and change, we use <em>migration</em>, that&rsquo;s a part of <em>Laravel framework</em>. Functionalities are similar to <em>Liquibase</em>, but it uses PHP written files that are created and timestamped for each changes.</li>
+<li><a href="https://issues.openmrs.org/browse/ATLAS-92">ATLAS-92</a> : Atlas has an help to give information to user.</li>
+<li>When the user save his marker in Atlas module, it sends update &ndash; with latest counts and system counts &ndash; to Atlas Server.</li>
+<li>Update wiki page.</li>
+<li>Check Atlas Module, well do its job. <img alt="smirk" src="/images/emoji/smirk.png" class="emoji" /></li>
+</ul>
+
+
+<p>Next week, I hope we can start working with Burke to release Atlas Module 2.0. That mean merging Atlas Server changes &ndash; in order to support module functions &ndash; validate changes in Atlas Module, and upgrading Atlas production server.</p>
+
+<p>Moreover, I will probably finish work on <a href="https://issues.openmrs.org/browse/ATLAS-99">ATLAS-99</a> : scale OpenMRS logo in Atlas and make an SVG.</p>
+
+<p><em>Alexis</em></p>
+
+    
+      <div class="sharing">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+	<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4daee9911f9dfcb4"></script>
+</div>
+    
+  
+  
+  <footer class="meta">
+    
+
+
+
+    
+  </footer>
+  
+</div>
+
+</article>
+</div>
+	<footer id="footer" class="inner"><div class="social alignright">
+	
+	
+	
+	<a class="twitter" href="http://twitter.com/alexis0duque" title="Twitter">Twitter</a>
+	
+	
+	<a class="github" href="https://github.com/alexisduque" title="GitHub">GitHub</a>
+	
+	
+	<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>&copy; 2014 Alexis Duque</p>
+<div class="clearfix"></div></footer>
+	<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('.entry-content').each(function(i){
+			var _i = i;
+			$(this).find('img').each(function(){
+				var alt = $(this).attr('alt');
+
+				if (alt == '' || typeof alt == 'undefined'){
+					$(this).wrap('<a href="'+$(this).attr('src')+'" class="fancybox" rel="gallery'+_i+'" />');
+				} else {
+					$(this).after('<span class="caption">'+alt+'</span>').wrap('<a href="'+$(this).attr('src')+'" class="fancybox" title="'+alt+'" rel="gallery'+_i+'" />');
+				}
+			});
+		});
+		$('.fancybox').fancybox();
+	})(jQuery);
+</script>
+<div id="phasebeam">
+	<canvas></canvas>
+	<canvas></canvas>
+	<canvas></canvas>
+</div>
+<script src="/javascripts/phasebeam.js"></script>
+
+
+
+
+</body>
+</html>
