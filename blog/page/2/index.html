@@ -7,7 +7,7 @@
 	<meta name="author" content="Alexis Duque">
 
 	
-	<meta name="description" content="Hey, let&rsquo;s start for a pre-start weekly report ! As mentioned in my previous post, goals this week were to wrap up the timeline and UI, fixing &hellip;">
+	<meta name="description" content="The first challenge of this summer of code is to authenticate a user &ndash; with his OpenMRS ID &ndash; directly inside Atlas website. What is &hellip;">
 	
 
 	<link href="/atom.xml" rel="alternate" title="My GSOC 2014 Blog" type="application/atom+xml">
@@ -29,6 +29,153 @@
 </ul></nav>
 </header>
 	<div id="content" class="inner">
+
+
+	<article class="post"><header>
+  
+  <h1 class="title"><a href="/blog/2014/05/17/multipass-and-sso/">Multipass and SSO</a></h1>
+  
+  
+
+
+
+
+
+
+
+
+	
+		<time datetime="2014-05-17T11:45:50+02:00">
+			<span class="day">17</span><span class="month">May</span>
+		</time>
+	
+
+</header>
+<div class="entry-content">
+  
+    <p>The first challenge of this summer of code is to authenticate a user &ndash; with his OpenMRS ID &ndash; directly inside Atlas website.</p>
+
+<h2>What is OpenMRS ID</h2>
+
+<p>OpenMRS ID is the system of user management used by the <strong>OpenMRS Community</strong>. User accounts are managed and created using the OpenMRS ID Dashboard, a web app written in <strong>Node.js</strong>.
+Data model is built around <strong>LDAP</strong> user object and stored on an OpenLDAP server. In order to support unified authentication for all OpenMRS sites and external services, ID Dashboard also provides a <strong>SSO endpoints</strong>.</p>
+
+<h2>What is SSO</h2>
+
+<p><strong>Single Sign On</strong> (SSO) is a session/user authentication process that allows a user to provide his credentials once in order to access multiple applications. The single sign on authenticates the user to access all the applications he has been authorized to access. It eliminates future authenticaton requests when the user switches applications during that particular session.</p>
+
+<p>Various implemention and straegies exist, such as <strong>OAuth</strong>, <strong>SAML</strong>, <strong>Multipass</strong>, <strong>CAS</strong> or <strong>Facebook Connect</strong>. Actually, ID Dashboard only support Multipass strategy but a project aimed to make a REST API based on OAuth and OpenID.</p>
+
+<h2>What is Multipass and how we use it</h2>
+
+<p>In order to authenticate users, OpenMRS ID dashboard pass an encrypted multipass JSON hash with the user&rsquo;s information to Atlas site. When the multipass token is received, an associated user record is created, with the information provided, and logged in current session using cookie.</p>
+
+<p>A multipass hash is an <strong>AES encrypted JSON</strong> hash with the following attributes:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;uid&quot;</span><span class="o">:</span> <span class="s2">&quot;19238333&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;expires&quot;</span><span class="o">:</span> <span class="s2">&quot;2014-12-29T10:25:28-08:00&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;user_email&quot;</span><span class="o">:</span> <span class="s2">&quot;john@example.com&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;user_name&quot;</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>How it is implemented ?</h2>
+
+<p><strong>Multipass</strong> is build and encrypted on the ID Dashboard side wih <strong>Node.js</strong>.
+On the other side, Atlas server check and decode multipass with a <strong>PHP implementation</strong> and <strong>mcrypt</strong> library.</p>
+
+<figure class='code'><figcaption><span>Atlas Server Decode Multipass linenos:false</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">public</span> <span class="k">function</span> <span class="nf">decodeMultipass</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nv">$token</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;multipass&#39;</span><span class="p">];</span>
+</span><span class='line'>  <span class="nv">$signature</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;signature&#39;</span><span class="p">];</span>
+</span><span class='line'>  <span class="nv">$iv</span> <span class="o">=</span> <span class="s1">&#39;OpenSSL for Node&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nv">$subdomain</span> <span class="o">=</span> <span class="nv">$SITE_KEY</span><span class="p">;</span>
+</span><span class='line'>  <span class="nv">$api_key</span> <span class="o">=</span> <span class="nv">$API_KEY</span><span class="p">;</span>
+</span><span class='line'>  <span class="nv">$salted</span> <span class="o">=</span> <span class="nv">$api_key</span> <span class="o">.</span> <span class="nv">$subdomain</span><span class="p">;</span>
+</span><span class='line'>  <span class="nv">$digest</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="s1">&#39;sha1&#39;</span><span class="p">,</span> <span class="nv">$salted</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</span><span class='line'>  <span class="nv">$key</span> <span class="o">=</span> <span class="nx">substr</span><span class="p">(</span><span class="nv">$digest</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
+</span><span class='line'>  <span class="nv">$blocksize</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// Signature Verification</span>
+</span><span class='line'>  <span class="nv">$hash</span> <span class="o">==</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nb">hash_hmac</span><span class="p">(</span><span class="s2">&quot;sha1&quot;</span><span class="p">,</span> <span class="nv">$token</span><span class="p">,</span> <span class="nv">$api_key</span><span class="p">,</span> <span class="k">true</span><span class="p">));</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nv">$hash</span> <span class="o">=</span> <span class="nv">$signature</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="c1">// Replace _ with / and - with +</span>
+</span><span class='line'>      <span class="nv">$token</span> <span class="o">=</span> <span class="nb">preg_replace</span><span class="p">(</span><span class="s1">&#39;/_/&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nv">$token</span><span class="p">);</span>
+</span><span class='line'>      <span class="nv">$token</span> <span class="o">=</span> <span class="nb">preg_replace</span><span class="p">(</span><span class="s1">&#39;/\-/&#39;</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="nv">$token</span><span class="p">);</span>
+</span><span class='line'>      <span class="nv">$token</span> <span class="o">=</span> <span class="nb">base64_decode</span><span class="p">(</span><span class="nv">$token</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="c1">// Decrypt Token</span>
+</span><span class='line'>      <span class="nv">$cipher</span> <span class="o">=</span> <span class="nb">mcrypt_module_open</span><span class="p">(</span><span class="nx">MCRYPT_RIJNDAEL_128</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;cbc&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+</span><span class='line'>      <span class="nb">mcrypt_generic_init</span><span class="p">(</span><span class="nv">$cipher</span><span class="p">,</span> <span class="nv">$key</span><span class="p">,</span> <span class="nv">$iv</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="nv">$decrypted</span> <span class="o">=</span> <span class="nb">mdecrypt_generic</span><span class="p">(</span><span class="nv">$cipher</span><span class="p">,</span><span class="nv">$token</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="c1">// Remove invisble character</span>
+</span><span class='line'>      <span class="nv">$decrypted</span> <span class="o">=</span> <span class="nx">trim</span><span class="p">(</span><span class="nv">$decrypted</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\x00</span><span class="s2">..</span><span class="se">\x1F</span><span class="s2">&quot;</span><span class="p">);</span>
+</span><span class='line'>      <span class="nv">$userToken</span>  <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$decrypted</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+  
+  
+  <footer class="meta">
+    
+
+
+
+    
+  </footer>
+  
+</div>
+
+</article>
 
 
 	<article class="post"><header>
@@ -392,7 +539,7 @@ I&rsquo;m <strong>very excited</strong> to start working together :&ndash;)</p>
 </header>
 <div class="entry-content">
   
-    <h4>E-mail: <a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#58;&#x61;&#x6c;&#x65;&#x78;&#x69;&#115;&#100;&#54;&#x31;&#x40;&#x67;&#x6d;&#97;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#97;&#x6c;&#101;&#x78;&#x69;&#x73;&#100;&#54;&#49;&#64;&#103;&#109;&#x61;&#x69;&#x6c;&#46;&#99;&#x6f;&#x6d;</a></h4>
+    <h4>E-mail: <a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#111;&#58;&#97;&#x6c;&#x65;&#120;&#x69;&#x73;&#x64;&#x36;&#49;&#64;&#103;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#109;">&#x61;&#108;&#x65;&#120;&#x69;&#115;&#100;&#54;&#x31;&#64;&#103;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;</a></h4>
 
 <p>I am studying for a Masters Degree in Software Engineering and Telecoms, at the INSA de Lyon, an Engineering School in France.</p>
 

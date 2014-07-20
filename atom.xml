@@ -4,7 +4,7 @@
   <title><![CDATA[My GSOC 2014 Blog]]></title>
   <link href="http://alexisduque.github.io/atom.xml" rel="self"/>
   <link href="http://alexisduque.github.io/"/>
-  <updated>2014-07-13T11:10:44+02:00</updated>
+  <updated>2014-07-20T08:38:59+02:00</updated>
   <id>http://alexisduque.github.io/</id>
   <author>
     <name><![CDATA[Alexis Duque]]></name>
@@ -12,6 +12,46 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Week 9]]></title>
+    <link href="http://alexisduque.github.io/blog/2014/07/20/week-9/"/>
+    <updated>2014-07-20T06:19:47+02:00</updated>
+    <id>http://alexisduque.github.io/blog/2014/07/20/week-9</id>
+    <content type="html"><![CDATA[<p>Hi everyone,</p>
+
+<p>This week, I worked on various tickets thats are improvements of Atlas Server :</p>
+
+<ul>
+<li>SVG logo which is compliant with OpnMRS conventions <em>(<a href="https://issues.openmrs.org/browse/ATLAS-99">ATLAS-99</a>)</em>.</li>
+<li>Improved RSS Feed <em>(<a href="https://issues.openmrs.org/browse/ATLAS-89">ATLAS-89</a>, <a href="https://issues.openmrs.org/browse/ATLAS-105">ATLAS-105</a>)</em>.</li>
+</ul>
+
+
+<p><img class="left" src="http://alexisduque.github.io/images/OMRSAtlas.svg" width="400" title="OpenMRS Atlas SVG Logo" ></p>
+
+<p>On other hand, I started making Atlas a <em>Dockerized</em> application, as suggested in <a href="https://issues.openmrs.org/browse/ATLAS-91">ATLAS-91</a>.
+Current work can be found here : <a href="https://github.com/alexisduque/atlas-docker.git">https://github.com/alexisduque/atlas-docker.git</a>. :octocat:</p>
+
+<p><img class="left" src="http://alexisduque.github.io/images/docker.png" width="200" title="Docker" ></p>
+
+<p><a href="http://docker.com">Docker</a> extends a container format &ndash; LXC (Linux Container) &ndash; providing a convenient API, to run in <em>isolation</em> process or applications, and <em>deploy</em> them very quickly. :whale:</p>
+
+<p>Atlas container is based on a ubuntu 14.04 image. The container is build with 2 steps using 2 Dockerfiles :</p>
+
+<ol>
+<li><p><code>atlas_base</code>, that builds a base container provisioned will all requirements to run Atlas (i.e. PHP Caravel app). Most important are apache2, mysql5.5, php5.5, phantomjs, composer, git.</p></li>
+<li><p><code>atlas_20</code> that uses <code>atlas_base</code> to clone latest sources and configure the application.</p></li>
+</ol>
+
+
+<p>To make think easier, and configurable, all these steps can be done using <code>atlas_laucher.sh</code> bash script and putting your configuration in <code>atlas.cfg</code>. All these information can be found on the README.</p>
+
+<p>If you are interested in Docker, I will share this experiences in  a blog post by the end of July. So, they tuned :smirk:</p>
+
+<p><em>Alexis</em></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Week 8]]></title>
@@ -771,7 +811,7 @@ I&rsquo;m <strong>very excited</strong> to start working together :&ndash;)</p>
     <link href="http://alexisduque.github.io/blog/2014/03/18/about-me/"/>
     <updated>2014-03-18T09:18:46+01:00</updated>
     <id>http://alexisduque.github.io/blog/2014/03/18/about-me</id>
-    <content type="html"><![CDATA[<h4>E-mail: <a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#58;&#x61;&#x6c;&#x65;&#x78;&#x69;&#115;&#100;&#54;&#x31;&#x40;&#x67;&#x6d;&#97;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#97;&#x6c;&#101;&#x78;&#x69;&#x73;&#100;&#54;&#49;&#64;&#103;&#109;&#x61;&#x69;&#x6c;&#46;&#99;&#x6f;&#x6d;</a></h4>
+    <content type="html"><![CDATA[<h4>E-mail: <a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#111;&#58;&#97;&#x6c;&#x65;&#120;&#x69;&#x73;&#x64;&#x36;&#49;&#64;&#103;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#109;">&#x61;&#108;&#x65;&#120;&#x69;&#115;&#100;&#54;&#x31;&#64;&#103;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;</a></h4>
 
 <p>I am studying for a Masters Degree in Software Engineering and Telecoms, at the INSA de Lyon, an Engineering School in France.</p>
 

@@ -1,0 +1,155 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Week 9 | My GSOC 2014 Blog</title>
+	<meta name="author" content="Alexis Duque">
+
+	
+	<meta name="description" content="Hi everyone, This week, I worked on various tickets thats are improvements of Atlas Server : SVG logo which is compliant with OpnMRS conventions ( &hellip;">
+	
+
+	<link href="/atom.xml" rel="alternate" title="My GSOC 2014 Blog" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	
+
+	
+</head>
+
+<body>
+	<header id="header" class="inner"><nav><ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/timeline">Timeline</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+</header>
+	<div id="content" class="inner">
+<article class="post"><header>
+  
+  <h1 class="title">Week 9</h1>
+  
+  
+
+
+
+
+
+
+
+
+	
+		<time datetime="2014-07-20T06:19:47+02:00">
+			<span class="day">20</span><span class="month">Jul</span>
+		</time>
+	
+
+</header>
+<div class="entry-content">
+  
+    <p>Hi everyone,</p>
+
+<p>This week, I worked on various tickets thats are improvements of Atlas Server :</p>
+
+<ul>
+<li>SVG logo which is compliant with OpnMRS conventions <em>(<a href="https://issues.openmrs.org/browse/ATLAS-99">ATLAS-99</a>)</em>.</li>
+<li>Improved RSS Feed <em>(<a href="https://issues.openmrs.org/browse/ATLAS-89">ATLAS-89</a>, <a href="https://issues.openmrs.org/browse/ATLAS-105">ATLAS-105</a>)</em>.</li>
+</ul>
+
+
+<p><img class="left" src="/images/OMRSAtlas.svg" width="400" title="OpenMRS Atlas SVG Logo" ></p>
+
+<p>On other hand, I started making Atlas a <em>Dockerized</em> application, as suggested in <a href="https://issues.openmrs.org/browse/ATLAS-91">ATLAS-91</a>.
+Current work can be found here : <a href="https://github.com/alexisduque/atlas-docker.git">https://github.com/alexisduque/atlas-docker.git</a>. <img alt="octocat" src="/images/emoji/octocat.png" class="emoji" /></p>
+
+<p><img class="left" src="/images/docker.png" width="200" title="Docker" ></p>
+
+<p><a href="http://docker.com">Docker</a> extends a container format &ndash; LXC (Linux Container) &ndash; providing a convenient API, to run in <em>isolation</em> process or applications, and <em>deploy</em> them very quickly. <img alt="whale" src="/images/emoji/whale.png" class="emoji" /></p>
+
+<p>Atlas container is based on a ubuntu 14.04 image. The container is build with 2 steps using 2 Dockerfiles :</p>
+
+<ol>
+<li><p><code>atlas_base</code>, that builds a base container provisioned will all requirements to run Atlas (i.e. PHP Caravel app). Most important are apache2, mysql5.5, php5.5, phantomjs, composer, git.</p></li>
+<li><p><code>atlas_20</code> that uses <code>atlas_base</code> to clone latest sources and configure the application.</p></li>
+</ol>
+
+
+<p>To make think easier, and configurable, all these steps can be done using <code>atlas_laucher.sh</code> bash script and putting your configuration in <code>atlas.cfg</code>. All these information can be found on the README.</p>
+
+<p>If you are interested in Docker, I will share this experiences in  a blog post by the end of July. So, they tuned <img alt="smirk" src="/images/emoji/smirk.png" class="emoji" /></p>
+
+<p><em>Alexis</em></p>
+
+    
+      <div class="sharing">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+	<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4daee9911f9dfcb4"></script>
+</div>
+    
+  
+  
+  <footer class="meta">
+    
+
+
+
+    
+  </footer>
+  
+</div>
+
+</article>
+</div>
+	<footer id="footer" class="inner"><div class="social alignright">
+	
+	
+	
+	<a class="twitter" href="http://twitter.com/alexis0duque" title="Twitter">Twitter</a>
+	
+	
+	<a class="github" href="https://github.com/alexisduque" title="GitHub">GitHub</a>
+	
+	
+	<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>&copy; 2014 Alexis Duque</p>
+<div class="clearfix"></div></footer>
+	<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('.entry-content').each(function(i){
+			var _i = i;
+			$(this).find('img').each(function(){
+				var alt = $(this).attr('alt');
+
+				if (alt == '' || typeof alt == 'undefined'){
+					$(this).wrap('<a href="'+$(this).attr('src')+'" class="fancybox" rel="gallery'+_i+'" />');
+				} else {
+					$(this).after('<span class="caption">'+alt+'</span>').wrap('<a href="'+$(this).attr('src')+'" class="fancybox" title="'+alt+'" rel="gallery'+_i+'" />');
+				}
+			});
+		});
+		$('.fancybox').fancybox();
+	})(jQuery);
+</script>
+<div id="phasebeam">
+	<canvas></canvas>
+	<canvas></canvas>
+	<canvas></canvas>
+</div>
+<script src="/javascripts/phasebeam.js"></script>
+
+
+
+
+</body>
+</html>
