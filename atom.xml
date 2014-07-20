@@ -4,7 +4,7 @@
   <title><![CDATA[My GSOC 2014 Blog]]></title>
   <link href="http://alexisduque.github.io/atom.xml" rel="self"/>
   <link href="http://alexisduque.github.io/"/>
-  <updated>2014-07-20T08:38:59+02:00</updated>
+  <updated>2014-07-20T08:55:27+02:00</updated>
   <id>http://alexisduque.github.io/</id>
   <author>
     <name><![CDATA[Alexis Duque]]></name>
@@ -50,6 +50,8 @@ Current work can be found here : <a href="https://github.com/alexisduque/atlas-d
 <p>If you are interested in Docker, I will share this experiences in  a blog post by the end of July. So, they tuned :smirk:</p>
 
 <p><em>Alexis</em></p>
+
+<p>PS: Thanks to James Arbaugh for his contribution suggesting to get system information from the module (<a href="https://issues.openmrs.org/browse/ATLAS-100">ATLAS-100</a>). That&rsquo;s definitely a good idea ! :+1:</p>
 ]]></content>
   </entry>
   
@@ -811,7 +813,7 @@ I&rsquo;m <strong>very excited</strong> to start working together :&ndash;)</p>
     <link href="http://alexisduque.github.io/blog/2014/03/18/about-me/"/>
     <updated>2014-03-18T09:18:46+01:00</updated>
     <id>http://alexisduque.github.io/blog/2014/03/18/about-me</id>
-    <content type="html"><![CDATA[<h4>E-mail: <a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#111;&#58;&#97;&#x6c;&#x65;&#120;&#x69;&#x73;&#x64;&#x36;&#49;&#64;&#103;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#109;">&#x61;&#108;&#x65;&#120;&#x69;&#115;&#100;&#54;&#x31;&#64;&#103;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;</a></h4>
+    <content type="html"><![CDATA[<h4>E-mail: <a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#x6f;&#58;&#97;&#x6c;&#x65;&#x78;&#105;&#115;&#100;&#54;&#49;&#64;&#x67;&#x6d;&#x61;&#105;&#108;&#x2e;&#99;&#111;&#109;">&#97;&#108;&#101;&#x78;&#105;&#115;&#x64;&#54;&#x31;&#x40;&#x67;&#x6d;&#97;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;</a></h4>
 
 <p>I am studying for a Masters Degree in Software Engineering and Telecoms, at the INSA de Lyon, an Engineering School in France.</p>
 
