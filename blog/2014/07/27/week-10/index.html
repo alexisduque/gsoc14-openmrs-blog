@@ -1,0 +1,213 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Week 10 | My GSOC 2014 Blog</title>
+	<meta name="author" content="Alexis Duque">
+
+	
+	<meta name="description" content="Greetings all Beginning writing this post, I realized that was 10 weeks GSoc has started, time go so fast with OpenMRS ! Atlas project updates Most &hellip;">
+	
+
+	<link href="/atom.xml" rel="alternate" title="My GSOC 2014 Blog" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	
+
+	
+</head>
+
+<body>
+	<header id="header" class="inner"><nav><ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/timeline">Timeline</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+</header>
+	<div id="content" class="inner">
+<article class="post"><header>
+  
+  <h1 class="title">Week 10</h1>
+  
+  
+
+
+
+
+
+
+
+
+	
+		<time datetime="2014-07-27T08:01:01+02:00">
+			<span class="day">27</span><span class="month">Jul</span>
+		</time>
+	
+
+</header>
+<div class="entry-content">
+  
+    <p>Greetings all <img alt="smiley" src="/images/emoji/smiley.png" class="emoji" /></p>
+
+<p>Beginning writing this post, I realized that was 10 weeks GSoc has started, time go so fast with OpenMRS ! <img alt="clock1" src="/images/emoji/clock1.png" class="emoji" /></p>
+
+<h2>Atlas project updates</h2>
+
+<p>Most of my work this week was discovering Docker, building container and get information about how we can use it as a new development work flow. That will be the topic of the second part of this post, and I will dedicate a couple of additional posts about it. <img alt="whale" src="/images/emoji/whale.png" class="emoji" /></p>
+
+<p>Moreover, I could add new features one the Atlas:</p>
+
+<ul>
+<li>Add a share icon to Atlas website to provide link to current view of Atlas. (<a href="https://issues.openmrs.org/browse/ATLAS-101">ATLAS-101</a>, <a href="https://issues.openmrs.org/browse/ATLAS-102">ATLAS-102</a>, <a href="https://issues.openmrs.org/browse/ATLAS-103">ATLAS-103</a>, <a href="https://issues.openmrs.org/browse/ATLAS-104">ATLAS-104</a>)</li>
+<li>Finally wrap up the RSS feed (<a href="https://issues.openmrs.org/browse/ATLAS-105.">ATLAS-89</a>)</li>
+<li>Push last update on Atlas repo and release Atlas server 2.0.2.</li>
+<li>Check my work on the Atlas module, rewrite commits history to prepare its release.</li>
+</ul>
+
+
+<p><img class="left" src="/images/ATLAS-104.png" width="300" title="Atlas share link" ></p>
+
+<h2>Introduction to Docker</h2>
+
+<p><img class="left" src="/images/docker.png" width="200" title="Docker" ></p>
+
+<p>Docker, is a containerization technique, that let you “build once, configure once and run anywhere” functionalities.</p>
+
+<p>It offers quite a number of interesting features and makes it easy for Developers, Systems Admin and others to quickly test a piece of software in a container; much quicker than a virtual machine, and using less resources.</p>
+
+<h3>Components &amp; Vocabulary</h3>
+
+<ul>
+<li><strong>Docker CLI</strong> is the user interface that allows communication between the user and the Docker daemon.</li>
+<li><strong>Docker Daemon</strong> sits on the host machine answering requests for services.</li>
+<li><strong>Docker Hub</strong> is a centralized registry allowing backup of Docker container images with public and private access permissions.</li>
+<li><strong>Docker Containers</strong> are responsible for the actual running of applications and includes the operating system, user added files, and meta-data.</li>
+<li><strong>Docker Images</strong> are ready-only templates that help launch Docker containers.</li>
+<li><strong>DockerFile</strong> is a file housing instructions that help automate image creation.</li>
+</ul>
+
+
+<h3>Installation</h3>
+
+<p>Install Docker on UNIX is quiet easy. For Ubuntu user just run this script :
+<code>curl -s https://get.docker.io/ubuntu/ | sudo sh</code></p>
+
+<p>To verify that everything has worked :
+<code>sudo docker verison</code></p>
+
+<p>Docker installation for others OS is well documented <a href="http://docs.docker.com/installation/">here</a>.</p>
+
+<h3>How to start</h3>
+
+<p>To run any application, there is a basic requirement of two steps: <strong>build</strong> an image and <strong>run</strong> the container.</p>
+
+<p><strong>So let&rsquo;s start running an OpenMRS image !</strong></p>
+
+<p>Pull OpenMRS 1.9.7 image hosted on Docker Hub :  <code>docker pull alexisduque/openmrs:1.9.7</code></p>
+
+<p><code>pull</code> command will download the image and add it to your local repository.</p>
+
+<p>This image has Mysql, Tomcat 7, and OpenMRS 1.9.7 deployed with demo data.</p>
+
+<p>Check everything has worked running <code>docker images</code>. That command show all images in your machine.</p>
+
+<p>Build the container and run it : <code>docker run --name openmrs-1.9.7 -p 8080:8080 alexisduque/openmrs:1.9.7</code>
+That will create a fresh container, named <em>openmrs-1.9.7&#8217;</em> and launch it.</p>
+
+<p><code>-p</code> parameter is used to bind 8080 container port to 8080 port of your machine. You can easily change it, as example, if you want to bind it to 80 port : <code>`-p 80:8080</code>. <em>Note that your 80 port shouldn&rsquo;t be already used</em></p>
+
+<p>Check everything has worked running <code>docker ps</code>. That command show all container running.</p>
+
+<p>Now, you can go to <a href="http://localhost:8080/openmrs">http://localhost:8080/openmrs</a> <img alt="smiley" src="/images/emoji/smiley.png" class="emoji" /></p>
+
+<p>You can see that your console is <em>attached</em> to the container. To run in a <em>detached</em> mode, just add <code>-d</code> in the command.</p>
+
+<p>You can stop the container with : <code>docker stop openmrs-1.9.7</code>, and re-run it <code>docker start openmrs-1.9.7</code> (use <code>-a</code> parameter to attach it)</p>
+
+<h3>Tips</h3>
+
+<p>As <strong>Docker need sudo</strong>, you can add an alias in your .bashrc  : <code>'alias docker='sudo docker'</code>.</p>
+
+<p>To <strong>attach</strong> a container running in detached mode, just <code>docker attach container-name</code>.</p>
+
+<p><strong>Delete a container</strong> : <code>docker rm container-name</code></p>
+
+<p><strong>Delete an image</strong> : <code>docker rmi container-name</code></p>
+
+<p>See more in the next post !</p>
+
+<p><em>Alexis</em></p>
+
+    
+      <div class="sharing">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+	<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4daee9911f9dfcb4"></script>
+</div>
+    
+  
+  
+  <footer class="meta">
+    
+
+
+
+    
+  </footer>
+  
+</div>
+
+</article>
+</div>
+	<footer id="footer" class="inner"><div class="social alignright">
+	
+	
+	
+	<a class="twitter" href="http://twitter.com/alexis0duque" title="Twitter">Twitter</a>
+	
+	
+	<a class="github" href="https://github.com/alexisduque" title="GitHub">GitHub</a>
+	
+	
+	<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>&copy; 2014 Alexis Duque</p>
+<div class="clearfix"></div></footer>
+	<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('.entry-content').each(function(i){
+			var _i = i;
+			$(this).find('img').each(function(){
+				var alt = $(this).attr('alt');
+
+				if (alt == '' || typeof alt == 'undefined'){
+					$(this).wrap('<a href="'+$(this).attr('src')+'" class="fancybox" rel="gallery'+_i+'" />');
+				} else {
+					$(this).after('<span class="caption">'+alt+'</span>').wrap('<a href="'+$(this).attr('src')+'" class="fancybox" title="'+alt+'" rel="gallery'+_i+'" />');
+				}
+			});
+		});
+		$('.fancybox').fancybox();
+	})(jQuery);
+</script>
+<div id="phasebeam">
+	<canvas></canvas>
+	<canvas></canvas>
+	<canvas></canvas>
+</div>
+<script src="/javascripts/phasebeam.js"></script>
+
+
+
+
+</body>
+</html>
