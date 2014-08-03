@@ -4,7 +4,7 @@
   <title><![CDATA[My GSOC 2014 Blog]]></title>
   <link href="http://alexisduque.github.io/atom.xml" rel="self"/>
   <link href="http://alexisduque.github.io/"/>
-  <updated>2014-08-03T10:24:17+02:00</updated>
+  <updated>2014-08-03T11:38:00+02:00</updated>
   <id>http://alexisduque.github.io/</id>
   <author>
     <name><![CDATA[Alexis Duque]]></name>
@@ -12,6 +12,134 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Dockerfile]]></title>
+    <link href="http://alexisduque.github.io/blog/2014/08/03/dockerfile/"/>
+    <updated>2014-08-03T10:27:35+02:00</updated>
+    <id>http://alexisduque.github.io/blog/2014/08/03/dockerfile</id>
+    <content type="html"><![CDATA[<p>This is next post about Docker, and today, we will see how we can automate Docker image creation using a <strong>Dockerfile</strong> : what it is and what it is capable of doing.</p>
+
+<p><img class="left" src="http://alexisduque.github.io/images/docker.png" width="200" title="Docker" ></p>
+
+<h2>Commands for automation</h2>
+
+<p>DockerFile is a script that contains instructions needed to create an image. The image can then be created based on the instructions in the DockerFile using the <code>docker build</code> command.</p>
+
+<p>It simplifies deployment of an image by easing the entire image and container creation process.</p>
+
+<p>Dockerfile can be hosted on Github and linked with <a href="https://hub.docker.com/">Docker Hub</a> to trigger change as a CI process. More information about <strong>automated build</strong> <a href="https://docs.docker.com/docker-hub/builds">here</a></p>
+
+<h2>DockerFiles support commands in the following syntax:</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>INSTRUCTION argument</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Instructions are not case sensitive. However, they are capitalized for a naming convention.</p>
+
+<p>All DockerFiles must begin with the <strong>FROM</strong> command. The <strong>FROM</strong> command indicates the base image from which the new image will be created and from which all subsequent instructions will follow. The <strong>FROM</strong> command can be used any number of times, indicating the creation of multiple images. The syntax is as follows:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>FROM &lt;image name&gt;
+</span><span class='line'>FROM ubuntu</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Will build a new image from the base Ubuntu image.</p>
+
+<p>Following command are used to build your image:</p>
+
+<p><strong>MAINTAINER:</strong>  Set an author field for the image using this instruction.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>MAINTAINER &lt;author name&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>RUN:</strong> Execute a command in a shell or exec form. The RUN instruction adds a new layer on top of the newly created image. The committed results are then used for the next instruction in the DockerFile.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>RUN &lt;command&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>ADD:</strong> Copy files from one location to another using the ADD instruction. It takes two arguments <source> and <destination>. The destination is a path in the container. The source can be either a URL or a file in the context of the launch config.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ADD source destination</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>CMD:</strong> Defaults for an executing container are provided using the CMD command. DockerFile allows usage of the CMD instruction only once. Multiple usage of CMD nullifies all previous CMD instructions. CMD comes in three flavours:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>CMD ["executable","param1","param2"]
+</span><span class='line'>CMD ["param1","param2"]
+</span><span class='line'>CMD command param1 param2</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>EXPOSE:</strong> Specify the port on which the container will be listening at runtime by running the EXPOSE instruction.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>EXPOSE &lt;port&gt;;</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>ENTRYPOINT</strong> Configure a container to run as an executable, which means a specific application can be set as default and run every time a container is created using the image. This also means that the image will be used only to run and target the specific application each time it is called.</p>
+
+<p>Similar to CMD, #Docker allows only one ENTRYPOINT and multiple ENTRYPOINT instructions nullifies all of them, executing the last ENTRYPOINT instruction.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ENTRYPOINT [‘executable’, ‘param1’,’param2’]
+</span><span class='line'>ENTRYPOINT command param1 param2</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>WORKDIR:</strong> Working directory for the RUN, CMD and ENTRYPOINT instructions can be set using the WORKDIR.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>WORKDIR /path/to/workdir</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>ENV:</strong> Set environment variables using the ENV instruction. They come as key value pairs and increases the flexibility of running programs.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ENV &lt;key&gt; &lt;value&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>USER:</strong> Set a UID to be be used when the image is running.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>USER &lt;uid&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>VOLUME:</strong> Enable access from a container to a directory on the host machine.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>VOLUME [‘/data’]</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>DockerFile Best Practices</h2>
+
+<ul>
+<li><strong>Do not map</strong> the public <strong>port</strong> directly in the Dockerfile for compatibility and re-usability reasons.</li>
+<li>Use <strong>base image</strong> and <strong>caching</strong> as soon as possible : that will reduce image building time and you will write less !</li>
+<li><strong>Group</strong> common operation using <code>\</code>.</li>
+</ul>
+
+
+<p>You can read more about DockerFile best practices <a href="http://crosbymichael.com/dockerfile-best-practices.html">here</a>.</p>
+
+<p>Official documentation about Dockerfile on <a href="http://docs.docker.com/reference/builder/#dockerfile-examples">Docker website</a></p>
+
+<h2>What&rsquo;s next &hellip;</h2>
+
+<p>In the next post, I will propose a <strong>workflow</strong> for application development &ndash; from <strong>dev to production</strong> &ndash; using <strong>Docker</strong>.</p>
+
+<p>So stay tuned :smirk:</p>
+
+<p><em>Alexis</em></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Week 11]]></title>
@@ -35,16 +163,16 @@
 <li>Admin can query the Atlas database for maintenance or get some stats. :chart_with_upwards_trend:</li>
 <li>An <em>Help</em> with instructions to use both Atlas server and module.</li>
 <li>Users can share their current atlas view copy/pasting URL provided by <em>Share</em> control.</li>
-<li>Users can update their implementation statistics (patients, encounters, observtions) directly in Atlas .</li>
+<li>Users can update their implementation statistics (patients, encounters, observations) directly in Atlas .</li>
 <li>An RSS feed with latest changes in OpenMRS Atlas.</li>
 </ul>
 
 
 <h3>Other Work</h3>
 
-<p>I fixed <a href="https://issues.openmrs.org/browse/ATLAS-106">ATLAS-106</a>, that add the posility for users that manage their marker manually to report their OpenMRS version number in Atlas server.</p>
+<p>I fixed <a href="https://issues.openmrs.org/browse/ATLAS-106">ATLAS-106</a>, that add the possibility for users that manage their marker manually to report their OpenMRS version number in Atlas server.</p>
 
-<p>I continue working on Docker, to propose a worklfow that we can use to easly develop/test and deploy OpenMRS applications, such as Atlas. :whale:</p>
+<p>I continue working on Docker, to propose a worklflow that we can use to easily develop/test and deploy OpenMRS applications, such as Atlas. :whale:</p>
 
 <p>See you :smirk:</p>
 
@@ -951,7 +1079,7 @@ I&rsquo;m <strong>very excited</strong> to start working together :&ndash;)</p>
     <link href="http://alexisduque.github.io/blog/2014/03/18/about-me/"/>
     <updated>2014-03-18T09:18:46+01:00</updated>
     <id>http://alexisduque.github.io/blog/2014/03/18/about-me</id>
-    <content type="html"><![CDATA[<h4>E-mail: <a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#97;&#x6c;&#x65;&#120;&#105;&#115;&#100;&#54;&#49;&#64;&#103;&#x6d;&#x61;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;">&#97;&#108;&#x65;&#120;&#105;&#x73;&#100;&#54;&#x31;&#x40;&#x67;&#109;&#97;&#x69;&#x6c;&#46;&#x63;&#x6f;&#109;</a></h4>
+    <content type="html"><![CDATA[<h4>E-mail: <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#58;&#x61;&#x6c;&#x65;&#120;&#x69;&#x73;&#100;&#54;&#x31;&#64;&#103;&#x6d;&#97;&#105;&#x6c;&#x2e;&#99;&#111;&#x6d;">&#x61;&#108;&#x65;&#x78;&#x69;&#x73;&#x64;&#54;&#49;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#x6d;</a></h4>
 
 <p>I am studying for a Masters Degree in Software Engineering and Telecoms, at the INSA de Lyon, an Engineering School in France.</p>
 

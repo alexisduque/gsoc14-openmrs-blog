@@ -1,0 +1,243 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Dockerfile | My GSOC 2014 Blog</title>
+	<meta name="author" content="Alexis Duque">
+
+	
+	<meta name="description" content="This is next post about Docker, and today, we will see how we can automate Docker image creation using a Dockerfile : what it is and what it is &hellip;">
+	
+
+	<link href="/atom.xml" rel="alternate" title="My GSOC 2014 Blog" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	
+
+	
+</head>
+
+<body>
+	<header id="header" class="inner"><nav><ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/timeline">Timeline</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+</header>
+	<div id="content" class="inner">
+<article class="post"><header>
+  
+  <h1 class="title">Dockerfile</h1>
+  
+  
+
+
+
+
+
+
+
+
+	
+		<time datetime="2014-08-03T10:27:35+02:00">
+			<span class="day"> 3</span><span class="month">Aug</span>
+		</time>
+	
+
+</header>
+<div class="entry-content">
+  
+    <p>This is next post about Docker, and today, we will see how we can automate Docker image creation using a <strong>Dockerfile</strong> : what it is and what it is capable of doing.</p>
+
+<p><img class="left" src="/images/docker.png" width="200" title="Docker" ></p>
+
+<h2>Commands for automation</h2>
+
+<p>DockerFile is a script that contains instructions needed to create an image. The image can then be created based on the instructions in the DockerFile using the <code>docker build</code> command.</p>
+
+<p>It simplifies deployment of an image by easing the entire image and container creation process.</p>
+
+<p>Dockerfile can be hosted on Github and linked with <a href="https://hub.docker.com/">Docker Hub</a> to trigger change as a CI process. More information about <strong>automated build</strong> <a href="https://docs.docker.com/docker-hub/builds">here</a></p>
+
+<h2>DockerFiles support commands in the following syntax:</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>INSTRUCTION argument</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Instructions are not case sensitive. However, they are capitalized for a naming convention.</p>
+
+<p>All DockerFiles must begin with the <strong>FROM</strong> command. The <strong>FROM</strong> command indicates the base image from which the new image will be created and from which all subsequent instructions will follow. The <strong>FROM</strong> command can be used any number of times, indicating the creation of multiple images. The syntax is as follows:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>FROM &lt;image name&gt;
+</span><span class='line'>FROM ubuntu</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Will build a new image from the base Ubuntu image.</p>
+
+<p>Following command are used to build your image:</p>
+
+<p><strong>MAINTAINER:</strong>  Set an author field for the image using this instruction.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>MAINTAINER &lt;author name&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>RUN:</strong> Execute a command in a shell or exec form. The RUN instruction adds a new layer on top of the newly created image. The committed results are then used for the next instruction in the DockerFile.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>RUN &lt;command&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>ADD:</strong> Copy files from one location to another using the ADD instruction. It takes two arguments <source> and <destination>. The destination is a path in the container. The source can be either a URL or a file in the context of the launch config.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ADD source destination</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>CMD:</strong> Defaults for an executing container are provided using the CMD command. DockerFile allows usage of the CMD instruction only once. Multiple usage of CMD nullifies all previous CMD instructions. CMD comes in three flavours:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>CMD ["executable","param1","param2"]
+</span><span class='line'>CMD ["param1","param2"]
+</span><span class='line'>CMD command param1 param2</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>EXPOSE:</strong> Specify the port on which the container will be listening at runtime by running the EXPOSE instruction.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>EXPOSE &lt;port&gt;;</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>ENTRYPOINT</strong> Configure a container to run as an executable, which means a specific application can be set as default and run every time a container is created using the image. This also means that the image will be used only to run and target the specific application each time it is called.</p>
+
+<p>Similar to CMD, #Docker allows only one ENTRYPOINT and multiple ENTRYPOINT instructions nullifies all of them, executing the last ENTRYPOINT instruction.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ENTRYPOINT [‘executable’, ‘param1’,’param2’]
+</span><span class='line'>ENTRYPOINT command param1 param2</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>WORKDIR:</strong> Working directory for the RUN, CMD and ENTRYPOINT instructions can be set using the WORKDIR.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>WORKDIR /path/to/workdir</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>ENV:</strong> Set environment variables using the ENV instruction. They come as key value pairs and increases the flexibility of running programs.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ENV &lt;key&gt; &lt;value&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>USER:</strong> Set a UID to be be used when the image is running.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>USER &lt;uid&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>VOLUME:</strong> Enable access from a container to a directory on the host machine.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>VOLUME [‘/data’]</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>DockerFile Best Practices</h2>
+
+<ul>
+<li><strong>Do not map</strong> the public <strong>port</strong> directly in the Dockerfile for compatibility and re-usability reasons.</li>
+<li>Use <strong>base image</strong> and <strong>caching</strong> as soon as possible : that will reduce image building time and you will write less !</li>
+<li><strong>Group</strong> common operation using <code>\</code>.</li>
+</ul>
+
+
+<p>You can read more about DockerFile best practices <a href="http://crosbymichael.com/dockerfile-best-practices.html">here</a>.</p>
+
+<p>Official documentation about Dockerfile on <a href="http://docs.docker.com/reference/builder/#dockerfile-examples">Docker website</a></p>
+
+<h2>What&rsquo;s next &hellip;</h2>
+
+<p>In the next post, I will propose a <strong>workflow</strong> for application development &ndash; from <strong>dev to production</strong> &ndash; using <strong>Docker</strong>.</p>
+
+<p>So stay tuned <img alt="smirk" src="/images/emoji/smirk.png" class="emoji" /></p>
+
+<p><em>Alexis</em></p>
+
+    
+      <div class="sharing">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+	<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4daee9911f9dfcb4"></script>
+</div>
+    
+  
+  
+  <footer class="meta">
+    
+
+
+
+    
+  </footer>
+  
+</div>
+
+</article>
+</div>
+	<footer id="footer" class="inner"><div class="social alignright">
+	
+	
+	
+	<a class="twitter" href="http://twitter.com/alexis0duque" title="Twitter">Twitter</a>
+	
+	
+	<a class="github" href="https://github.com/alexisduque" title="GitHub">GitHub</a>
+	
+	
+	<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>&copy; 2014 Alexis Duque</p>
+<div class="clearfix"></div></footer>
+	<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('.entry-content').each(function(i){
+			var _i = i;
+			$(this).find('img').each(function(){
+				var alt = $(this).attr('alt');
+
+				if (alt == '' || typeof alt == 'undefined'){
+					$(this).wrap('<a href="'+$(this).attr('src')+'" class="fancybox" rel="gallery'+_i+'" />');
+				} else {
+					$(this).after('<span class="caption">'+alt+'</span>').wrap('<a href="'+$(this).attr('src')+'" class="fancybox" title="'+alt+'" rel="gallery'+_i+'" />');
+				}
+			});
+		});
+		$('.fancybox').fancybox();
+	})(jQuery);
+</script>
+<div id="phasebeam">
+	<canvas></canvas>
+	<canvas></canvas>
+	<canvas></canvas>
+</div>
+<script src="/javascripts/phasebeam.js"></script>
+
+
+
+
+</body>
+</html>
