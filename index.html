@@ -7,7 +7,7 @@
 	<meta name="author" content="Alexis Duque">
 
 	
-	<meta name="description" content="This is next post about Docker, and today, we will see how we can automate Docker image creation using a Dockerfile : what it is and what it is &hellip;">
+	<meta name="description" content="Hey ! End of Summer of Code is coming and it&rsquo;s time to wrap up the project. So, this week I didn&rsquo;t produce so much code and I focused on &hellip;">
 	
 
 	<link href="/atom.xml" rel="alternate" title="My GSOC 2014 Blog" type="application/atom+xml">
@@ -29,6 +29,64 @@
 </ul></nav>
 </header>
 	<div id="content" class="inner">
+
+
+	<article class="post"><header>
+  
+  <h1 class="title"><a href="/blog/2014/08/10/week-12/">Week 12</a></h1>
+  
+  
+
+
+
+
+
+
+
+
+	
+		<time datetime="2014-08-10T12:12:35+02:00">
+			<span class="day">10</span><span class="month">Aug</span>
+		</time>
+	
+
+</header>
+<div class="entry-content">
+  
+    <p>Hey ! <img alt="bowtie" src="/images/emoji/bowtie.png" class="emoji" /></p>
+
+<p>End of Summer of Code is coming and it&rsquo;s time to wrap up the project.</p>
+
+<p>So, this week I didn&rsquo;t produce so much code and I focused on writing documentation, release note, update Atlas Wiki pages, and preparing the final video presentation.</p>
+
+<p>Thank to James reporting <a href="https://issues.openmrs.org/browse/ATLAS-107">ATLAS-107</a>, it&rsquo;s always nice to see that folks take care of Atlas <img alt="smirk" src="/images/emoji/smirk.png" class="emoji" /></p>
+
+<p>That&rsquo;s it for this week, I will post the video presentation soon, so stay tuned !</p>
+
+<p><em>Alexis</em></p>
+
+<h2>Atlas related Wiki</h2>
+
+<ul>
+<li><a href="https://wiki.openmrs.org/display/docs/Atlas+Module+2.0+User+Guide">Atlas Module user guide</a></li>
+<li><a href="https://wiki.openmrs.org/display/docs/Atlas+Module">Atlas Module wiki</a></li>
+<li><a href="https://wiki.openmrs.org/display/docs/OpenMRS+Atlas">OpenmMRS Atlas wiki</a></li>
+</ul>
+
+
+  
+  
+  <footer class="meta">
+    
+
+
+
+    
+  </footer>
+  
+</div>
+
+</article>
 
 
 	<article class="post"><header>
@@ -816,126 +874,6 @@ So I spent less time chatting, or being focus on the project. But I finally coul
 
 
 <p>Next week will be busy for me because of my final exams. Sorry if I don&rsquo;t perform at 100% <img alt="smirk" src="/images/emoji/smirk.png" class="emoji" /></p>
-
-  
-  
-  <footer class="meta">
-    
-
-
-
-    
-  </footer>
-  
-</div>
-
-</article>
-
-
-	<article class="post"><header>
-  
-  <h1 class="title"><a href="/blog/2014/06/07/week-3/">Week 3</a></h1>
-  
-  
-
-
-
-
-
-
-
-
-	
-		<time datetime="2014-06-07T07:10:17+02:00">
-			<span class="day"> 7</span><span class="month">Jun</span>
-		</time>
-	
-
-</header>
-<div class="entry-content">
-  
-    <p>Week 3 is ending soon and there are only 3 weeks before GSoC mi-term, time go so fast with OpenMRS ! <img alt="clock1" src="/images/emoji/clock1.png" class="emoji" /></p>
-
-<p>For this week, goals are all reached, and I can do what I have planned, thanks to everybody help me fixing blockers, or answering questions.</p>
-
-<ul>
-<li>Reviewing and improving what I did last week.</li>
-<li>Setup OpenMRS 2.0 and reference application on my local dev environment.</li>
-<li>Restablish markers fading on Atlas.</li>
-<li>Write documentation for Atlas server deployment.</li>
-<li>Setup Atlas correctly on staged.</li>
-<li>Make Atlas module 1.2 working across 1.x and 2.x OpenMRS version.</li>
-<li>Put an app link on OpenMRS 2.</li>
-</ul>
-
-
-<h2>Community interactions</h2>
-
-<p>My university planning let me participate in many daily scrum, and attend developer forum. Nice <img alt="smile" src="/images/emoji/smile.png" class="emoji" /></p>
-
-<p>As I had some blockers setting up OpenMRS 2.0, I required Helpdesk intervention on stagged sever, so it was good reasons to chat with community members other than my mentor. And be active on the mailing list <img alt="smirk" src="/images/emoji/smirk.png" class="emoji" /></p>
-
-<p>So what I can say is : <strong>Having problems helps make friends !</strong></p>
-
-<h2>Tips</h2>
-
-<p>Set up OpenMRS 2.0 on my laptop was really painful, and I probably can&rsquo;t do it with precious help of Rafa and Darius. <img alt="+1" src="/images/emoji/+1.png" class="emoji" />So, I would like to share what I have to do, if it can help.</p>
-
-<p><strong> My config </strong></p>
-
-<ul>
-<li>Ubuntu 14.04</li>
-<li>Java 1.8</li>
-<li>MySQL</li>
-<li>OpenMRS running over Jetty</li>
-</ul>
-
-
-<p><strong> The problems </strong></p>
-
-<p>Reference application won&rsquo;t start. After running Jetty and doing first setup, I have a blank page at localhost/openmrs.
-Error on Java version with a message like this : OpenMRS requires Java > 6, 1.8 is present <img alt="worried" src="/images/emoji/worried.png" class="emoji" /></p>
-
-<p><strong> Solution </strong></p>
-
-<ul>
-<li>Clean everything related to OpenMRS previous install (openmrs database, temp files)</li>
-<li>Clone 1.10.x branch of openmrs-core</li>
-<li>Clone master of openmrs-distro-referenceapp</li>
-<li>Switch to Java JDK and JRE v1.7:</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'> sudo update-alternatives --config java
-</span><span class='line'> sudo update-alternatives --config javac
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>Follow this good <a href="https://wiki.openmrs.org/display/projects/Setting+Up+a+Development+Environment+for+OpenMRS+EMR+2.0">WIKI</a></li>
-<li>Important : take care your database encoding is set to <code>utf8</code>, and collation to <code>utf8_unicode_ci</code>.</li>
-<li>Run it</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">cd </span>openmrs-core/webapp
-</span><span class='line'>mvn jetty:run
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Next Week Planning</h2>
-
-<ul>
-<li>Announce new OpenMRS Atlas.</li>
-<li>Stay tuned for community comments, suggestions and improvement idea.</li>
-<li>Bug fix : I hope not <img alt="smirk" src="/images/emoji/smirk.png" class="emoji" /></li>
-<li>Plan work on Atlas module.</li>
-</ul>
-
 
   
   
