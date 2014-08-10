@@ -24,12 +24,10 @@
 <body>
 	<header id="header" class="inner"><nav><ul>
   <li><a href="/">Home</a></li>
-  <li><a href="/timeline">Timeline</a></li>
   <li><a href="/blog/archives">Archives</a></li>
 </ul></nav>
 </header>
-	<div id="content" class="inner">
-<article class="post"><header>
+	<div id="content" class="inner"><article class="post"><header>
   
   <h1 class="title">Week 7</h1>
   
@@ -44,7 +42,7 @@
 
 	
 		<time datetime="2014-07-06T07:48:24+02:00">
-			<span class="day"> 6</span><span class="month">Jul</span>
+			<span class="day"></span><span class="month"></span>
 		</time>
 	
 
@@ -72,28 +70,17 @@
 
 <p>So the solution was to know if Reference Application is started, and then get its version. As the solution can be be useful, I share the small function I&rsquo;ve done. And let me know if the is any bugs <img alt="smiley" src="/images/emoji/smiley.png" class="emoji" /></p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="n">String</span> <span class="nf">getOpenMRSVersion</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">String</span> <span class="n">version</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
-</span><span class='line'>    <span class="n">String</span> <span class="n">coreVersion</span> <span class="o">=</span> <span class="n">OpenmrsConstants</span><span class="o">.</span><span class="na">OPENMRS_VERSION</span><span class="o">;</span>
-</span><span class='line'>    <span class="k">if</span> <span class="o">(</span><span class="n">ModuleFactory</span><span class="o">.</span><span class="na">getModuleById</span><span class="o">(</span><span class="s">&quot;referenceapplication&quot;</span><span class="o">)</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span>
-</span><span class='line'>            <span class="o">!</span><span class="n">ModuleFactory</span><span class="o">.</span><span class="na">getModuleById</span><span class="o">(</span><span class="s">&quot;referenceapplication&quot;</span><span class="o">).</span><span class="na">isStarted</span><span class="o">())</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">coreVersion</span><span class="o">;</span>
-</span><span class='line'>    <span class="n">String</span> <span class="n">refAppVersion</span> <span class="o">=</span> <span class="n">ModuleFactory</span><span class="o">.</span><span class="na">getModuleById</span><span class="o">(</span><span class="s">&quot;referenceapplication&quot;</span><span class="o">).</span><span class="na">getVersion</span><span class="o">();</span>
-</span><span class='line'>    <span class="n">version</span> <span class="o">=</span> <span class="n">refAppVersion</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;1.0.1&quot;</span><span class="o">)</span> <span class="o">?</span> <span class="s">&quot;2.0&quot;</span> <span class="o">:</span> <span class="n">version</span><span class="o">;</span>
-</span><span class='line'>    <span class="k">return</span> <span class="n">version</span><span class="o">;</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<pre><code class="java">public String getOpenMRSVersion() {
+    String version = "";
+    String coreVersion = OpenmrsConstants.OPENMRS_VERSION;
+    if (ModuleFactory.getModuleById("referenceapplication") == null || 
+            !ModuleFactory.getModuleById("referenceapplication").isStarted())
+        return coreVersion;
+    String refAppVersion = ModuleFactory.getModuleById("referenceapplication").getVersion();
+    version = refAppVersion.equals("1.0.1") ? "2.0" : version;
+    return version;
+}
+</code></pre>
 
 <p>My Actual work is creating a RSS Feed of updates in Atlas. It will probably available soon !</p>
 
@@ -123,9 +110,7 @@
   </footer>
   
 </div>
-
-</article>
-</div>
+</article></div>
 	<footer id="footer" class="inner"><div class="social alignright">
 	
 	

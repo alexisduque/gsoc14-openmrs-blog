@@ -1,105 +1,184 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
-    <url>
-        <loc>http://alexisduque.github.io/blog/2014/03/18/about-me/</loc>
-        <lastmod>2014-05-17T14:22:43+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/blog/2014/03/18/openmrs-atlas-module-2-dot-0/</loc>
-        <lastmod>2014-05-17T08:47:37+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://alexisduque.github.io/blog/2014/04/22/selected-for-gsoc-2014-with-openmrs/
-        </loc>
-        <lastmod>2014-05-17T08:47:37+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/blog/2014/05/01/community-bonding-and-planning/</loc>
-        <lastmod>2014-05-17T08:47:37+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/blog/2014/05/09/weeks-2/</loc>
-        <lastmod>2014-05-17T08:47:37+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/blog/2014/05/17/week-1/</loc>
-        <lastmod>2014-05-17T08:48:54+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/blog/2014/05/17/multipass-and-sso/</loc>
-        <lastmod>2014-05-17T13:05:36+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/blog/2014/05/24/week-1/</loc>
-        <lastmod>2014-05-25T14:14:41+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/blog/2014/05/26/week-planning/</loc>
-        <lastmod>2014-05-26T10:10:51+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/blog/2014/06/01/week-2/</loc>
-        <lastmod>2014-06-01T07:58:05+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/blog/2014/06/07/week-3/</loc>
-        <lastmod>2014-06-08T08:20:43+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/blog/2014/06/14/week-4/</loc>
-        <lastmod>2014-06-15T07:55:41+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/blog/2014/06/21/mid-term/</loc>
-        <lastmod>2014-06-22T07:12:16+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/blog/2014/06/29/week-6/</loc>
-        <lastmod>2014-06-29T10:35:10+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/blog/2014/07/06/week-7/</loc>
-        <lastmod>2014-07-06T09:15:20+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/blog/2014/07/12/week-8/</loc>
-        <lastmod>2014-07-13T09:09:55+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/blog/2014/07/20/week-9/</loc>
-        <lastmod>2014-07-20T08:55:19+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/blog/2014/07/27/week-10/</loc>
-        <lastmod>2014-07-27T10:26:02+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/blog/2014/08/03/week-11/</loc>
-        <lastmod>2014-08-03T10:25:04+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/blog/2014/08/03/dockerfile/</loc>
-        <lastmod>2014-08-03T11:37:37+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/blog/2014/08/10/week-12/</loc>
-        <lastmod>2014-08-10T07:37:36+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/</loc>
-        <lastmod>2014-08-10T07:37:36+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/robots.txt</loc>
-        <lastmod>2014-03-18T09:14:51+01:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/blog/archives/</loc>
-        <lastmod>2014-08-10T07:37:36+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexisduque.github.io/timeline/</loc>
-        <lastmod>2014-08-08T15:06:38+02:00</lastmod>
-    </url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/2014/08/10/docker-for-developers/</loc>
+    <lastmod>2014-08-10T14:33:28+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/2014/08/10/week-12/</loc>
+    <lastmod>2014-08-10T12:12:35+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/2014/08/03/dockerfile/</loc>
+    <lastmod>2014-08-03T10:27:35+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/2014/08/03/week-11/</loc>
+    <lastmod>2014-08-03T08:15:08+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/2014/07/27/week-10/</loc>
+    <lastmod>2014-07-27T08:01:01+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/2014/07/20/week-9/</loc>
+    <lastmod>2014-07-20T06:19:47+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/2014/07/12/week-8/</loc>
+    <lastmod>2014-07-12T08:00:20+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/2014/07/06/week-7/</loc>
+    <lastmod>2014-07-06T07:48:24+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/2014/06/29/week-6/</loc>
+    <lastmod>2014-06-29T08:51:36+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/2014/06/21/mid-term/</loc>
+    <lastmod>2014-06-21T13:41:32+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/2014/06/14/week-4/</loc>
+    <lastmod>2014-06-14T12:08:13+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/2014/06/07/week-3/</loc>
+    <lastmod>2014-06-07T07:10:17+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/2014/06/01/week-2/</loc>
+    <lastmod>2014-06-01T06:32:38+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/2014/05/26/week-planning/</loc>
+    <lastmod>2014-05-26T08:06:05+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/2014/05/24/week-1/</loc>
+    <lastmod>2014-05-24T19:55:05+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/2014/05/17/multipass-and-sso/</loc>
+    <lastmod>2014-05-17T11:45:50+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/2014/05/17/week-1/</loc>
+    <lastmod>2014-05-17T06:21:54+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/2014/05/09/weeks-2/</loc>
+    <lastmod>2014-05-09T13:04:00+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/2014/05/01/community-bonding-and-planning/</loc>
+    <lastmod>2014-05-01T12:53:40+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/2014/04/22/selected-for-gsoc-2014-with-openmrs/</loc>
+    <lastmod>2014-04-22T20:16:28+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/2014/03/18/openmrs-atlas-module-2-dot-0/</loc>
+    <lastmod>2014-03-18T10:37:13+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/2014/03/18/about-me/</loc>
+    <lastmod>2014-03-18T09:18:46+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  
+  <url>
+    <loc>http://alexisduque.github.io/</loc>
+    <lastmod>2014-08-10T17:11:44+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/blog/archives/</loc>
+    <lastmod>2014-08-10T17:11:44+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/timeline/</loc>
+    <lastmod>2014-08-10T17:11:44+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  
+  <url>
+    <loc>http://alexisduque.github.io/images/JavaScript · Bootstrap_files/github-btn(1).html</loc>
+    <lastmod>2014-07-29T14:50:41Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/images/JavaScript · Bootstrap_files/github-btn.html</loc>
+    <lastmod>2014-07-29T14:50:41Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/images/JavaScript · Bootstrap_files/tweet_button.1404859412.html</loc>
+    <lastmod>2014-07-29T14:50:41Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/images/JavaScript · Bootstrap_files/follow_button.1404859412.html</loc>
+    <lastmod>2014-07-29T14:50:41Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
 </urlset>

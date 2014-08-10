@@ -7,7 +7,7 @@
 	<meta name="author" content="Alexis Duque">
 
 	
-	<meta name="description" content="Hey ! End of Summer of Code is coming and it&rsquo;s time to wrap up the project. So, this week I didn&rsquo;t produce so much code and I focused on &hellip;">
+	<meta name="description" content="Introduction As a developer, sometimes it may be painful to setup a working environment before coding. Some application may have very specific &hellip;">
 	
 
 	<link href="/atom.xml" rel="alternate" title="My GSOC 2014 Blog" type="application/atom+xml">
@@ -24,11 +24,149 @@
 <body>
 	<header id="header" class="inner"><nav><ul>
   <li><a href="/">Home</a></li>
-  <li><a href="/timeline">Timeline</a></li>
   <li><a href="/blog/archives">Archives</a></li>
 </ul></nav>
 </header>
 	<div id="content" class="inner">
+
+
+	<article class="post"><header>
+  
+  <h1 class="title"><a href="/blog/2014/08/10/docker-for-developers/">Docker for Developers</a></h1>
+  
+  
+
+
+
+
+
+
+
+
+	
+		<time datetime="2014-08-10T14:33:28+02:00">
+			<span class="day"></span><span class="month"></span>
+		</time>
+	
+
+</header>
+<div class="entry-content">
+  
+    <h2>Introduction</h2>
+
+<p><img src="/images/docker.png" width="200" title="Docker" ></p>
+
+<p>As a developer, sometimes it may be painful to setup a working environment before coding. Some application may have very specific requirements and developers are not always familiar with things that usually Sysadmins do : I remember when I had to setup a working local ID Dashboard with an OpenLDAP Server, so painful ! <img alt="sweat_smile" src="/images/emoji/sweat_smile.png" class="emoji" /></p>
+
+<p>An other sensitive point is that local environment may be different from production, and code that work locally can fail when deployed.</p>
+
+<p>In order to make things easier, Docker can help us. I will try to give you in few step, how to start quickly hacking and contributing to OpenMRS Atlas, without setting up anything.</p>
+
+<h2>Before you start</h2>
+
+<ul>
+<li>Install Docker (see <a href="http://alexisduque.github.io/blog/2014/07/27/week-10/">recent blog post</a> or <a href="http://docs.docker.com/installation/">Docker site</a>).</li>
+<li>It&rsquo;s easier if your 80, 443 and 8888 ports are free, so stop apache if it&rsquo;s running.</li>
+<li>A reliable Internet connection is required</li>
+</ul>
+
+
+<h2>Get the code</h2>
+
+<ol>
+<li>Fork the <a href="https://github.com/openmrs/openmrs-contrib-atlas.git">openmrs-contrib-atlas</a> repository on Github</li>
+<li>Clone your fork. We will assume that we wan&rsquo;t to clone in /home/user/atlas :
+<code>mkdir atlas &amp;&amp; git clone https://github.com/alexisduque/openmrs-contrib-atlas.git /home/user/atlas</code></li>
+</ol>
+
+
+<h2>Build the container</h2>
+
+<p>OpenmMRS Atlas container for developers is hosted on OpenMRS Docker Hub repository. Next step will pull the image and build the container, using environement variable you pass. It may takes about 10 minutes depending on your Internet connection.</p>
+
+<p><code>docker run -e HOST_IP=127.0.0.1 -v /home/user/atlas:/opt/atlas -p 80:80 -p 443:443 -p 8888:8888 -p 22:22 --name atlas -h atlas openmrs/atlas:2.0-dev</code></p>
+
+<h3>Explanation</h3>
+
+<ul>
+<li><code>docker run</code>  create a container named <strong>atlas</strong> using <strong>openmrs/atlas:2.0-dev</strong> image.</li>
+<li>We mount (<code>-v</code>) local <strong>/home/user/atlas</strong> into /opt/atlas in the container.</li>
+<li>We set container hostname (<code>-h</code>) to <em>atlas</em>.</li>
+<li>We map 80, 8888 and 443 host port (<code>-p</code>) with same ports in the container.</li>
+</ul>
+
+
+<h3>Test and code</h3>
+
+<p>You now can navigate through the Atlas at <a href="https://127.0.0.1">https://127.0.0.1</a> ! <img alt="smiley" src="/images/emoji/smiley.png" class="emoji" /></p>
+
+<p>Open /home/user/atlas with your favorite IDE, code, test, commit and PR !</p>
+
+<h3>Manage the container</h3>
+
+<ol>
+<li><strong>Shutdown</strong> the container when you finish your work : <code>docker stop atlas</code></li>
+<li><strong>Start</strong> the container when needed : <code>docker start atlas</code></li>
+<li><strong>Delete</strong> the container : <code>docker rm atlas</code>. Don&rsquo;t worry, your code in /home/user/atlas will persist.</li>
+</ol>
+
+
+<h3>Tips</h3>
+
+<ul>
+<li>You can ssh and explore the container (credentials: root/password) : <code>ssh root@0.0.0.0</code>.</li>
+<li>OpenMRS credential for Atlas Sign In : user/user.</li>
+<li>Mysql server admin credentials : root/mysql .</li>
+</ul>
+
+
+<h3>Advanced Configuration</h3>
+
+<p><strong>If you want to change Atlas container port mapping</strong>, change <code>-p HOST_PORT:CONTAINER_PORT</code>  <strong>AND</strong> add custom env variables to change Atlas configuration:</p>
+
+<ul>
+<li><code>-e HTTP_PORT=</code> : HTTP port to access Atlas application (default : 80)</li>
+<li><code>-e HTTPS_PORT=</code> : HTTPS port to access Atlas application default : 443)</li>
+</ul>
+
+
+<p><strong>Example</strong> : use 81, 444, 23 port and sources in /var/www/atlas.</p>
+
+<p><code>docker run -e HOST_IP=127.0.0.1 -e HTTP_PORT=41 -e HTTPS_PORT=444 -v /var/www/atlas:/opt/atlas -p 81:80 -p 444:443 -p 8888:8888 -p 23:22 --name atlas -h atlas openmrs/atlas:2.0-dev</code></p>
+
+<h3>Docker Advantages</h3>
+
+<ul>
+<li>Lighter than VM.</li>
+<li>Portable and reusable environment.</li>
+<li>No time wasted. <img alt="clock1" src="/images/emoji/clock1.png" class="emoji" /></li>
+</ul>
+
+
+<h3>Conclusion</h3>
+
+<p>Using docker instead of a <em>classic</em> environment, you avoid installing and configuring Apache, Mysql, Php, Laravel, Composer, phantomJS, ID Dashboard, and seeding the database.</p>
+
+<p>Moreover, you can be sure you have the same environment than other developers.</p>
+
+<p>So, convinced ?</p>
+
+<p><em>Alexis</em></p>
+
+<p>PS : I need your feedback! Please report any problem and ask questions if needed.</p>
+
+  
+  
+  <footer class="meta">
+    
+
+
+
+    
+  </footer>
+  
+</div>
+</article>
 
 
 	<article class="post"><header>
@@ -46,7 +184,7 @@
 
 	
 		<time datetime="2014-08-10T12:12:35+02:00">
-			<span class="day">10</span><span class="month">Aug</span>
+			<span class="day"></span><span class="month"></span>
 		</time>
 	
 
@@ -85,7 +223,6 @@
   </footer>
   
 </div>
-
 </article>
 
 
@@ -104,7 +241,7 @@
 
 	
 		<time datetime="2014-08-03T10:27:35+02:00">
-			<span class="day"> 3</span><span class="month">Aug</span>
+			<span class="day"></span><span class="month"></span>
 		</time>
 	
 
@@ -125,19 +262,16 @@
 
 <h2>DockerFiles support commands in the following syntax:</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>INSTRUCTION argument</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>INSTRUCTION argument
+</code></pre>
 
 <p>Instructions are not case sensitive. However, they are capitalized for a naming convention.</p>
 
 <p>All DockerFiles must begin with the <strong>FROM</strong> command. The <strong>FROM</strong> command indicates the base image from which the new image will be created and from which all subsequent instructions will follow. The <strong>FROM</strong> command can be used any number of times, indicating the creation of multiple images. The syntax is as follows:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>FROM &lt;image name&gt;
-</span><span class='line'>FROM ubuntu</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>FROM &lt;image name&gt;
+FROM ubuntu
+</code></pre>
 
 <p>Will build a new image from the base Ubuntu image.</p>
 
@@ -145,71 +279,58 @@
 
 <p><strong>MAINTAINER:</strong>  Set an author field for the image using this instruction.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>MAINTAINER &lt;author name&gt;</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>MAINTAINER &lt;author name&gt;
+</code></pre>
 
 <p><strong>RUN:</strong> Execute a command in a shell or exec form. The RUN instruction adds a new layer on top of the newly created image. The committed results are then used for the next instruction in the DockerFile.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>RUN &lt;command&gt;</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>RUN &lt;command&gt;
+</code></pre>
 
 <p><strong>ADD:</strong> Copy files from one location to another using the ADD instruction. It takes two arguments <source> and <destination>. The destination is a path in the container. The source can be either a URL or a file in the context of the launch config.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ADD source destination</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>ADD source destination
+</code></pre>
 
 <p><strong>CMD:</strong> Defaults for an executing container are provided using the CMD command. DockerFile allows usage of the CMD instruction only once. Multiple usage of CMD nullifies all previous CMD instructions. CMD comes in three flavours:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>CMD ["executable","param1","param2"]
-</span><span class='line'>CMD ["param1","param2"]
-</span><span class='line'>CMD command param1 param2</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>CMD ["executable","param1","param2"]
+CMD ["param1","param2"]
+CMD command param1 param2
+</code></pre>
 
 <p><strong>EXPOSE:</strong> Specify the port on which the container will be listening at runtime by running the EXPOSE instruction.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>EXPOSE &lt;port&gt;;</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>EXPOSE &lt;port&gt;;
+</code></pre>
 
 <p><strong>ENTRYPOINT</strong> Configure a container to run as an executable, which means a specific application can be set as default and run every time a container is created using the image. This also means that the image will be used only to run and target the specific application each time it is called.</p>
 
 <p>Similar to CMD, #Docker allows only one ENTRYPOINT and multiple ENTRYPOINT instructions nullifies all of them, executing the last ENTRYPOINT instruction.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ENTRYPOINT [‘executable’, ‘param1’,’param2’]
-</span><span class='line'>ENTRYPOINT command param1 param2</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>ENTRYPOINT [‘executable’, ‘param1’,’param2’]
+ENTRYPOINT command param1 param2
+</code></pre>
 
 <p><strong>WORKDIR:</strong> Working directory for the RUN, CMD and ENTRYPOINT instructions can be set using the WORKDIR.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>WORKDIR /path/to/workdir</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>WORKDIR /path/to/workdir
+</code></pre>
 
 <p><strong>ENV:</strong> Set environment variables using the ENV instruction. They come as key value pairs and increases the flexibility of running programs.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ENV &lt;key&gt; &lt;value&gt;</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>ENV &lt;key&gt; &lt;value&gt;
+</code></pre>
 
 <p><strong>USER:</strong> Set a UID to be be used when the image is running.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>USER &lt;uid&gt;</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>USER &lt;uid&gt;
+</code></pre>
 
 <p><strong>VOLUME:</strong> Enable access from a container to a directory on the host machine.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>VOLUME [‘/data’]</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>VOLUME [‘/data’]
+</code></pre>
 
 <h2>DockerFile Best Practices</h2>
 
@@ -226,7 +347,7 @@
 
 <h2>What&rsquo;s next &hellip;</h2>
 
-<p>In the next post, I will propose a <strong>workflow</strong> for application development &ndash; from <strong>dev to production</strong> &ndash; using <strong>Docker</strong>.</p>
+<p>In the next post, I will propose a <strong>workflow</strong> for application development - from <strong>dev to production</strong> - using <strong>Docker</strong>.</p>
 
 <p>So stay tuned <img alt="smirk" src="/images/emoji/smirk.png" class="emoji" /></p>
 
@@ -243,7 +364,6 @@
   </footer>
   
 </div>
-
 </article>
 
 
@@ -262,7 +382,7 @@
 
 	
 		<time datetime="2014-08-03T08:15:08+02:00">
-			<span class="day"> 3</span><span class="month">Aug</span>
+			<span class="day"></span><span class="month"></span>
 		</time>
 	
 
@@ -312,7 +432,6 @@
   </footer>
   
 </div>
-
 </article>
 
 
@@ -331,7 +450,7 @@
 
 	
 		<time datetime="2014-07-27T08:01:01+02:00">
-			<span class="day">27</span><span class="month">Jul</span>
+			<span class="day"></span><span class="month"></span>
 		</time>
 	
 
@@ -441,7 +560,6 @@ That will create a fresh container, named <em>openmrs-1.9.7&#8217;</em> and laun
   </footer>
   
 </div>
-
 </article>
 
 
@@ -460,7 +578,7 @@ That will create a fresh container, named <em>openmrs-1.9.7&#8217;</em> and laun
 
 	
 		<time datetime="2014-07-20T06:19:47+02:00">
-			<span class="day">20</span><span class="month">Jul</span>
+			<span class="day"></span><span class="month"></span>
 		</time>
 	
 
@@ -484,7 +602,7 @@ Current work can be found here : <a href="https://github.com/alexisduque/atlas-d
 
 <p><img class="left" src="/images/docker.png" width="200" title="Docker" ></p>
 
-<p><a href="http://docker.com">Docker</a> extends a container format &ndash; LXC (Linux Container) &ndash; providing a convenient API, to run in <em>isolation</em> process or applications, and <em>deploy</em> them very quickly. <img alt="whale" src="/images/emoji/whale.png" class="emoji" /></p>
+<p><a href="http://docker.com">Docker</a> extends a container format - LXC (Linux Container) - providing a convenient API, to run in <em>isolation</em> process or applications, and <em>deploy</em> them very quickly. <img alt="whale" src="/images/emoji/whale.png" class="emoji" /></p>
 
 <p>Atlas container is based on a ubuntu 14.04 image. The container is build with 2 steps using 2 Dockerfiles :</p>
 
@@ -513,7 +631,6 @@ Current work can be found here : <a href="https://github.com/alexisduque/atlas-d
   </footer>
   
 </div>
-
 </article>
 
 
@@ -532,7 +649,7 @@ Current work can be found here : <a href="https://github.com/alexisduque/atlas-d
 
 	
 		<time datetime="2014-07-12T08:00:20+02:00">
-			<span class="day">12</span><span class="month">Jul</span>
+			<span class="day"></span><span class="month"></span>
 		</time>
 	
 
@@ -543,7 +660,7 @@ Current work can be found here : <a href="https://github.com/alexisduque/atlas-d
 
 <p>I would like to start this post with a new (awesome) OpenMRS event : <strong>Social Hours</strong>. This Monday, Michael, Paul, Rafa, Wiehwa, Darius and some other guys met for chatting, about what we want, like friends. No formal topics, just open chat, with cam, microphone or just keyboard, to know more about each other. <img alt="smiley" src="/images/emoji/smiley.png" class="emoji" /></p>
 
-<p>Even if, i was a bit painful for me to join the room at <a href="http://appear.in/openmrs">http://appear.in/openmrs</a> &ndash; <em>Chrome</em> did let me connect without cam and microphone !, so I had to switch to <em>Firefox</em> &ndash; , it was a really good time.</p>
+<p>Even if, i was a bit painful for me to join the room at <a href="http://appear.in/openmrs">http://appear.in/openmrs</a> - <em>Chrome</em> did let me connect without cam and microphone !, so I had to switch to <em>Firefox</em> - , it was a really good time.</p>
 
 <p>So a big thanks to Michael for this idea, and I hope we can often meet for <strong>Social Hour</strong> with more and more participants (what about every 2/3 weeks ?).</p>
 
@@ -551,7 +668,7 @@ Current work can be found here : <a href="https://github.com/alexisduque/atlas-d
 
 <h2>Atlas Project</h2>
 
-<p>This week was a bit special because Burke &ndash; my (perfect) mentors &ndash; was on holidays, so I can&rsquo;t have his feedback or suggestions and ideas to improve my work <img alt="smiley" src="/images/emoji/smiley.png" class="emoji" /></p>
+<p>This week was a bit special because Burke - my (perfect) mentors - was on holidays, so I can&rsquo;t have his feedback or suggestions and ideas to improve my work <img alt="smiley" src="/images/emoji/smiley.png" class="emoji" /></p>
 
 <p>But finaly, Michael has good things, and it let me having an other point of view.</p>
 
@@ -561,13 +678,13 @@ Current work can be found here : <a href="https://github.com/alexisduque/atlas-d
 <li>Finished <a href="https://issues.openmrs.org/browse/ATLAS-88">ATLAS-88</a> : Atlas has an RSS feed with last updates <a href="https://atlas-stg.openmrs.org/rss">(try it !)</a>.</li>
 <li>Drop a useless column in Archive table. To track atlas database update and change, we use <em>migration</em>, that&rsquo;s a part of <em>Laravel framework</em>. Functionalities are similar to <em>Liquibase</em>, but it uses PHP written files that are created and timestamped for each changes.</li>
 <li><a href="https://issues.openmrs.org/browse/ATLAS-92">ATLAS-92</a> : Atlas has an help to give information to user.</li>
-<li>When the user save his marker in Atlas module, it sends update &ndash; with latest counts and system counts &ndash; to Atlas Server.</li>
+<li>When the user save his marker in Atlas module, it sends update - with latest counts and system counts - to Atlas Server.</li>
 <li>Update wiki page.</li>
 <li>Check Atlas Module, well do its job. <img alt="smirk" src="/images/emoji/smirk.png" class="emoji" /></li>
 </ul>
 
 
-<p>Next week, I hope we can start working with Burke to release Atlas Module 2.0. That mean merging Atlas Server changes &ndash; in order to support module functions &ndash; validate changes in Atlas Module, and upgrading Atlas production server.</p>
+<p>Next week, I hope we can start working with Burke to release Atlas Module 2.0. That mean merging Atlas Server changes - in order to support module functions - validate changes in Atlas Module, and upgrading Atlas production server.</p>
 
 <p>Moreover, I will probably finish work on <a href="https://issues.openmrs.org/browse/ATLAS-99">ATLAS-99</a> : scale OpenMRS logo in Atlas and make an SVG.</p>
 
@@ -584,7 +701,6 @@ Current work can be found here : <a href="https://github.com/alexisduque/atlas-d
   </footer>
   
 </div>
-
 </article>
 
 
@@ -603,7 +719,7 @@ Current work can be found here : <a href="https://github.com/alexisduque/atlas-d
 
 	
 		<time datetime="2014-07-06T07:48:24+02:00">
-			<span class="day"> 6</span><span class="month">Jul</span>
+			<span class="day"></span><span class="month"></span>
 		</time>
 	
 
@@ -631,28 +747,17 @@ Current work can be found here : <a href="https://github.com/alexisduque/atlas-d
 
 <p>So the solution was to know if Reference Application is started, and then get its version. As the solution can be be useful, I share the small function I&rsquo;ve done. And let me know if the is any bugs <img alt="smiley" src="/images/emoji/smiley.png" class="emoji" /></p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="n">String</span> <span class="nf">getOpenMRSVersion</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">String</span> <span class="n">version</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
-</span><span class='line'>    <span class="n">String</span> <span class="n">coreVersion</span> <span class="o">=</span> <span class="n">OpenmrsConstants</span><span class="o">.</span><span class="na">OPENMRS_VERSION</span><span class="o">;</span>
-</span><span class='line'>    <span class="k">if</span> <span class="o">(</span><span class="n">ModuleFactory</span><span class="o">.</span><span class="na">getModuleById</span><span class="o">(</span><span class="s">&quot;referenceapplication&quot;</span><span class="o">)</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span>
-</span><span class='line'>            <span class="o">!</span><span class="n">ModuleFactory</span><span class="o">.</span><span class="na">getModuleById</span><span class="o">(</span><span class="s">&quot;referenceapplication&quot;</span><span class="o">).</span><span class="na">isStarted</span><span class="o">())</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">coreVersion</span><span class="o">;</span>
-</span><span class='line'>    <span class="n">String</span> <span class="n">refAppVersion</span> <span class="o">=</span> <span class="n">ModuleFactory</span><span class="o">.</span><span class="na">getModuleById</span><span class="o">(</span><span class="s">&quot;referenceapplication&quot;</span><span class="o">).</span><span class="na">getVersion</span><span class="o">();</span>
-</span><span class='line'>    <span class="n">version</span> <span class="o">=</span> <span class="n">refAppVersion</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;1.0.1&quot;</span><span class="o">)</span> <span class="o">?</span> <span class="s">&quot;2.0&quot;</span> <span class="o">:</span> <span class="n">version</span><span class="o">;</span>
-</span><span class='line'>    <span class="k">return</span> <span class="n">version</span><span class="o">;</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<pre><code class="java">public String getOpenMRSVersion() {
+    String version = "";
+    String coreVersion = OpenmrsConstants.OPENMRS_VERSION;
+    if (ModuleFactory.getModuleById("referenceapplication") == null || 
+            !ModuleFactory.getModuleById("referenceapplication").isStarted())
+        return coreVersion;
+    String refAppVersion = ModuleFactory.getModuleById("referenceapplication").getVersion();
+    version = refAppVersion.equals("1.0.1") ? "2.0" : version;
+    return version;
+}
+</code></pre>
 
 <p>My Actual work is creating a RSS Feed of updates in Atlas. It will probably available soon !</p>
 
@@ -671,7 +776,6 @@ Current work can be found here : <a href="https://github.com/alexisduque/atlas-d
   </footer>
   
 </div>
-
 </article>
 
 
@@ -690,7 +794,7 @@ Current work can be found here : <a href="https://github.com/alexisduque/atlas-d
 
 	
 		<time datetime="2014-06-29T08:51:36+02:00">
-			<span class="day">29</span><span class="month">Jun</span>
+			<span class="day"></span><span class="month"></span>
 		</time>
 	
 
@@ -743,7 +847,6 @@ Current work can be found here : <a href="https://github.com/alexisduque/atlas-d
   </footer>
   
 </div>
-
 </article>
 
 
@@ -762,7 +865,7 @@ Current work can be found here : <a href="https://github.com/alexisduque/atlas-d
 
 	
 		<time datetime="2014-06-21T13:41:32+02:00">
-			<span class="day">21</span><span class="month">Jun</span>
+			<span class="day"></span><span class="month"></span>
 		</time>
 	
 
@@ -800,99 +903,12 @@ So I spent less time chatting, or being focus on the project. But I finally coul
   </footer>
   
 </div>
-
-</article>
-
-
-	<article class="post"><header>
-  
-  <h1 class="title"><a href="/blog/2014/06/14/week-4/">Week 4</a></h1>
-  
-  
-
-
-
-
-
-
-
-
-	
-		<time datetime="2014-06-14T12:08:13+02:00">
-			<span class="day">14</span><span class="month">Jun</span>
-		</time>
-	
-
-</header>
-<div class="entry-content">
-  
-    <p>This week, I began working on Atlas Module, that is the second part of Atlas project . As a transition time, I spent lot of time planning what I have to do and brainstorming: what the module has to do, how the user will use it, what are user needs, how we can make it easy to use. In this task, my mentor is a precious help !  Burke always have good and original idea <img alt="smile" src="/images/emoji/smile.png" class="emoji" /></p>
-
-<p>So to put it in a nutshell, that&rsquo;s what the module will do:</p>
-
-<ul>
-<li>Display Atlas Server with all these functionalities (sorting, create/edit marker, &hellip;).</li>
-<li>Authenticate the module and request authorization for posting data.</li>
-<li>Automatically send stats (#patients, modules enabled in OpenMRS instance, &hellip;) to Atlas server.</li>
-<li>User should select which information he want to send.</li>
-<li>User should activate/deactivate information sending.</li>
-<li>User should create a new marker in the Atlas, connected to the Module.</li>
-<li>User should pick an existing marker in the Atlas to connect it with the Module.</li>
-</ul>
-
-
-<h2>Module UI</h2>
-
-<p> <em>Atlas Module is accessible as an App in OpenMRS EMR</em></p>
-
-<p><img class="center" src="/images/atlas-module.png" width="800" title="Capture control" ></p>
-
-<p><em>User need to log-in with an OpenMRS ID accountm first time, to connect a site to the module.</em></p>
-
-<p><img class="left" src="/images/atlas-signin.png" width="800" title="Capture control" ></p>
-
-<p><em>User can pick an existing site in the atlas</em></p>
-
-<p><img class="left" src="/images/atlas-me.png" width="800" title="Capture control" ></p>
-
-<p><em>User can configure wich data are send, or disable data sending</em></p>
-
-<p><img class="left" src="/images/atlas-config.png" width="800" title="Capture control" ></p>
-
-<h2>Next Week Planning</h2>
-
-<ul>
-<li>Finishing <em>Module view</em> in Atlas Server
-
-<ul>
-<li><em>pick a site</em></li>
-<li><em>information message</em></li>
-</ul>
-</li>
-<li>Make video presentation</li>
-</ul>
-
-
-<p>Next week will be busy for me because of my final exams. Sorry if I don&rsquo;t perform at 100% <img alt="smirk" src="/images/emoji/smirk.png" class="emoji" /></p>
-
-  
-  
-  <footer class="meta">
-    
-
-
-
-    
-  </footer>
-  
-</div>
-
 </article>
 
 
 <nav id="pagenavi">
 	
-	<a href="/blog/page/2/" class="next alignright">Next</a>
+	<a href="2" class="next alignright">Next</a>
  <div class="clearfix"></div>
 </nav>
 </div>

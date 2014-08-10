@@ -1,0 +1,221 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Docker for developers | My GSOC 2014 Blog</title>
+	<meta name="author" content="Alexis Duque">
+
+	
+	<meta name="description" content="Introduction As a developer, sometimes it may be painful to setup a working environment before coding. Some application may have very specific &hellip;">
+	
+
+	<link href="/atom.xml" rel="alternate" title="My GSOC 2014 Blog" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	
+
+	
+</head>
+
+<body>
+	<header id="header" class="inner"><nav><ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+</header>
+	<div id="content" class="inner"><article class="post"><header>
+  
+  <h1 class="title">Docker for Developers</h1>
+  
+  
+
+
+
+
+
+
+
+
+	
+		<time datetime="2014-08-10T14:33:28+02:00">
+			<span class="day"></span><span class="month"></span>
+		</time>
+	
+
+</header>
+<div class="entry-content">
+  
+    <h2>Introduction</h2>
+
+<p><img src="/images/docker.png" width="200" title="Docker" ></p>
+
+<p>As a developer, sometimes it may be painful to setup a working environment before coding. Some application may have very specific requirements and developers are not always familiar with things that usually Sysadmins do : I remember when I had to setup a working local ID Dashboard with an OpenLDAP Server, so painful ! <img alt="sweat_smile" src="/images/emoji/sweat_smile.png" class="emoji" /></p>
+
+<p>An other sensitive point is that local environment may be different from production, and code that work locally can fail when deployed.</p>
+
+<p>In order to make things easier, Docker can help us. I will try to give you in few step, how to start quickly hacking and contributing to OpenMRS Atlas, without setting up anything.</p>
+
+<h2>Before you start</h2>
+
+<ul>
+<li>Install Docker (see <a href="http://alexisduque.github.io/blog/2014/07/27/week-10/">recent blog post</a> or <a href="http://docs.docker.com/installation/">Docker site</a>).</li>
+<li>It&rsquo;s easier if your 80, 443 and 8888 ports are free, so stop apache if it&rsquo;s running.</li>
+<li>A reliable Internet connection is required</li>
+</ul>
+
+
+<h2>Get the code</h2>
+
+<ol>
+<li>Fork the <a href="https://github.com/openmrs/openmrs-contrib-atlas.git">openmrs-contrib-atlas</a> repository on Github</li>
+<li>Clone your fork. We will assume that we wan&rsquo;t to clone in /home/user/atlas :
+<code>mkdir atlas &amp;&amp; git clone https://github.com/alexisduque/openmrs-contrib-atlas.git /home/user/atlas</code></li>
+</ol>
+
+
+<h2>Build the container</h2>
+
+<p>OpenmMRS Atlas container for developers is hosted on OpenMRS Docker Hub repository. Next step will pull the image and build the container, using environement variable you pass. It may takes about 10 minutes depending on your Internet connection.</p>
+
+<p><code>docker run -e HOST_IP=127.0.0.1 -v /home/user/atlas:/opt/atlas -p 80:80 -p 443:443 -p 8888:8888 -p 22:22 --name atlas -h atlas openmrs/atlas:2.0-dev</code></p>
+
+<h3>Explanation</h3>
+
+<ul>
+<li><code>docker run</code>  create a container named <strong>atlas</strong> using <strong>openmrs/atlas:2.0-dev</strong> image.</li>
+<li>We mount (<code>-v</code>) local <strong>/home/user/atlas</strong> into /opt/atlas in the container.</li>
+<li>We set container hostname (<code>-h</code>) to <em>atlas</em>.</li>
+<li>We map 80, 8888 and 443 host port (<code>-p</code>) with same ports in the container.</li>
+</ul>
+
+
+<h3>Test and code</h3>
+
+<p>You now can navigate through the Atlas at <a href="https://127.0.0.1">https://127.0.0.1</a> ! <img alt="smiley" src="/images/emoji/smiley.png" class="emoji" /></p>
+
+<p>Open /home/user/atlas with your favorite IDE, code, test, commit and PR !</p>
+
+<h3>Manage the container</h3>
+
+<ol>
+<li><strong>Shutdown</strong> the container when you finish your work : <code>docker stop atlas</code></li>
+<li><strong>Start</strong> the container when needed : <code>docker start atlas</code></li>
+<li><strong>Delete</strong> the container : <code>docker rm atlas</code>. Don&rsquo;t worry, your code in /home/user/atlas will persist.</li>
+</ol>
+
+
+<h3>Tips</h3>
+
+<ul>
+<li>You can ssh and explore the container (credentials: root/password) : <code>ssh root@0.0.0.0</code>.</li>
+<li>OpenMRS credential for Atlas Sign In : user/user.</li>
+<li>Mysql server admin credentials : root/mysql .</li>
+</ul>
+
+
+<h3>Advanced Configuration</h3>
+
+<p><strong>If you want to change Atlas container port mapping</strong>, change <code>-p HOST_PORT:CONTAINER_PORT</code>  <strong>AND</strong> add custom env variables to change Atlas configuration:</p>
+
+<ul>
+<li><code>-e HTTP_PORT=</code> : HTTP port to access Atlas application (default : 80)</li>
+<li><code>-e HTTPS_PORT=</code> : HTTPS port to access Atlas application default : 443)</li>
+</ul>
+
+
+<p><strong>Example</strong> : use 81, 444, 23 port and sources in /var/www/atlas.</p>
+
+<p><code>docker run -e HOST_IP=127.0.0.1 -e HTTP_PORT=41 -e HTTPS_PORT=444 -v /var/www/atlas:/opt/atlas -p 81:80 -p 444:443 -p 8888:8888 -p 23:22 --name atlas -h atlas openmrs/atlas:2.0-dev</code></p>
+
+<h3>Docker Advantages</h3>
+
+<ul>
+<li>Lighter than VM.</li>
+<li>Portable and reusable environment.</li>
+<li>No time wasted. <img alt="clock1" src="/images/emoji/clock1.png" class="emoji" /></li>
+</ul>
+
+
+<h3>Conclusion</h3>
+
+<p>Using docker instead of a <em>classic</em> environment, you avoid installing and configuring Apache, Mysql, Php, Laravel, Composer, phantomJS, ID Dashboard, and seeding the database.</p>
+
+<p>Moreover, you can be sure you have the same environment than other developers.</p>
+
+<p>So, convinced ?</p>
+
+<p><em>Alexis</em></p>
+
+<p>PS : I need your feedback! Please report any problem and ask questions if needed.</p>
+
+    
+      <div class="sharing">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+	<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4daee9911f9dfcb4"></script>
+</div>
+    
+  
+  
+  <footer class="meta">
+    
+
+
+
+    
+  </footer>
+  
+</div>
+</article></div>
+	<footer id="footer" class="inner"><div class="social alignright">
+	
+	
+	
+	<a class="twitter" href="http://twitter.com/alexis0duque" title="Twitter">Twitter</a>
+	
+	
+	<a class="github" href="https://github.com/alexisduque" title="GitHub">GitHub</a>
+	
+	
+	<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>&copy; 2014 Alexis Duque</p>
+<div class="clearfix"></div></footer>
+	<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('.entry-content').each(function(i){
+			var _i = i;
+			$(this).find('img').each(function(){
+				var alt = $(this).attr('alt');
+
+				if (alt == '' || typeof alt == 'undefined'){
+					$(this).wrap('<a href="'+$(this).attr('src')+'" class="fancybox" rel="gallery'+_i+'" />');
+				} else {
+					$(this).after('<span class="caption">'+alt+'</span>').wrap('<a href="'+$(this).attr('src')+'" class="fancybox" title="'+alt+'" rel="gallery'+_i+'" />');
+				}
+			});
+		});
+		$('.fancybox').fancybox();
+	})(jQuery);
+</script>
+<div id="phasebeam">
+	<canvas></canvas>
+	<canvas></canvas>
+	<canvas></canvas>
+</div>
+<script src="/javascripts/phasebeam.js"></script>
+
+
+
+
+</body>
+</html>

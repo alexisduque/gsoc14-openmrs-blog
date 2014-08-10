@@ -7,7 +7,7 @@
 	<meta name="author" content="Alexis Duque">
 
 	
-	<meta name="description" content="The first challenge of this summer of code is to authenticate a user &ndash; with his OpenMRS ID &ndash; directly inside Atlas website. What is &hellip;">
+	<meta name="description" content="The first challenge of this summer of code is to authenticate a user - with his OpenMRS ID - directly inside Atlas website. What is OpenMRS ID &hellip;">
 	
 
 	<link href="/atom.xml" rel="alternate" title="My GSOC 2014 Blog" type="application/atom+xml">
@@ -24,12 +24,10 @@
 <body>
 	<header id="header" class="inner"><nav><ul>
   <li><a href="/">Home</a></li>
-  <li><a href="/timeline">Timeline</a></li>
   <li><a href="/blog/archives">Archives</a></li>
 </ul></nav>
 </header>
-	<div id="content" class="inner">
-<article class="post"><header>
+	<div id="content" class="inner"><article class="post"><header>
   
   <h1 class="title">Multipass and SSO</h1>
   
@@ -44,14 +42,14 @@
 
 	
 		<time datetime="2014-05-17T11:45:50+02:00">
-			<span class="day">17</span><span class="month">May</span>
+			<span class="day"></span><span class="month"></span>
 		</time>
 	
 
 </header>
 <div class="entry-content">
   
-    <p>The first challenge of this summer of code is to authenticate a user &ndash; with his OpenMRS ID &ndash; directly inside Atlas website.</p>
+    <p>The first challenge of this summer of code is to authenticate a user - with his OpenMRS ID - directly inside Atlas website.</p>
 
 <h2>What is OpenMRS ID</h2>
 
@@ -70,7 +68,7 @@ Data model is built around <strong>LDAP</strong> user object and stored on an Op
 
 <p>A multipass hash is an <strong>AES encrypted JSON</strong> hash with the following attributes:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -82,7 +80,7 @@ Data model is built around <strong>LDAP</strong> user object and stored on an Op
 </span><span class='line'>  <span class="s2">&quot;user_email&quot;</span><span class="o">:</span> <span class="s2">&quot;john@example.com&quot;</span><span class="p">,</span>
 </span><span class='line'>  <span class="s2">&quot;user_name&quot;</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
 </span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 
 <h2>How it is implemented ?</h2>
@@ -90,76 +88,40 @@ Data model is built around <strong>LDAP</strong> user object and stored on an Op
 <p><strong>Multipass</strong> is build and encrypted on the ID Dashboard side wih <strong>Node.js</strong>.
 On the other side, Atlas server check and decode multipass with a <strong>PHP implementation</strong> and <strong>mcrypt</strong> library.</p>
 
-<figure class='code'><figcaption><span>Atlas Server Decode Multipass linenos:false</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">public</span> <span class="k">function</span> <span class="nf">decodeMultipass</span><span class="p">()</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>  <span class="nv">$token</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;multipass&#39;</span><span class="p">];</span>
-</span><span class='line'>  <span class="nv">$signature</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;signature&#39;</span><span class="p">];</span>
-</span><span class='line'>  <span class="nv">$iv</span> <span class="o">=</span> <span class="s1">&#39;OpenSSL for Node&#39;</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nv">$subdomain</span> <span class="o">=</span> <span class="nv">$SITE_KEY</span><span class="p">;</span>
-</span><span class='line'>  <span class="nv">$api_key</span> <span class="o">=</span> <span class="nv">$API_KEY</span><span class="p">;</span>
-</span><span class='line'>  <span class="nv">$salted</span> <span class="o">=</span> <span class="nv">$api_key</span> <span class="o">.</span> <span class="nv">$subdomain</span><span class="p">;</span>
-</span><span class='line'>  <span class="nv">$digest</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="s1">&#39;sha1&#39;</span><span class="p">,</span> <span class="nv">$salted</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
-</span><span class='line'>  <span class="nv">$key</span> <span class="o">=</span> <span class="nx">substr</span><span class="p">(</span><span class="nv">$digest</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
-</span><span class='line'>  <span class="nv">$blocksize</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1">// Signature Verification</span>
-</span><span class='line'>  <span class="nv">$hash</span> <span class="o">==</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nb">hash_hmac</span><span class="p">(</span><span class="s2">&quot;sha1&quot;</span><span class="p">,</span> <span class="nv">$token</span><span class="p">,</span> <span class="nv">$api_key</span><span class="p">,</span> <span class="k">true</span><span class="p">));</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nv">$hash</span> <span class="o">=</span> <span class="nv">$signature</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>      <span class="c1">// Replace _ with / and - with +</span>
-</span><span class='line'>      <span class="nv">$token</span> <span class="o">=</span> <span class="nb">preg_replace</span><span class="p">(</span><span class="s1">&#39;/_/&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nv">$token</span><span class="p">);</span>
-</span><span class='line'>      <span class="nv">$token</span> <span class="o">=</span> <span class="nb">preg_replace</span><span class="p">(</span><span class="s1">&#39;/\-/&#39;</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="nv">$token</span><span class="p">);</span>
-</span><span class='line'>      <span class="nv">$token</span> <span class="o">=</span> <span class="nb">base64_decode</span><span class="p">(</span><span class="nv">$token</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="c1">// Decrypt Token</span>
-</span><span class='line'>      <span class="nv">$cipher</span> <span class="o">=</span> <span class="nb">mcrypt_module_open</span><span class="p">(</span><span class="nx">MCRYPT_RIJNDAEL_128</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;cbc&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
-</span><span class='line'>      <span class="nb">mcrypt_generic_init</span><span class="p">(</span><span class="nv">$cipher</span><span class="p">,</span> <span class="nv">$key</span><span class="p">,</span> <span class="nv">$iv</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="nv">$decrypted</span> <span class="o">=</span> <span class="nb">mdecrypt_generic</span><span class="p">(</span><span class="nv">$cipher</span><span class="p">,</span><span class="nv">$token</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="c1">// Remove invisble character</span>
-</span><span class='line'>      <span class="nv">$decrypted</span> <span class="o">=</span> <span class="nx">trim</span><span class="p">(</span><span class="nv">$decrypted</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\x00</span><span class="s2">..</span><span class="se">\x1F</span><span class="s2">&quot;</span><span class="p">);</span>
-</span><span class='line'>      <span class="nv">$userToken</span>  <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$decrypted</span><span class="p">);</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
+<pre><code class="php Atlas Server Decode Multipass linenos:false">public function decodeMultipass()
+{
+    $token = $_GET['multipass'];
+    $signature = $_GET['signature'];
+    $iv = 'OpenSSL for Node';
 
+    $subdomain = $SITE_KEY;
+    $api_key = $API_KEY;
+    $salted = $api_key . $subdomain;
+    $digest = hash('sha1', $salted, true);
+    $key = substr($digest, 0, 16);
+    $blocksize = 16;
 
+    // Signature Verification
+    $hash == base64_encode(hash_hmac("sha1", $token, $api_key, true));
 
+    if ($hash = $signature) {
+        // Replace _ with / and - with +
+        $token = preg_replace('/_/', '/', $token);
+        $token = preg_replace('/\-/', '+', $token); 
+        $token = base64_decode($token);
+
+        // Decrypt Token
+        $cipher = mcrypt_module_open(MCRYPT_RIJNDAEL_128,'','cbc','');
+        mcrypt_generic_init($cipher, $key, $iv);
+
+        $decrypted = mdecrypt_generic($cipher,$token);
+
+        // Remove invisble character
+        $decrypted = trim($decrypted, "\x00..\x1F");
+        $userToken  = json_decode($decrypted);
+    }
+}
+</code></pre>
 
     
       <div class="sharing">
@@ -183,9 +145,7 @@ On the other side, Atlas server check and decode multipass with a <strong>PHP im
   </footer>
   
 </div>
-
-</article>
-</div>
+</article></div>
 	<footer id="footer" class="inner"><div class="social alignright">
 	
 	

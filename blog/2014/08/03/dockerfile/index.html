@@ -24,12 +24,10 @@
 <body>
 	<header id="header" class="inner"><nav><ul>
   <li><a href="/">Home</a></li>
-  <li><a href="/timeline">Timeline</a></li>
   <li><a href="/blog/archives">Archives</a></li>
 </ul></nav>
 </header>
-	<div id="content" class="inner">
-<article class="post"><header>
+	<div id="content" class="inner"><article class="post"><header>
   
   <h1 class="title">Dockerfile</h1>
   
@@ -44,7 +42,7 @@
 
 	
 		<time datetime="2014-08-03T10:27:35+02:00">
-			<span class="day"> 3</span><span class="month">Aug</span>
+			<span class="day"></span><span class="month"></span>
 		</time>
 	
 
@@ -65,19 +63,16 @@
 
 <h2>DockerFiles support commands in the following syntax:</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>INSTRUCTION argument</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>INSTRUCTION argument
+</code></pre>
 
 <p>Instructions are not case sensitive. However, they are capitalized for a naming convention.</p>
 
 <p>All DockerFiles must begin with the <strong>FROM</strong> command. The <strong>FROM</strong> command indicates the base image from which the new image will be created and from which all subsequent instructions will follow. The <strong>FROM</strong> command can be used any number of times, indicating the creation of multiple images. The syntax is as follows:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>FROM &lt;image name&gt;
-</span><span class='line'>FROM ubuntu</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>FROM &lt;image name&gt;
+FROM ubuntu
+</code></pre>
 
 <p>Will build a new image from the base Ubuntu image.</p>
 
@@ -85,71 +80,58 @@
 
 <p><strong>MAINTAINER:</strong>  Set an author field for the image using this instruction.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>MAINTAINER &lt;author name&gt;</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>MAINTAINER &lt;author name&gt;
+</code></pre>
 
 <p><strong>RUN:</strong> Execute a command in a shell or exec form. The RUN instruction adds a new layer on top of the newly created image. The committed results are then used for the next instruction in the DockerFile.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>RUN &lt;command&gt;</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>RUN &lt;command&gt;
+</code></pre>
 
 <p><strong>ADD:</strong> Copy files from one location to another using the ADD instruction. It takes two arguments <source> and <destination>. The destination is a path in the container. The source can be either a URL or a file in the context of the launch config.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ADD source destination</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>ADD source destination
+</code></pre>
 
 <p><strong>CMD:</strong> Defaults for an executing container are provided using the CMD command. DockerFile allows usage of the CMD instruction only once. Multiple usage of CMD nullifies all previous CMD instructions. CMD comes in three flavours:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>CMD ["executable","param1","param2"]
-</span><span class='line'>CMD ["param1","param2"]
-</span><span class='line'>CMD command param1 param2</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>CMD ["executable","param1","param2"]
+CMD ["param1","param2"]
+CMD command param1 param2
+</code></pre>
 
 <p><strong>EXPOSE:</strong> Specify the port on which the container will be listening at runtime by running the EXPOSE instruction.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>EXPOSE &lt;port&gt;;</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>EXPOSE &lt;port&gt;;
+</code></pre>
 
 <p><strong>ENTRYPOINT</strong> Configure a container to run as an executable, which means a specific application can be set as default and run every time a container is created using the image. This also means that the image will be used only to run and target the specific application each time it is called.</p>
 
 <p>Similar to CMD, #Docker allows only one ENTRYPOINT and multiple ENTRYPOINT instructions nullifies all of them, executing the last ENTRYPOINT instruction.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ENTRYPOINT [‘executable’, ‘param1’,’param2’]
-</span><span class='line'>ENTRYPOINT command param1 param2</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>ENTRYPOINT [‘executable’, ‘param1’,’param2’]
+ENTRYPOINT command param1 param2
+</code></pre>
 
 <p><strong>WORKDIR:</strong> Working directory for the RUN, CMD and ENTRYPOINT instructions can be set using the WORKDIR.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>WORKDIR /path/to/workdir</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>WORKDIR /path/to/workdir
+</code></pre>
 
 <p><strong>ENV:</strong> Set environment variables using the ENV instruction. They come as key value pairs and increases the flexibility of running programs.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ENV &lt;key&gt; &lt;value&gt;</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>ENV &lt;key&gt; &lt;value&gt;
+</code></pre>
 
 <p><strong>USER:</strong> Set a UID to be be used when the image is running.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>USER &lt;uid&gt;</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>USER &lt;uid&gt;
+</code></pre>
 
 <p><strong>VOLUME:</strong> Enable access from a container to a directory on the host machine.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>VOLUME [‘/data’]</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>VOLUME [‘/data’]
+</code></pre>
 
 <h2>DockerFile Best Practices</h2>
 
@@ -166,7 +148,7 @@
 
 <h2>What&rsquo;s next &hellip;</h2>
 
-<p>In the next post, I will propose a <strong>workflow</strong> for application development &ndash; from <strong>dev to production</strong> &ndash; using <strong>Docker</strong>.</p>
+<p>In the next post, I will propose a <strong>workflow</strong> for application development - from <strong>dev to production</strong> - using <strong>Docker</strong>.</p>
 
 <p>So stay tuned <img alt="smirk" src="/images/emoji/smirk.png" class="emoji" /></p>
 
@@ -194,9 +176,7 @@
   </footer>
   
 </div>
-
-</article>
-</div>
+</article></div>
 	<footer id="footer" class="inner"><div class="social alignright">
 	
 	

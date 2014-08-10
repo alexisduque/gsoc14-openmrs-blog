@@ -24,12 +24,10 @@
 <body>
 	<header id="header" class="inner"><nav><ul>
   <li><a href="/">Home</a></li>
-  <li><a href="/timeline">Timeline</a></li>
   <li><a href="/blog/archives">Archives</a></li>
 </ul></nav>
 </header>
-	<div id="content" class="inner">
-<article class="post"><header>
+	<div id="content" class="inner"><article class="post"><header>
   
   <h1 class="title">Week 3</h1>
   
@@ -44,7 +42,7 @@
 
 	
 		<time datetime="2014-06-07T07:10:17+02:00">
-			<span class="day"> 7</span><span class="month">Jun</span>
+			<span class="day"></span><span class="month"></span>
 		</time>
 	
 
@@ -99,35 +97,21 @@ Error on Java version with a message like this : OpenMRS requires Java > 6, 1.8 
 <li>Clean everything related to OpenMRS previous install (openmrs database, temp files)</li>
 <li>Clone 1.10.x branch of openmrs-core</li>
 <li>Clone master of openmrs-distro-referenceapp</li>
-<li>Switch to Java JDK and JRE v1.7:</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'> sudo update-alternatives --config java
-</span><span class='line'> sudo update-alternatives --config javac
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
+<li>Switch to Java JDK and JRE v1.7:
+<code>sh
+sudo update-alternatives --config java
+sudo update-alternatives --config javac
+</code></li>
 <li>Follow this good <a href="https://wiki.openmrs.org/display/projects/Setting+Up+a+Development+Environment+for+OpenMRS+EMR+2.0">WIKI</a></li>
 <li>Important : take care your database encoding is set to <code>utf8</code>, and collation to <code>utf8_unicode_ci</code>.</li>
-<li>Run it</li>
-</ul>
+<li><p>Run it
+<code>sh
+cd openmrs-core/webapp
+mvn jetty:run
+</code></p>
 
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">cd </span>openmrs-core/webapp
-</span><span class='line'>mvn jetty:run
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Next Week Planning</h2>
-
-<ul>
-<li>Announce new OpenMRS Atlas.</li>
+<h2>Next Week Planning</h2></li>
+<li><p>Announce new OpenMRS Atlas.</p></li>
 <li>Stay tuned for community comments, suggestions and improvement idea.</li>
 <li>Bug fix : I hope not <img alt="smirk" src="/images/emoji/smirk.png" class="emoji" /></li>
 <li>Plan work on Atlas module.</li>
@@ -156,9 +140,7 @@ Error on Java version with a message like this : OpenMRS requires Java > 6, 1.8 
   </footer>
   
 </div>
-
-</article>
-</div>
+</article></div>
 	<footer id="footer" class="inner"><div class="social alignright">
 	
 	
