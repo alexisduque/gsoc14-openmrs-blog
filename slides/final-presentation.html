@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>OpenMRS Atlas Project - Final Presentation</title>
+
+	<meta name="description" content="OpenMRS Atlas Module - Final Presentation ">
+	<meta name="author" content="Alexis DUQUE">
+
+	<link rel="stylesheet" href="css/reveal.min.css">
+	<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	<script>
+		if( window.location.search.match( /print-pdf/gi ) ) {
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = 'css/print/pdf.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		}
+	</script>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section class="" data-id="308e4234cd42a342e3cc809f0cf4a976"> <font style="font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 112px; position: absolute; width: 546.421875px; height: 112.15625px; z-index: 4; left: 297px; top: 33px;" class="absolute-element">OpenMRS</font><span style="font-weight: bold; font-size: 135.72px;"> </span><h2 style="position: absolute; width: 540px; height: 67.515625px; z-index: 4; left: 307px; top: 171px;" class="absolute-element">ATLAS MODULE Project</h2>
+					<div><br></div>
+					<div><br></div>
+					<div><br></div>
+					<div class="absolute-element" style="position: absolute; width: 342px; height: 46px; z-index: 4; left: 305px; top: 285px;"><font color="#ff4c4c"><i>FINAL PRESENTATION</i></font></div>
+					<div class="absolute-element" style="position: absolute; width: 196.265625px; height: 217.046875px; z-index: 4; left: 87px; top: 466px;">
+						<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/alexisduque/images/482826/photo.png" style="font-size: 36.17571258544922px; font-style: normal; font-variant: normal; max-width: none; max-height: none; width: 156.24547761496441px; height: 178.7577924309467px;"><br>
+					</div>
+					<p style="text-align: left; position: absolute; width: 208.734375px; height: 206.703125px; z-index: 4; left: 618px; top: 470px;" class="absolute-element"><img src="https://pbs.twimg.com/profile_images/277771141/burke-head-100x100_400x400.png" style="width: 168.716287262988px; height: 168.716287262988px; max-height: none; max-width: none;"><br></p>
+					<p style="text-align: left; position: absolute; width: 343.6239906330749px; height: 91.421875px; z-index: 4; left: 34px; top: 358px; max-height: none; max-width: none;" class="absolute-element"><font style="font-size: 32px;"><i>Student : Alexis DUQUE <br>alexis.duque@openmrs.org</i></font></p>
+					<p style="text-align: left; position: absolute; width: 360.609375px; height: 94.0625px; z-index: 4; left: 531px; top: 357px;" class="absolute-element"><font style="font-size: 32px;"><i>Mentor : Burke MAMLIN<br></i></font><i style="font-size: 32px; font-family: inherit; font-variant: inherit; font-weight: inherit;">  burke@openmrs.org</i></p>
+					<p style="text-align: left; position: absolute; width: 10px; height: 48.234375px; z-index: 4; left: 474px; top: 347px;" class="absolute-element"><i style="font-size: 32px; font-family: inherit; font-variant: inherit; font-weight: inherit;"><br></i></p>
+					<h1 style="font-style: normal; font-variant: normal; position: absolute; width: 268.265625px; height: 242.37313826579836px; z-index: 5; left: -20px; top: 25px; max-height: none; max-width: none;" class="absolute-element"><img src="https://talk.openmrs.org/uploads/default/7/6a3dfdfd2845761a.png" style="max-width: none; max-height: none; width: 165.77332831073142px; height: 167.59965714455848px;"></h1></section><section class="" data-id="52747dca9dd0182349144d39f2a86ff6"><h2>AGENDA</h2>
+					<div><br></div>
+					<div><br></div>
+					<div><ol>
+						<li>Atlas Server accomplishments</li>
+						<li>Atlas Module accomplishments</li>
+						<li>Further work</li>
+						<li>How to contribute</li>
+						<li>Conclusion</li>
+					</ol></div></section><section class="" data-id="7b991ad9652fc72a4ca3e3da9af69a58"><h2>ATLAS SERVER<br>
+				</h2>
+				<div>
+
+					<font><font style="font-size: 32px;">
+						<a href="https://atlas.openmrs.org">
+							https://atlas.openmrs.org</a>
+						</font><br>
+					</font>
+					<a href="http://openmrs.org/atlas">
+					</a>
+				</div>
+				<div>
+					<br>
+				</div>
+				<div align="left">
+					<ul>
+						<li>
+							Most  of the work  accomplished during 1st part of the summer  - current release is 2.0.2.</li>
+						</ul>
+						<div><br></div>
+						<ul>
+							<li><span style="text-align: center;">Focus on interaction with the module :</span></li>
+							<ul><ul><li><span style="text-align: center;"><font style="font-size: 32px;">Authentication using UUID token.</font></span></li></ul></ul>
+						</ul>
+						<ul><ul>
+							<ul>
+								<li>
+									<font style="font-size: 32px;">URL Routing  <span style="color: rgb(220, 220, 220); font-family: monospace; white-space: pre-wrap; background-color: rgb(63, 63, 63);">/module </span></font><span style="font-size: 32px;">with <span style="color: rgb(220, 220, 220); font-family: monospace; white-space: pre-wrap; background-color: rgb(63, 63, 63);">POST/GET </span></span><span>verbs .</span>
+								</li>
+							</ul>
+							<ul>
+								<li><span style="text-align: center;"><font style="font-size: 32px;">Cross-origin PostMessage API,  "Module only" JS files.</font></span></li>
+							</ul>
+						</ul></ul>
+						<div style="text-align: center;"><font style="font-size: 72px;"><span><br></span></font></div>
+						<ul><li style="text-align: left;"><font style="font-size: 32px;"><font>Extra feature : RSS feed, Sharing link</font><span style="text-transform: uppercase; text-align: center;"> .</span></font></li></ul>
+					</div>
+
+
+
+				</section><section class="" data-id="5e2a68c1fb2a80d5eea9d01e9208d3b3"><h2>ATLAS MODULE</h2>
+				<div><span style="text-align: left;"><br></span></div>
+				<div><span style="text-align: left;"><br></span></div>
+				<div>
+					<div style="text-align: left;">
+						<p style="font-style: normal; font-variant: normal;"><font style="font-size: 32px;"></font></p>
+						<ul style="font-style: normal; font-variant: normal;"><font style="font-size: 32px;"><font><li>
+							<span style="font-style: normal; font-variant: normal;">Make it working as an OpenMRS 2.0 Application with </span><span> App &amp; UI Frameworks.<br><br></span>
+						</li></font></font></ul>
+						<ul style="font-style: normal; font-variant: normal;"><font style="font-style: normal; font-variant: normal; font-size: 32px;"><font><li>
+							<span>Compatible from 1.8.x to 2.0+.</span>
+						</li></font></font></ul>
+						<font size="6"><span><div style="text-align: left;"><br></div></span></font><ul style="font-style: normal; font-variant: normal;"><font style="font-size: 32px;"><font><li style="font-style: normal; font-variant: normal;"><font>Module become just way to automate markers update on OpenMRS Atlas.<br><br></font></li></font></font></ul>
+						<ul style="font-style: normal; font-variant: normal;"><font style="font-size: 32px;"><font><li style="font-style: normal; font-variant: normal;"><font>Collects implementation information from administrators and send it every week  to atlas server.</font></li></font></font></ul>
+						<p style="font-style: normal; font-variant: normal;"></p>
+					</div>
+					<h2 class="absolute-element" style="font-style: normal; font-variant: normal; position: absolute; width: 349.34375px; height: 67.53125px; z-index: 4; left: 317px; top: 21px;">  </h2>
+				</div>
+				<div><br></div></section><section class="" data-id="0f9986b3e26d1f3e22f146dcfe99db90"><h2>FURTHER WORK</h2>
+				<div><br></div>
+				<div>
+					<ul>
+						<li>Collect server implementation configuration and display them to the Atlas.<br><br>
+						</li>
+						<li>
+							<span style="font-size: 36.179447174072266px; font-style: normal; font-variant: normal;">Integrate Atlas during OpenMRS installation process.<br></span><br>
+						</li>
+						<li>Atlas internationalization.<br><br>
+						</li>
+						<li>Atlas authentication using ID API and OAuth</li>
+						<li>Interaction with the new ID data model</li>
+					</ul>
+				</div></section><section class="" data-id="8ec68936239284cf621bac22d3c9d87c"><h2 class="absolute-element" style="position: absolute; width: 456px; height: 68px; z-index: 5; left: 257px; top: 20px;">How to contribute</h2>
+				<div><br></div>
+				<div class="absolute-element" style="position: absolute; width: 190px; height: 117px; z-index: 4; left: 697px; top: 137px;">
+					<img src="https://jira.atlassian.com/s/en_UKmj019b/6328/131/_/images/icon-jira-logo.png" style="width: 150px; height: 78.94736842105263px; max-height: none; max-width: none;"><br>
+				</div>
+				<div class="absolute-element" style="position: absolute; width: 736px; height: 368px; z-index: 6; left: 114px; top: 200px;"><ul>
+					<li>Atlas Project on JIRA.</li>
+					<li>Atlas Module</li>
+					<ul><ul>
+						<li>Setup an OpenMRS Dev environment</li>
+						<li>Fork &amp; and clone module repo on github</li>
+					</ul></ul>
+					<li>Atlas Server</li>
+					<ul><ul>
+						<li>Apache &amp; Mysql &amp; Laravel environment</li>
+						<li>Source on Github</li>
+					</ul></ul>
+					<li>OR use Atlas Docker container for dev :)</li>
+				</ul></div>
+				<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/alexisduque/images/554307/GitHub-Mark-Light-120px-plus.png" class="absolute-element" style="position: absolute; max-height: none; max-width: none; width: 100px; height: 100px; z-index: 4; left: 27px; top: 7px;"><img src="https://s3.amazonaws.com/media-p.slid.es/uploads/alexisduque/images/554309/large_v-dark-trans.png" style="width: 159px; height: 140px; max-height: none; max-width: none; position: absolute; z-index: 8; left: 745px; top: 504px;" class="absolute-element"></section><section class="" data-id="d8b554dbde5918ad73bed407c43e11ca"><h2>GSOC BENEFITS </h2>
+				<h2><span style="font-size: 75.96px;">and </span></h2>
+				<h2 class="absolute-element" style="position: absolute; width: 223px; height: 68px; z-index: 4; left: 369px; top: 194px;"><span style="font-size: 75.96px;">LEARNING</span></h2>
+				<h1 class="absolute-element" style="font-style: normal; font-variant: normal; position: absolute; width: 268px; height: 105px; z-index: 5; left: -7px; top: 60px; max-height: none; max-width: none;"><img src="https://talk.openmrs.org/uploads/default/7/6a3dfdfd2845761a.png" style="max-width: none; max-height: none; width: 134px; height: 135.69620253164555px;"></h1>
+				<div><br></div>
+				<div class="absolute-element" style="position: absolute; width: 968px; height: 230px; z-index: 4; left: 14px; top: 324px;">
+					<ul>
+						<li>What is an FOSS Community :  SHARE, HELP, HAVE FUN ! </li>
+						<li>How folks work remotely</li>
+						<li>Meet new guys with the same passion</li>
+						<li>Lot of new technical skills :  Laravel, Google Map API, OpenMRS App and UI framework,  .GIT workflow, Docker, ...</li>
+					</ul>
+					<span style="text-align: left;"></span>
+				</div>
+				<img src="http://carsten.io/wp-content/uploads/landing-page-gsoc2014.png.pagespeed.ce_.t4C4svuO-G.png" style="width: 182px; height: 164px; max-height: none; max-width: none; position: absolute; z-index: 4; left: 693px; top: 37px;" class="absolute-element"></section
+				><section class="" data-id="f4d4365716bc56ad5abe183241225c73"><h2><br></h2>
+				<h2>Thank YOU ...</h2>
+				<div><br></div>
+				<div>
+					<a href="https://wiki.openmrs.org/display/docs/Atlas+Module">https://wiki.openmrs.org/display/docs/Atlas+Module</a><br>
+				</div>
+				<p><a href="https://tickets.openmrs.org/browse/ATLAS">https://tickets.openmrs.org/browse/ATLAS</a></p>
+				<p><a href="https://github.com/openmrs/openmrs-contrib-atlas">https://github.com/openmrs/openmrs-contrib-atlas</a><br></p>
+				<p><a href="https://github.com/openmrs/openmrs-module-atlas">https://github.com/openmrs/openmrs-module-atlas</a><br></p>
+				<p><span style="text-align: left;"><a href="https://github.com/alexisduque/atlas-docker">https://github.com/alexisduque/atlas-docker</a></span></p>
+				<p><span style="text-align: left;"><a href="alexisduque.github.io">alexisduque.github.io</a></span></p>
+				<div style="text-align: left; ">
+					<p><br></p>
+					<div><br></div>
+				</div>
+			</section>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme,
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				dependencies: [
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+	</html>

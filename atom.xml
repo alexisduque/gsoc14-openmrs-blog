@@ -4,7 +4,7 @@
   <title><![CDATA[My GSOC 2014 Blog]]></title>
   <link href="http://alexisduque.github.io/atom.xml" rel="self"/>
   <link href="http://alexisduque.github.io/"/>
-  <updated>2014-08-10T17:11:44+02:00</updated>
+  <updated>2014-08-17T07:55:32+02:00</updated>
   <id>http://alexisduque.github.io/</id>
   <author>
     <name><![CDATA[Alexis Duque]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Final week ...]]></title>
+    <link href="http://alexisduque.github.io/blog/2014/08/17/final-week-dot-dot-dot/"/>
+    <updated>2014-08-17T06:53:20+02:00</updated>
+    <id>http://alexisduque.github.io/blog/2014/08/17/final-week-dot-dot-dot</id>
+    <content type="html"><![CDATA[<p><img src="https://1-ps.googleusercontent.com/sx/s.google-melange.appspot.com/www.google-melange.com/soc/content/2-1-20140317-p1/images/gsoc/logo/920x156xbanner-gsoc2014.png.pagespeed.ic.gdr4t3Igca.png" alt="" /></p>
+
+<p>Hello folks,</p>
+
+<p>Time is running out and this week was the last one, as a Gsoc student with OpenMRS. :disappointed_relieved:</p>
+
+<p>This summer was awesome, and I really have a lot of fun. Atlas Project is definitely a success and I hope it can help saving life, or make the community keep growing.</p>
+
+<p>All initial goals has been reached, and probably a bit more. In my point of view, success of Atlas project isn&rsquo;t just new features, but becoming an active OpenSource developer and finally forgetting the project was part of a Google program.</p>
+
+<p>Working in pair with Burke - my mentor - was an unforgettable experience and, all along the summer he become a good friend. So I hope we can continue working together and we can meet, somewhere else than in front of a laptop :smirk:</p>
+
+<p>There left an among of interesting work to do with OpenMRS and I get involved in some of them :
+- Continue improving and  maintaining OpenMRS Atlas.
+- Working with Elliott on a Modulus Docker container for developers.
+- Working on different ways to use Docker in order to improve developers work-flow.
+- &hellip;.</p>
+
+<p>To conclude, here is the final presentation. You&rsquo;re invited to discuss it on <a href="https://talk.openmrs.org/t/gsoc-2014-atlas-module-2-0-final-presentation/489">OpenMRS Talk</a> and give your feedback :speech_balloon:</p>
+
+<p><em>Alexis</em></p>
+
+<hr />
+
+<p><embed src='http://alexisduque.github.io/slides/final-presentation.html' allowFullScreen='true' width='640' height='480' align='middle'></embed></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Docker for developers]]></title>
@@ -1097,24 +1130,6 @@ A marker can be created and updated directly in the Atlas Server.</li>
 <li>Writing Wiki and developer doc.</li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Selected for GSoC 2014 with OpenMRS]]></title>
-    <link href="http://alexisduque.github.io/blog/2014/04/22/selected-for-gsoc-2014-with-openmrs/"/>
-    <updated>2014-04-22T20:16:28+02:00</updated>
-    <id>http://alexisduque.github.io/blog/2014/04/22/selected-for-gsoc-2014-with-openmrs</id>
-    <content type="html"><![CDATA[<p><img src="http://openmrs.org/wp-content/uploads/2013/07/OpenMRS-logo.svg" alt="" /></p>
-
-<p>I&rsquo;m proud to announce that I&rsquo;ve been choosen as <strong>Google Summer of Code 2014</strong> student to code this summer with <strong>OpenMRS</strong> !</p>
-
-<p>Thanks for the community to trust me. Now, I will do my best effort to make this project a success, to become an active member of OpenMRS contributor community.</p>
-
-<p>Thanks to <strong>Burke, my mentor</strong>, for giving me some tips writing my proposal.
-I&rsquo;m <strong>very excited</strong> to start working together :-)</p>
-
-<p>See you soon, for detailed timeline and weekly news about the <strong>Atlas Module Project</strong> !</p>
 ]]></content>
   </entry>
   

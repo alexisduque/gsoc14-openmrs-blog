@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://alexisduque.github.io/blog/2014/08/17/final-week-dot-dot-dot/</loc>
+    <lastmod>2014-08-17T06:53:20+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://alexisduque.github.io/blog/2014/08/10/docker-for-developers/</loc>
     <lastmod>2014-08-10T14:33:28+02:00</lastmod>
     <priority>0.8</priority>
@@ -137,47 +143,77 @@
   
   <url>
     <loc>http://alexisduque.github.io/</loc>
-    <lastmod>2014-08-10T17:11:44+02:00</lastmod>
+    <lastmod>2014-08-17T07:55:32+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://alexisduque.github.io/blog/archives/</loc>
-    <lastmod>2014-08-10T17:11:44+02:00</lastmod>
+    <lastmod>2014-08-17T07:55:32+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://alexisduque.github.io/timeline/</loc>
-    <lastmod>2014-08-10T17:11:44+02:00</lastmod>
+    <lastmod>2014-08-17T07:55:32+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   
   <url>
-    <loc>http://alexisduque.github.io/images/JavaScript · Bootstrap_files/github-btn(1).html</loc>
-    <lastmod>2014-07-29T14:50:41Z</lastmod>
+    <loc>http://alexisduque.github.io/slides/final-presentation.html</loc>
+    <lastmod>2014-08-15T14:00:32Z</lastmod>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://alexisduque.github.io/images/JavaScript · Bootstrap_files/github-btn.html</loc>
-    <lastmod>2014-07-29T14:50:41Z</lastmod>
+    <loc>http://alexisduque.github.io/slides/plugin/markdown/example.html</loc>
+    <lastmod>2014-08-15T13:40:56Z</lastmod>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://alexisduque.github.io/images/JavaScript · Bootstrap_files/tweet_button.1404859412.html</loc>
-    <lastmod>2014-07-29T14:50:41Z</lastmod>
+    <loc>http://alexisduque.github.io/slides/plugin/postmessage/example.html</loc>
+    <lastmod>2014-08-15T13:40:56Z</lastmod>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://alexisduque.github.io/images/JavaScript · Bootstrap_files/follow_button.1404859412.html</loc>
-    <lastmod>2014-07-29T14:50:41Z</lastmod>
+    <loc>http://alexisduque.github.io/slides/plugin/notes/notes.html</loc>
+    <lastmod>2014-08-15T13:40:56Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/slides/plugin/notes-server/notes.html</loc>
+    <lastmod>2014-08-15T13:40:56Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/slides/Lyon JUG - Docker.io.html</loc>
+    <lastmod>2014-08-15T00:40:37Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/javascripts/reveal/postmessage/example.html</loc>
+    <lastmod>2012-12-27T15:18:18Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/javascripts/reveal/notes/notes.html</loc>
+    <lastmod>2012-12-27T15:18:18Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://alexisduque.github.io/javascripts/reveal/notes-server/notes.html</loc>
+    <lastmod>2012-12-27T15:18:18Z</lastmod>
     <priority>0.6</priority>
   </url>
   

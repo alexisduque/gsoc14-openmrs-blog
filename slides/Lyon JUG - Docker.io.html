@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Lyon JUG - Docker.io</title>
+        <meta name="description" content="Talk pour le Lyon JUG sur docker.io">
+        <meta name="author" content="Jonathan Dray">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/lyonjug.css" id="theme">
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+    <div class="reveal">
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+<!--
+=========================================================================================================================================================
+=========================================================================================================================================================
+   INTRODUCTION
+=========================================================================================================================================================
+=========================================================================================================================================================
+-->
+            <!-- SLIDE 0 -->
+            <section>
+                <h1 class="humantalks-title">Docker.io</h1>
+                <h3>LyonJUG</h3>
+                <h4>Lyon</h4>
+                <p>
+                    <small>17 Juin 2014 / <a href="http://www.spicymoka.org/">Jonathan Dray</a> / <a href="http://twitter.com/jonathan_dray">@jonathan_dray</a></small>
+                </p>
+            </section>
+            <!--./SLIDE 0 -->
+
+<!--
+=========================================================================================================================================================
+=========================================================================================================================================================
+   Présentation
+=========================================================================================================================================================
+=========================================================================================================================================================
+-->
+            <!-- SLIDE 1/X -->
+            <section>
+		<section>
+			<h1>Docker.io</h1>
+			<img src="img/logo-docker.png" alt="logo docker" />
+		</section>
+		<section>
+			<h2>Virtualisation</h2>
+			<ul>
+				<li>Au niveau OS</li>
+				<li>Par isolation</li>
+			</ul>
+			<p style="margin-top:20px"><img src="img/jail.jpg" alt="Image jail" /></p>
+		</section>
+		<section>
+			<h2>Virtualisation</h2>
+			<img src="img/virt-classification.jpg" alt="Type de virtualisation" />
+		</section>
+            </section>
+            <!--./SLIDE 1/X -->
+<!--
+=========================================================================================================================================================
+=========================================================================================================================================================
+   Composants
+=========================================================================================================================================================
+=========================================================================================================================================================
+-->
+            <!-- SLIDE 2/X -->
+	    <section>
+		<section>
+			<h2>Concepts clés</h2>
+			<table style="width: 100%; vertical-align: middle">
+				<tr style="vertical-align: middle">
+				<td style="text-align:center">
+				    <figure>
+					<img src="img/docker-images.jpg" alt="Docker images" />
+					<figcaption>Images : templates / snapshots</figcaption>
+				    </figure>
+				</td>
+				<td style="text-align:center">
+				    <figure>
+					<img src="img/docker-container.jpg" alt="Docker container" />
+					<figcaption>Conteneurs : instances</figcaption>
+				    </figure>
+				</td>
+				</tr>
+			</table>
+		</section>
+		<section>
+			<h2>Concepts clés</h2>
+			<h3>Container + Versionning</h3>
+			<img src="img/container-git.png" alt="House in container"/>
+		</section>
+		<section>
+			<h2>Concepts clés</h2>
+			<img src="img/docker-cycle.png" alt="workflow with docker" style="height:520px"/>
+		</section>
+		<section>
+			<h2>Concepts clés</h2>
+			<h3>DockerFile</h3>
+			<blockquote>Vagrantfile pour docker</blockquote>
+			<img src="img/dockerfile.jpg" alt="DockerFile" style="height:320px"/>
+		</section>
+		<section>
+			<h2>Composants</h2>
+			<ul>
+				<li>Un service</li>
+				<li>Une API</li>
+				<li>Un client</li>
+				<li>Un annuaire</li>
+			</ul>
+		</section>
+            </section>
+            <!--./SLIDE 2/X -->
+
+<!--
+=========================================================================================================================================================
+=========================================================================================================================================================
+   Architecture - Evolution
+=========================================================================================================================================================
+=========================================================================================================================================================
+-->
+            <!-- SLIDE 3/X -->
+	    <section>
+		<section>
+		    <h2>Docker.io</h2>
+                    <h3>Docker inc. (mars 2013)</h3>
+		    <ul>
+		        <li>Une surcouche à LXC</li>
+			<li>Langage Go</li>
+			<li>Système de fichiers : AUFS</li>
+		    </ul>
+		</section>
+		<section>
+		    <h2>LXC</h2>
+		    <blockquote>Linux Containers</blockquote>
+		    <ul>
+			<li>CGroups</li>
+			<li>Namespaces</li>
+			<li>Chroot</li>
+                        <li>Depuis le noyau 2.6.24 - 2.6.29</li>
+		    </ul>
+		</section>
+		<section>
+		    <h2>LXC</h2>
+		    <ul>
+			<li>Utilitaires</li>
+			<li>Bibliothèque</li>
+			<li>Templates</li>
+		    </ul>
+		</section>
+            </section>
+	    <section>
+		<section>
+		    <h2>Docker.io</h2>
+                    <h3>Version 1.0 -> Juin 2014</h3>
+		    <img src="img/docker-abstraction.png" alt="docker abstraction libs" style="height:320px"/>
+		</section>
+		<section>
+                    <h2>Version 1.0</h2>
+                    <h3>Abstraction stockage</h3>
+		    <ul>
+			<li>AUFS</li>
+			<li>BTRFS</li>
+			<li>XFS</li>
+                    </ul>
+		</section>
+		<section>
+                    <h2>Version 1.0</h2>
+                    <h3>HUB</h3>
+		    <img src="img/docker-hub.png" alt="docker hub" style="height:320px"/>
+		</section>
+            </section>
+            <!-- ./SLIDE 3/X -->
+
+<!--
+=========================================================================================================================================================
+=========================================================================================================================================================
+   Pièges
+=========================================================================================================================================================
+=========================================================================================================================================================
+-->
+            <!-- SLIDE 4/X -->
+	    <section>
+		<section>
+			<h2>Pièges</h2>
+			<img src="img/docker-trap.jpg" alt="Pièges avec docker" style="height:320px"/>
+		</section>
+		<section>
+			<h2>Pièges</h2>
+			<h3>Sauvegardé != commité</h3>
+<pre><code>docker run -i -t tianon/debian /bin/bash
+echo "toto" > /root/test.txt	
+exit
+docker run -i -t tianon/debian /bin/bash</code></pre>
+		</section>
+		<section>
+			<h2>Pièges</h2>
+			<h3>Docker attach != LXC attach</h3>
+			<img src="img/docker-mousqueton.jpg" alt="Docker attach" style="height:320px"/>
+		</section>
+		<section>
+			<h2>Pièges</h2>
+			<h3>Dockerfile - commits</h3>
+			<img src="img/docker-fail.jpg" alt="Docker commits fail" style="height:320px"/>
+		</section>
+	    </section>
+            <!-- ./SLIDE 4/X -->
+
+<!--
+=========================================================================================================================================================
+=========================================================================================================================================================
+    Use cases
+=========================================================================================================================================================
+=========================================================================================================================================================
+-->
+            <!-- SLIDE 5/X -->
+            <section>
+		<section>
+			<h2>Cas d'utilisation</h2>
+		</section>
+		<section>
+			<h2>Packaging</h2>
+			<h3>docker-logstash</h3>
+			<img src="img/docker-container-logstash.jpg" alt="Conteneur docker logstash"/>
+			<pre>docker build -t logstash .</pre>
+			<pre>docker run logstash</pre>
+		</section>
+		<section>
+		        <h2>Devops | Tests</h2>
+			<h3>Provisionning</h3>
+			<img src="img/docker-ansible.png" alt="Docker + Ansible"/>
+		</section>
+		<section>
+		        <h2>Isolation</h2>
+			<p><img src="img/jail.jpg" alt="Image jail" /></p>
+			<ul>
+				<li>Gestion de dépendances</li>
+				<li>Compilation</li>
+			</ul>
+		</section>
+            </section>
+            <!-- ./SLIDE 5/X -->
+
+<!--
+=========================================================================================================================================================
+=========================================================================================================================================================
+    Cloud
+=========================================================================================================================================================
+=========================================================================================================================================================
+-->
+            <!-- SLIDE 6/X -->
+	    <section>
+		<section>
+		        <h2>Cloud</h2>
+			<h3>Cloud privé</h3>
+			<p><img src="img/docker-playmobil.jpg" alt="Image cloud privé" /></p>
+			<ul>
+				<li>Dokku</li>
+				<li>Deis</li>
+				<li>Flynn</li>
+				<li>Project Atomic</li>
+			</ul>
+		</section>
+		<section>
+		        <h2>Cloud</h2>
+			<h3>Offres existantes</h3>
+			<p><img src="img/private-cloud.jpg" alt="Image cloud pro" /></p>
+			<ul>
+				<li>Amazon</li>
+				<li>Rackspace</li>
+				<li>Google App Engine</li>
+			</ul>
+		</section>
+            </section>
+            <!--./SLIDE 6/X -->
+<!--
+=========================================================================================================================================================
+=========================================================================================================================================================
+    Communauté
+=========================================================================================================================================================
+=========================================================================================================================================================
+-->
+            <!-- SLIDE 7/X -->
+            <section>
+		<section>
+		    <h2>Communauté</h2>
+                    <h3>2013</h3>
+		    <ul>
+			<li>200 contributeurs</li>
+			<li>+900 forks</li>
+			<li>< 7% des contributeurs chez docker inc.</li>
+		    </ul>
+		</section>
+		<section>
+		    <h2>Communauté</h2>
+                    <h3>2014</h3>
+		    <ul>
+			<li>460 contributeurs</li>
+			<li>2.75 millions de téléchargements</li>
+			<li>+2000 forks</li>
+                        <li>+5000 projets</li>
+			<li><a href="http://www.dockercon.com/">dockercon</a></li>
+		    </ul>
+		</section>
+		<section>
+		    <h2>Communauté</h2>
+                    <h3>Qui utilise docker</h3>
+		    <img src="img/ecosystem.jpg" alt="Docker ecosystem" />
+		</section>
+            </section>
+            <!--./SLIDE 7/X -->
+<!--
+=========================================================================================================================================================
+=========================================================================================================================================================
+    Ressources
+=========================================================================================================================================================
+=========================================================================================================================================================
+-->
+            <section>
+                <section>
+                    <h2>Ressources</h2>
+		    <ul>
+		 	<li><a href="http://www.docker.io/">Site web de docker</a></li>
+		 	<li><a href="https://github.com/dotcloud/docker">Docker sur GitHub</a></li>
+			<li><a href="http://blog.docker.com/">Blog de Docker</a></li>
+			<li><a href="http://www.centurylinklabs.com/">Century links labs</a></li>
+			<li><a href="http://blog.javabien.net/">Blog de David Gageot</a></li>
+		    </ul>
+                </section>
+            </section>
+<!--
+=========================================================================================================================================================
+=========================================================================================================================================================
+    Questions ?
+=========================================================================================================================================================
+=========================================================================================================================================================
+-->
+            <section>
+                <h1>QUESTIONS ?</h1>
+                <h3>Lyon JUG</h3>
+                <p>
+                    <small>17 Juin 2014 / <a href="http://www.spicymoka.org/">Jonathan Dray</a> / <a href="http://twitter.com/jonathan_dray">@jonathan_dray</a></small>
+                </p>
+                <p><small><a href="http://slides.spiroid.org/lyonjug/2014/06/docker/">slides.spiroid.org/lyonjug/2014/06/docker/</a></small></p>
+            </section>
+        </div>
+    </div>
+
+    <ul class="watermark">
+        <li><img src="img/logo-lt.png" alt="Lateral-Thoughts"/></li>
+        <li><img src="img/lyonjug.png" alt="LyonJUG"/></li>
+	<li style="line-height:100px;vertical-align:bottom"><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/fr/"><img alt="Licence Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/fr/88x31.png" ></a>
+	<div style="display:none">Ce(tte) œuvre de <a xmlns:cc="http://creativecommons.org/ns#" href="http://slides.spiroid.org/humantalks/linkedopendata/" property="cc:attributionName" rel="cc:attributionURL">Jonathan Dray</a> est mise à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/fr/">licence Creative Commons Attribution -  Partage dans les Mêmes Conditions 3.0 France</a></div>
+	</li>
+    </ul>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script>
+        // Full list of configuration options available here:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+            ]
+        });
+    </script>
+    </body>
+</html>
